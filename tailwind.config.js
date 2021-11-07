@@ -3,14 +3,18 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        display: ["Nunito", "sans-serif"],
+        body: ["Open Sans", "sans-serif"],
+      },
       colors: {
         red: {
           light: '#f3e9ea',
-          primary: '#BA4B45',
-          dark: '#BD2E0F' // hover
+          dark: '#BD2E0F', //hover
+          DEFAULT: '#E53935'
         },
         gray: {
-          primary: '#2F3B34'
+          DEFAULT: '#2F3B34'
         }
       },
       
