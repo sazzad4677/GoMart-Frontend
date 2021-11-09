@@ -1,6 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
-
+import { NavLink } from "react-router-dom";
 const Navbars = () => {
   const topNavigation = [
     { name: "Home", href: "/home" },
@@ -11,14 +11,11 @@ const Navbars = () => {
   ];
   return (
     <Fragment>
-      {topNavigation.map(({ name, href }) => (
-        <li>
-          <a
-            className="text-dark-primary hover:text-red-dark active:text-red activeMenu"
-            href={href}
-          >
+      {topNavigation.map(({ name, href }, key) => (
+        <li key={key} className=" text-gray  active:text-red hover:text-red link link-underline link-underline-red">
+          <NavLink to={`${href}`} activeClassName="active">
             {name}
-          </a>
+          </NavLink>
         </li>
       ))}
     </Fragment>

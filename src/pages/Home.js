@@ -1,5 +1,5 @@
 import React from 'react';
-import Hero from '../components/Home/Hero/Hero';
+import Banner from '../components/Home/Hero/Banner';
 // import NavMenu from '../components/Home/Nav/NavMenu';
 import Navigation from '../components/Home/Nav/Nav';
 
@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div>
             <Navigation />
-            <Hero />
+            <Banner />
             {/* <NavMenu /> */}
         </div>
     );

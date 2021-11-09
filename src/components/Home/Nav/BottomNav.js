@@ -9,10 +9,9 @@ import {
 
 const BottomNav = () => {
   return (
-    <Fragment>
+    // <Fragment>
       <div
-        id="bottom-navigation"
-        className="md:hidden block fixed inset-x-0 bottom-0 z-10 shadow "
+        id="bottom-navigation" className="xl:hidden sm:block md:block fixed inset-x-0 bottom-0 z-10 bg-white shadow"
       >
         <div id="tabs" className="flex justify-between ">
           <a
@@ -52,7 +51,7 @@ const BottomNav = () => {
           </a>
         </div>
       </div>
-    </Fragment>
+    // </Fragment>
   );
 };
 
