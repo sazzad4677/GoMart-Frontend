@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import {
   UserCircleIcon,
   SearchIcon,
@@ -9,7 +9,6 @@ import {
 
 const BottomNav = () => {
   return (
-    // <Fragment>
       <div
         id="bottom-navigation" className="xl:hidden sm:block md:block fixed inset-x-0 bottom-0 z-10 bg-white shadow"
       >
@@ -51,7 +50,6 @@ const BottomNav = () => {
           </a>
         </div>
       </div>
-    // </Fragment>
   );
 };
 

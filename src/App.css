@@ -53,7 +53,7 @@
 }
 
 .swiper-button-next {
-  background-image: url(./images/next-arrow.svg);
+  background-image: url(./images/Banner/Swiper-Arrow/next-arrow.svg);
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center;
@@ -63,7 +63,7 @@
   display: none;
 }
 .swiper-button-prev {
-  background-image: url(./images/previous-arrow.svg);
+  background-image: url(./images/Banner/Swiper-Arrow/previous-arrow.svg);
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center;
@@ -76,12 +76,3 @@
   background-color: #f96062 !important;
 }
 
-@media (min-width: 768px) {
-  .swiper-button-next {
-    display: none !important;
-    background: none !important;
-  }
-  .swiper-button-prev::after{
-    display: none;
-  }
-}

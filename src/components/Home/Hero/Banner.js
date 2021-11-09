@@ -1,6 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
-import bannerData from "../../../Data/Banner";
+import React, { useState, useEffect } from "react";
+import bannerData from "../../../Data/BannerData";
 import Hero from "./Hero";
+import { useMediaQuery } from "react-responsive";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -18,17 +19,19 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 const Banner = () => {
   const [data, SetData] = useState([]);
 
-  // Get banner data
+  // Get & set banner data
   useEffect(() => {
     SetData(bannerData);
   }, [data]);
-  
+
+  //navigation arrow is displayed only when the screen width exceeds 768px.
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
     <section className="mb-16">
       <Swiper
         spaceBetween={30}
-        centeredSlides={false}
+        centeredSlides={true}
         autoplay={{
           delay: 3500,
           disableOnInteraction: false,
@@ -36,12 +39,12 @@ const Banner = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
+        navigation={!isTabletOrMobile}
         className="mySwiper"
       >
         {data &&
           data.map((data) => (
-            <SwiperSlide>
+            <SwiperSlide key={data.id}>
               <Hero data={data} />
             </SwiperSlide>
           ))}
