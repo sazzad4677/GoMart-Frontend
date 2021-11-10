@@ -27,9 +27,6 @@ module.exports = {
         },
       },
       scale: ["active", "group-hover"],
-      backgroundImage: {
-        "red-background": "url(./images/Features/Card-Logo/background.png)",
-      },
     },
   },
   variants: {
