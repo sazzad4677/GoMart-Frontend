@@ -3,7 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     boxShadow: {
-      inner: 'inset 2px 2px 4px 2px rgba(0, 0, 0, 0.06)',
+      inner: "inset 2px 2px 4px 2px rgba(0, 0, 0, 0.06)",
     },
     extend: {
       fontFamily: {
@@ -15,16 +15,21 @@ module.exports = {
       },
       colors: {
         red: {
-          light: "#FEECEC",
+          light: "#FFF5F6",
           dark: "#BD2E0F", //hover
           DEFAULT: "#F96062",
         },
         gray: {
           DEFAULT: "#2F3B34",
           light: "#6D6A6A",
+          lightest: "#f7f7f7",
+          dark: "#424242",
         },
       },
-      scale: ['active', 'group-hover'],
+      scale: ["active", "group-hover"],
+      backgroundImage: {
+        "red-background": "url(./images/Features/Card-Logo/background.png)",
+      },
     },
   },
   variants: {

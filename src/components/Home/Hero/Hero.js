@@ -66,11 +66,8 @@ const Hero = ({ data }) => {
             <button className="red-button">Get started</button>
 
             {/* button for video dialog box */}
-            <button
-              className="btn btn-icon bg-white text-gray shadow-inner p-1"
-              onClick={openVideoPlayer}
-            >
-              <PlayIcon className="text-center mr-1 text-red" /> Order Process
+            <button className="white-button" onClick={openVideoPlayer}>
+              <PlayIcon className=" mr-1 text-red h-5 w-5" /> Order Process
             </button>
             <VideoPlayer isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>

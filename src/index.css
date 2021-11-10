@@ -12,6 +12,10 @@
     @apply flex btn btn-primary bg-red text-white  hover:bg-red-dark focus:ring-0 font-display font-bold
 }
 
+.white-button {
+  @apply flex btn font-display font-bold bg-white text-gray hover:bg-gray-lightest  shadow-inner focus:ring-0 focus:outline-none
+}
+
 /* bottom nav */
 .bottom-nav{
     @apply w-full text-gray justify-center inline-block text-center pt-2
@@ -19,4 +23,9 @@
 /* Mobile bottom navigation icon width & height */
 .bottom-nav-icon {
   @apply w-6 h-6 inline-block mb-1 ;
+}
+
+/* Feature card */
+.feature-card{
+  @apply flex flex-col pt-14 h-72 border-transparent rounded-lg filter drop-shadow-sm bg-white transform transition duration-500 hover:scale-110
 }
