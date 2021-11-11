@@ -19,7 +19,7 @@ const Features = () => {
               </h2>
             </div>
           </div>
-          <div className="grid gap-14 max-w-5xl lg:px-16 sm:grid-cols-2 lg:grid-cols-3 container mx-auto">
+          <div className="grid gap-14 max-w-5xl lg:px-16 sm:grid-cols-2 lg:grid-cols-3 mx-auto">
             <div className="feature-card">
               <div className="font-body flex flex-col items-center text-center">
                 <div className="w-16 h-16 mb-6">
@@ -36,7 +36,7 @@ const Features = () => {
             <div className="feature-card-background">
               <div className="feature-card ">
                 <div className="font-body flex flex-col items-center text-center">
-                  <div className="w-16 h-16 mb-6">
+                  <div className="w-16 h-16 mb-6 z-50">
                     <img src={returnLogo} alt="return logo" />
                   </div>
                   <h6 className="text-gray font-body text-lg font-bold leading-5 capitalize pb-5">

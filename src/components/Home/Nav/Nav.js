@@ -14,12 +14,11 @@ const Nav = () => {
     <header className="top-0 w-full fixed z-50 bg-white bg-opacity-50">
       <nav className="container flex justify-between font-body mx-auto">
         <div className="px-5 xl:px-12 py-6 flex w-full items-center justify-between">
-          <a
-            className=" flex text-3xl md:text-2xl font-bold font-heading"
-            href="/"
-          >
-            <img src={logo} alt="Go Mart" className="h-8 w-8 md:h-6 md:w-6" />
-            <span className="text-gray ml-3 text-2xl md:text-xl">GoMart</span>
+          <a className=" flex items-center" href="/">
+            <img src={logo} alt="Go Mart" className="object-contain w-8" />
+            <span className="font-display font-bold tracking-tight leading-snug text-gray ml-2  text-2xl">
+              Go<span className="text-red"> Mart</span>
+            </span>
           </a>
           {/* Nav Links */}
           <ul className="hidden xl:flex px-4 mx-auto font-semibold font-heading space-x-12 text-gray ">

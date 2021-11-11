@@ -43,7 +43,7 @@ const Hero = ({ data }) => {
       <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
         <div className="my-14 lg:my-44 lg:max-w-lg lg:pr-5">
           {/* label */}
-          <p className="inline-flex items-center px-4 py-2 mb-4 text-sm font-body font-bold tracking-wider text-red rounded-full bg-red-light">
+          <p className="inline-flex items-center px-4 py-2 mb-4 text-sm font-body font-bold antialiased tracking-wider text-red rounded-full bg-red-light">
             {label}
             <span>
               {/* label image */}
@@ -51,7 +51,7 @@ const Hero = ({ data }) => {
             </span>
           </p>
           {/* left text */}
-          <h1 className="mb-5 font-display text-3xl lg:text-5xl size font-extrabold tracking-tight text-gray sm:text-4xl sm:leading-none">
+          <h1 className="mb-5 font-body text-3xl lg:text-5xl lg:leading-none capitalize size font-extrabold antialiased tracking-tight text-gray sm:text-4xl sm:leading-none">
             {topText}
             <br className="hidden md:block" />
             {middleText}
@@ -59,7 +59,7 @@ const Hero = ({ data }) => {
               {bottomText} <span className="text-red">{colorText}</span>
             </span>
           </h1>
-          <p className="pr-5 mb-5 font-body text-base text-gray-700 md:text-lg">
+          <p className="pr-5 mb-5 font-body lg:text-base text-gray-dark md:text-sm">
             {description}
           </p>
           <div className="flex items-center space-x-4">

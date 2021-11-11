@@ -7,7 +7,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        display: ["Nunito", "sans-serif"],
+        display: ["Inter", "sans-serif"],
         body: ["Open Sans", "sans-serif"],
       },
       fontSize: {
@@ -25,6 +25,9 @@ module.exports = {
           lightest: "#f7f7f7",
           dark: "#424242",
         },
+      },
+      outline: {
+        red: "2px solid #F96062",
       },
       scale: ["active", "group-hover"],
     },
