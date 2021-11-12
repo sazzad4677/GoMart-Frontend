@@ -1,5 +1,5 @@
 /* Font import */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 
 /* Tailwind setup */
@@ -9,11 +9,11 @@
 
 /* Button */
 .red-button {
-    @apply flex btn btn-primary bg-red text-white items-center hover:bg-red-dark focus:ring-0 font-body font-bold
+    @apply flex btn btn-primary bg-red text-white items-center hover:bg-red-dark focus:ring-0 font-display font-bold
 }
 
 .white-button {
-  @apply flex btn font-body font-bold  bg-white text-gray-light items-center hover:bg-gray-lightest  shadow-inner focus:ring-0 focus:outline-none
+  @apply flex btn font-display font-bold  bg-white text-gray-light items-center hover:bg-gray-lightest  shadow-inner focus:ring-0 focus:outline-none
 }
 
 /* bottom nav */
@@ -26,6 +26,53 @@
 }
 
 /* Feature card */
+
 .feature-card{
-  @apply flex flex-col pt-14 h-72 border-transparent rounded-lg filter drop-shadow-sm bg-white transform transition duration-500 hover:scale-110 relative
+  @apply flex flex-col pt-14 h-72 border-transparent rounded-lg filter drop-shadow-sm bg-white transform transition duration-500 hover:scale-110
+}
+
+
+.heading-2{
+  @apply mb-6 font-display capitalize text-3xl lg:text-4xl font-bold leading-none tracking-tight text-gray sm:text-4xl  text-center
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

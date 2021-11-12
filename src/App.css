@@ -78,23 +78,21 @@
 .swiper-pagination-bullet-active {
   background-color: #f96062 !important;
 }
-
-/* Feature 2nd card rotate background */
-.feature-card-background {
+.feature-card-background{
   position: relative;
+  z-index: 1;
 }
 
 .feature-card-background::after {
   content: "";
   height: 310px;
   width: 267px;
-  display: inline-block;
+  position: absolute;
   background-color: #f96062;
   border: #f96062;
   border-radius: 0.5rem;
   transform: translate(20px, -291px) rotate(-5deg);
   transition: all 0.5s ease-in-out;
-  position: absolute;
   z-index: -1;
 }
 
@@ -104,24 +102,6 @@
 
 /* Feature Section for Mobile */
 @media (max-width: 768px) {
-  .feature-card-background {
-    position: relative;
-  }
-
-  .feature-card-background::after {
-    content: "";
-    height: 301px;
-    width: 321px;
-    display: inline-block;
-    background-color: #f96062;
-    border: #f96062;
-    border-radius: 0.5rem;
-    transform: translate(26px, -291px) rotate(5deg);
-    position: absolute;
-    z-index: -1;
-  }
-}
-@media (max-width: 540px) {
   .feature-card-background {
     position: relative;
   }

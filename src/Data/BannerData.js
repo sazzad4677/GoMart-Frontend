@@ -1,6 +1,6 @@
 const bannerData = [
   {
-    id: "1",
+    id: "Ban001",
     label: "Fast Delivery",
     labelImage:
       require("../images/Banner/Label-Image/fast-delivery-title-image.png")
@@ -15,7 +15,7 @@ const bannerData = [
       .default,
   },
   {
-    id: "2",
+    id: "Ban002",
     label: "Easy Payment",
     labelImage:
       require("../images/Banner/Label-Image/easy-payment-title-image.png")
@@ -30,7 +30,7 @@ const bannerData = [
       .default,
   },
   {
-    id: "3",
+    id: "Ban003",
     label: "Risk Free",
     labelImage:
       require("../images/Banner/Label-Image/corona-free-title-image.png")

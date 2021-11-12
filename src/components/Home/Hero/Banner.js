@@ -39,7 +39,11 @@ const Banner = () => {
         pagination={{
           clickable: true,
         }}
+        loop={true}
         navigation={!isTabletOrMobile}
+        keyboard={{
+          enabled: true,
+        }}
         className="mySwiper"
       >
         {data &&

@@ -11,17 +11,17 @@ import BottomNav from "./BottomNav";
 
 const Nav = () => {
   return (
-    <header className="top-0 w-full fixed z-50 bg-white bg-opacity-50">
-      <nav className="container flex justify-between font-body mx-auto">
-        <div className="px-5 xl:px-12 py-6 flex w-full items-center justify-between">
-          <a className=" flex items-center" href="/">
+    <header className="top-0 w-full fixed z-50 bg-white bg-opacity-40">
+      <nav className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-8">
+        <div className="relative flex items-center justify-between ">
+          <a className="flex items-center" href="/">
             <img src={logo} alt="Go Mart" className="object-contain w-8" />
             <span className="font-display font-bold tracking-tight leading-snug text-gray ml-2  text-2xl">
               Go<span className="text-red"> Mart</span>
             </span>
           </a>
           {/* Nav Links */}
-          <ul className="hidden xl:flex px-4 mx-auto font-semibold font-heading space-x-12 text-gray ">
+          <ul className="hidden xl:flex px-4 font-body font-semibold font-heading space-x-12 text-gray ">
             <TopNavItems />
           </ul>
           {/* Search, cart, wishlist */}

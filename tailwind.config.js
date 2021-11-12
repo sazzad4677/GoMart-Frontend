@@ -10,9 +10,6 @@ module.exports = {
         display: ["Inter", "sans-serif"],
         body: ["Open Sans", "sans-serif"],
       },
-      fontSize: {
-        "12xl": "25rem",
-      },
       colors: {
         red: {
           light: "#FFF5F6",
@@ -30,10 +27,18 @@ module.exports = {
         red: "2px solid #F96062",
       },
       scale: ["active", "group-hover"],
+      display: ["before", "after"],
+      textColor: ["before", "after"],
+      fontSize: ["before", "after"],
+      backgroundColor: ["before", "after"],
+      margin: ["before", "after"],
     },
   },
   variants: {
     textColor: ["responsive", "hover", "focus", "active"],
   },
-  plugins: [require("kutty")],
+  plugins: [
+    require("kutty"),
+    // require("@shimyshack/tailwindcss-pseudo-element-plugin"),
+  ],
 };
