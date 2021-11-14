@@ -9,11 +9,11 @@
 
 /* Button */
 .green-button {
-  @apply flex btn btn-primary bg-primary-color  text-white items-center hover:text-gray focus:ring-0 font-display font-bold filter drop-shadow-sm;
+  @apply flex btn btn-primary bg-primary-color  text-white items-center font-display font-semibold filter drop-shadow-sm ring-0
 }
 
 .white-button {
-  @apply flex btn font-display font-bold  bg-white text-gray-light items-center hover:bg-gray-lightest  shadow-inner focus:ring-0 focus:outline-none;
+  @apply flex btn btn-primary font-display font-semibold  bg-off-white text-gray-light items-center filter focus:ring-0 drop-shadow-sm;
 }
 
 .green-circle-icon {

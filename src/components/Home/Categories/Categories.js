@@ -33,9 +33,8 @@ const Categories = () => {
           {categoryData.slice(6, 12).map(({ id, name, image, link }) => (
             <Link
               to={link}
-              className={`text-center ${
-                expendCategory ? "fadeInDown" : "fadeOutUp"
-              }`} //fadeInDown & fadeOutUp css animation
+              className={`text-center 
+              ${expendCategory ? "fadeInDown" : "fadeOutUp"}`} //fadeInDown & fadeOutUp css animation
             >
               <div className="category-data-style">
                 <img src={image} alt={name} className="w-12 h-12" />
@@ -46,12 +45,15 @@ const Categories = () => {
         </Fragment>
       </div>
       <div
-        className={`flex justify-center p-8 transform duration-1000
+        className={`flex justify-center p-8 transform duration-1000 
         ${!expendCategory && "-translate-y-128 lg:-translate-y-60"}`}
       >
-        <button className="green-circle-icon" onClick={handelButtonClick}>
+        <button
+          className="green-circle-icon animate-bounce"
+          onClick={handelButtonClick}
+        >
           <ArrowDownIcon
-            className={`h-6 w-6 text-white font-bold transition transform rotate-0 duration-1000 
+            className={`h-6 w-6 text-white font-bold transition transform rotate-0 duration-1000
             ${expendCategory && "rotate-180"}`}
           />
         </button>

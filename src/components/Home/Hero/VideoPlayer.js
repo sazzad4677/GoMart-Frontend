@@ -32,7 +32,7 @@ const VideoPlayer = ({ isOpen, setIsOpen }) => {
           >
             &#8203;
           </span>
-          <div className="mx-auto my-auto inline-block bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+          <div className="inline-block bg-white rounded-lg overflow-hidden shadow-xl transform transition-all mx-auto my-auto sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
             <ReactPlayer
               controls
               url="https://youtu.be/mevoIZ-eAe4"

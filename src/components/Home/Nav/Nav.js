@@ -18,7 +18,7 @@ const Nav = () => {
           <a className="flex items-center" href="/">
             <img src={logo} alt="Go Mart" className="object-contain w-8" />
             <span className="font-display font-bold tracking-tight leading-snug text-gray ml-2  text-2xl">
-              Go<span className="text-red"> Mart</span>
+              Go<span className="text-primary-color"> Mart</span>
             </span>
           </a>
           {/* Nav Links */}
