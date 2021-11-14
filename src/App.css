@@ -32,3 +32,12 @@ body::-webkit-scrollbar-thumb {
   border-radius: 6px;
   border: 3px solid var(--scrollbarBG);
 }
+
+
+/* firefox */
+@supports(scrollbar-color: var(--thumbBG) var(--scrollbarBG)) {
+  * {
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+    scrollbar-width: auto;
+  }
+}
