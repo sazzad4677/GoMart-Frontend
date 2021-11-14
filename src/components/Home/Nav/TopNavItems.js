@@ -14,7 +14,7 @@ const Navbars = () => {
       {topNavigation.map(({ name, href }, key) => (
         <li
           key={key}
-          className=" text-gray hover:text-red active:text-red link link-underline link-underline-red "
+          className=" text-gray hover:text-primary-color active:text-primary-color link link-underline link-underline-red "
         >
           <NavLink to={`${href}`}>{name}</NavLink>
         </li>

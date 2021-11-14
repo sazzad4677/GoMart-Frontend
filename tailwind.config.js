@@ -11,11 +11,10 @@ module.exports = {
         body: ["Open Sans", "sans-serif"],
       },
       colors: {
-        red: {
-          light: "#FFF5F6",
-          dark: "#BD2E0F", //hover
-          DEFAULT: "#F96062",
-        },
+        //color based on 60-30-10 technique
+        "primary-color": "#40AA54",
+        "secondary-color": "#F2FFF5",
+        "accent-color": "#4BC49C",
         gray: {
           DEFAULT: "#2F3B34",
           light: "#6D6A6A",
@@ -23,22 +22,14 @@ module.exports = {
           dark: "#424242",
         },
       },
-      outline: {
-        red: "2px solid #F96062",
-      },
       scale: ["active", "group-hover"],
-      display: ["before", "after"],
-      textColor: ["before", "after"],
-      fontSize: ["before", "after"],
-      backgroundColor: ["before", "after"],
-      margin: ["before", "after"],
+      spacing: {
+        128: "32rem",
+      },
     },
   },
   variants: {
     textColor: ["responsive", "hover", "focus", "active"],
   },
-  plugins: [
-    require("kutty"),
-    // require("@shimyshack/tailwindcss-pseudo-element-plugin"),
-  ],
+  plugins: [require("kutty")],
 };

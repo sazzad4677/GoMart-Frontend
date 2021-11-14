@@ -43,7 +43,7 @@ const Hero = ({ data }) => {
       <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
         <div className="my-14 lg:my-44 lg:max-w-lg lg:pr-5">
           {/* label */}
-          <p className="inline-flex items-center px-4 py-2 mb-4 text-sm font-display font-bold tracking-wider text-red rounded-full bg-red-light">
+          <p className="inline-flex items-center px-4 py-2 bg-secondary-color small-text">
             {label}
             <span>
               {/* label image */}
@@ -55,19 +55,21 @@ const Hero = ({ data }) => {
             {topText}
             <br className="hidden md:block" />
             {middleText}
-            <span className="inline-block text-deep-purple-accent-400">
-              {bottomText} <span className="text-red">{colorText}</span>
+            <span className="inline-block">
+              {bottomText}{" "}
+              <span className="text-primary-color">{colorText}</span>
             </span>
           </h1>
           <p className="pr-5 mb-5 font-display lg:text-base text-gray-dark md:text-sm">
             {description}
           </p>
           <div className="flex items-center space-x-4">
-            <button className="red-button">Get started</button>
+            <button className="green-button">Get started</button>
 
             {/* button for video dialog box */}
             <button className="white-button" onClick={openVideoPlayer}>
-              <PlayIcon className=" mr-2 text-red h-5 w-5" /> Order Process
+              <PlayIcon className=" mr-2 text-primary-color h-5 w-5" /> Order
+              Process
             </button>
             <VideoPlayer isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>

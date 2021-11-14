@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles.css";
 import Fade from "react-reveal/Fade";
 import freeShippingLogo from "../../../images/Features/Card-Logo/Free-Shipping.png";
 import returnLogo from "../../../images/Features/Card-Logo/return.png";
@@ -6,15 +7,13 @@ import secureCheckoutLogo from "../../../images/Features/Card-Logo/secure-checko
 
 const Features = () => {
   return (
-    <section className="bg-red-light pb-10 pt-10">
+    <section className="bg-secondary-color pb-10 pt-10">
       {/* <Fade bottom> */}
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div className="flex flex-col justify-content-center">
-            <p className="text-center mb-4 text-red text-sm font-display font-semibold tracking-wider rounded-full">
-              What we Served
-            </p>
-            <h2 className="mb-6 font-display capitalize text-3xl lg:text-4xl font-bold leading-none tracking-tight text-gray sm:text-4xl  text-center">
+            <p className="small-text">What we Served</p>
+            <h2 className="heading-2">
               Fruits and Vegetables Delivered <br /> To Your Home
             </h2>
           </div>
@@ -28,7 +27,7 @@ const Features = () => {
               <h6 className="text-gray font-display text-lg font-bold leading-5 capitalize pb-5">
                 Free Shipping
               </h6>
-              <p className="font-display text-center pl-7 pr-7 text-sm text-gray-dark">
+              <p className="font-display text-center pl-7 pr-7 text-sm tracking-wide text-gray-dark">
                 A flower in my garden, a mystery in my panties xyz xyz.
               </p>
             </div>

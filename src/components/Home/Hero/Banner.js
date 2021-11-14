@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./styles.css";
 import bannerData from "../../../Data/BannerData";
 import Hero from "./Hero";
 import { useMediaQuery } from "react-responsive";
@@ -28,7 +29,7 @@ const Banner = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
-    <section>
+    <section className="">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -38,6 +39,7 @@ const Banner = () => {
         }}
         pagination={{
           clickable: true,
+          dynamicBullets: true,
         }}
         loop={true}
         navigation={!isTabletOrMobile}

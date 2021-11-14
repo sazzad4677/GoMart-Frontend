@@ -8,71 +8,42 @@
 @tailwind utilities;
 
 /* Button */
-.red-button {
-    @apply flex btn btn-primary bg-red text-white items-center hover:bg-red-dark focus:ring-0 font-display font-bold
+.green-button {
+  @apply flex btn btn-primary bg-primary-color  text-white items-center hover:text-gray focus:ring-0 font-display font-bold filter drop-shadow-sm;
 }
 
 .white-button {
-  @apply flex btn font-display font-bold  bg-white text-gray-light items-center hover:bg-gray-lightest  shadow-inner focus:ring-0 focus:outline-none
+  @apply flex btn font-display font-bold  bg-white text-gray-light items-center hover:bg-gray-lightest  shadow-inner focus:ring-0 focus:outline-none;
+}
+
+.green-circle-icon {
+  @apply bg-primary-color rounded-full h-10 w-10 flex items-center justify-center;
 }
 
 /* bottom nav */
-.bottom-nav{
-    @apply w-full text-gray justify-center inline-block text-center pt-2
+.bottom-nav {
+  @apply w-full text-gray justify-center inline-block text-center pt-2;
 }
-/* Mobile bottom navigation icon width & height */
+
 .bottom-nav-icon {
-  @apply w-6 h-6 inline-block mb-1 ;
+  @apply w-6 h-6 inline-block mb-1;
+}
+
+/* Text */
+.small-text {
+  @apply text-center mb-4 text-primary-color text-sm font-display font-semibold tracking-wider rounded-full;
+}
+
+.heading-2 {
+  @apply mb-6 font-display capitalize text-3xl lg:text-4xl font-bold leading-none tracking-tight text-gray sm:text-4xl  text-center;
 }
 
 /* Feature card */
-
-.feature-card{
-  @apply flex flex-col pt-14 h-72 border-transparent rounded-lg filter drop-shadow-sm bg-white transform transition duration-500 hover:scale-110
+.feature-card {
+  @apply flex flex-col pt-14 h-72 border-transparent rounded-lg filter drop-shadow-sm bg-white transform transition duration-500 hover:scale-110;
 }
 
-
-.heading-2{
-  @apply mb-6 font-display capitalize text-3xl lg:text-4xl font-bold leading-none tracking-tight text-gray sm:text-4xl  text-center
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Category Data */
+.category-data-style {
+  @apply flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-secondary-color sm:w-24 sm:h-24;
 }

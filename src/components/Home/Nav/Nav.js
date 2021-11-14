@@ -1,5 +1,6 @@
 import React from "react";
 import TopNavItems from "./TopNavItems";
+import "./styles.css";
 import logo from "../../../images/Logo.png";
 import {
   HeartIcon,
@@ -11,7 +12,7 @@ import BottomNav from "./BottomNav";
 
 const Nav = () => {
   return (
-    <header className="top-0 w-full fixed z-50 bg-white bg-opacity-40">
+    <header className="top-0 w-full fixed z-50 bg-white bg-opacity-50">
       <nav className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-8">
         <div className="relative flex items-center justify-between ">
           <a className="flex items-center" href="/">
@@ -28,31 +29,31 @@ const Nav = () => {
           <div className="flex items-center space-x-8">
             <div className="flex space-x-6">
               <a
-                className="hidden xl:block text-gray hover:text-red-dark"
+                className="hidden xl:block text-gray hover:text-primary-color"
                 href="/search"
               >
                 <SearchIcon className="h-6 w-6" />
               </a>
               <a
-                className="hidden xl:block text-gray hover:text-red-dark"
+                className="hidden xl:block text-gray hover:text-primary-color"
                 href="/wishlist"
               >
                 <HeartIcon className="h-6 w-6" />
               </a>
               <a
-                className="flex items-center text-gray hover:text-red-dark"
+                className="flex items-center text-gray hover:text-primary-color"
                 href="/cart"
               >
                 <ShoppingCartIcon className="h-6 w-6" />
                 <span className="flex absolute -mt-5 ml-4">
-                  <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-red opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-red"></span>
+                  <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-primary-color opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-primary-color"></span>
                 </span>
               </a>
               {/* Sign In / Register Button*/}
             </div>
             <div className="hidden xl:block">
-              <button className="red-button">
+              <button className="green-button">
                 <LoginIcon className="h-5 w-5 self-center mr-1" />
                 Login
               </button>
