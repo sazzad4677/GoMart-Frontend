@@ -29,7 +29,7 @@ const Banner = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
-    <section className="">
+    <section className="mb-16 lg:mb-0">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

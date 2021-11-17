@@ -17,37 +17,28 @@ const Nav = () => {
         <div className="relative flex items-center justify-between ">
           <a className="flex items-center" href="/">
             <img src={logo} alt="Go Mart" className="object-contain w-8" />
-            <span className="font-display font-bold tracking-tight leading-snug text-gray ml-2  text-2xl">
-              Go<span className="text-primary-color"> Mart</span>
+            <span className="font-display font-bold tracking-tight leading-snug text-kombu-green ml-2  text-2xl">
+              Go<span className="text-green-pantone"> Mart</span>
             </span>
           </a>
           {/* Nav Links */}
-          <ul className="hidden xl:flex px-4 font-body font-semibold font-heading space-x-12 text-gray ">
+          <ul className="hidden xl:flex px-4 font-body font-semibold font-heading space-x-12 text-kombu-green ">
             <TopNavItems />
           </ul>
           {/* Search, cart, wishlist */}
           <div className="flex items-center space-x-8">
             <div className="flex space-x-6">
-              <a
-                className="hidden xl:block text-gray hover:text-primary-color"
-                href="/search"
-              >
+              <a className="nav-icon" href="/search">
                 <SearchIcon className="h-6 w-6" />
               </a>
-              <a
-                className="hidden xl:block text-gray hover:text-primary-color"
-                href="/wishlist"
-              >
+              <a className="nav-icon" href="/wishlist">
                 <HeartIcon className="h-6 w-6" />
               </a>
-              <a
-                className="flex items-center text-gray hover:text-primary-color"
-                href="/cart"
-              >
+              <a className="nav-icon" href="/cart">
                 <ShoppingCartIcon className="h-6 w-6" />
                 <span className="flex absolute -mt-5 ml-4">
-                  <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-primary-color opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-primary-color"></span>
+                  <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-green-pantone opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-pantone"></span>
                 </span>
               </a>
               {/* Sign In / Register Button*/}

@@ -49,7 +49,7 @@
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #40aa54 !important;
+  background-color: var(--bgColorPrimary) !important;
 }
 
 .player-wrapper {

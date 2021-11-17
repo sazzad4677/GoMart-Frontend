@@ -43,7 +43,7 @@ const Hero = ({ data }) => {
       <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
         <div className="my-14 lg:my-44 lg:max-w-lg lg:pr-5">
           {/* label */}
-          <p className="inline-flex items-center px-4 py-2 bg-secondary-color small-text">
+          <p className="inline-flex items-center px-4 py-2 bg-honeydew small-text">
             {label}
             <span>
               {/* label image */}
@@ -51,24 +51,24 @@ const Hero = ({ data }) => {
             </span>
           </p>
           {/* left text */}
-          <h1 className="mb-5 font-display text-3xl lg:text-5xl lg:leading-none capitalize font-extrabold tracking-normal text-gray sm:text-4xl sm:leading-none">
+          <h1 className="heading-1">
             {topText}
             <br className="hidden md:block" />
             {middleText}
             <span className="inline-block">
-              {bottomText}{" "}
-              <span className="text-primary-color">{colorText}</span>
+              {bottomText}
+              <span className="text-green-pantone">{colorText}</span>
             </span>
           </h1>
-          <p className="pr-5 mb-5 font-display lg:text-base text-gray-dark md:text-sm">
+          <p className="pr-5 mb-5 font-display lg:text-base text-dim-gray md:text-sm">
             {description}
           </p>
           <div className="flex items-center space-x-4">
-            <button className="green-button">Get started</button>
+            <button className="green-button">Explore</button>
 
             {/* button for video dialog box */}
             <button className="white-button" onClick={openVideoPlayer}>
-              <PlayIcon className=" mr-2 text-primary-color h-5 w-5" /> Order
+              <PlayIcon className=" mr-2 text-green-pantone h-5 w-5" /> Order
               Process
             </button>
             <VideoPlayer isOpen={isOpen} setIsOpen={setIsOpen} />

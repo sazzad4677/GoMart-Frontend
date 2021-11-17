@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { NavLink } from "react-router-dom";
 const Navbars = () => {
   const topNavigation = [
-    { name: "Home", href: "/home" },
+    { name: "Home", href: "/" },
     { name: "Products", href: "/products" },
     { name: "Stores", href: "/stores" },
     { name: "Contact Us", href: "/contact" },
@@ -12,11 +12,19 @@ const Navbars = () => {
   return (
     <Fragment>
       {topNavigation.map(({ name, href }, key) => (
-        <li
-          key={key}
-          className=" text-gray hover:text-primary-color active:text-primary-color link link-underline link-underline-red "
-        >
-          <NavLink to={`${href}`}>{name}</NavLink>
+        <li key={key} className=" text-gray ">
+          <NavLink
+            className={({ isActive }) =>
+              `nav-link link-underline link-underline-green 
+              ${
+                isActive &&
+                "text-green-pantone link-underline link-underline-active"
+              }`
+            }
+            to={`${href}`}
+          >
+            {name}
+          </NavLink>
         </li>
       ))}
     </Fragment>

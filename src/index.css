@@ -9,20 +9,25 @@
 
 /* Button */
 .green-button {
-  @apply flex btn btn-primary bg-primary-color  text-white items-center font-display font-semibold filter drop-shadow-sm ring-0
+  @apply flex btn btn-primary bg-green-pantone text-white items-center font-display font-semibold filter drop-shadow-sm focus:ring-0 hover:bg-may-green
 }
 
 .white-button {
-  @apply flex btn btn-primary font-display font-semibold  bg-off-white text-gray-light items-center filter focus:ring-0 drop-shadow-sm;
+  @apply flex btn btn-primary font-display font-semibold  bg-cultured-white text-dim-gray items-center filter focus:ring-0 drop-shadow-sm  hover:bg-dimWhite;
 }
 
-.green-circle-icon {
-  @apply bg-primary-color rounded-full h-10 w-10 flex items-center justify-center;
+.green-circle-button {
+  @apply bg-green-pantone rounded-full h-10 w-10 flex items-center justify-center focus:ring-0;
+}
+
+/* Navigation */
+.nav-icon{
+  @apply hidden xl:block text-kombu-green hover:text-green-pantone
 }
 
 /* bottom nav */
 .bottom-nav {
-  @apply w-full text-gray justify-center inline-block text-center pt-2;
+  @apply w-full text-dim-gray justify-center inline-block text-center pt-2;
 }
 
 .bottom-nav-icon {
@@ -31,19 +36,27 @@
 
 /* Text */
 .small-text {
-  @apply text-center mb-4 text-primary-color text-sm font-display font-semibold tracking-wider rounded-full;
+  @apply text-center mb-0 text-green-pantone text-sm font-display font-semibold tracking-wider rounded-full;
+}
+
+.heading-1{
+  @apply mb-5 font-display text-3xl lg:text-5xl lg:leading-none capitalize font-extrabold tracking-normal text-kombu-green sm:text-4xl sm:leading-none
 }
 
 .heading-2 {
-  @apply mb-6 font-display capitalize text-3xl lg:text-4xl font-bold leading-none tracking-tight text-gray sm:text-4xl  text-center;
+  @apply font-display capitalize text-3xl lg:text-4xl font-bold leading-none tracking-tight text-kombu-green sm:text-4xl  ;
 }
 
-/* Feature card */
+.heading-3{
+  @apply font-display capitalize text-2xl lg:text-4xl font-bold leading-none tracking-tight text-kombu-green sm:text-4xl
+}
+
+/* Feature */
 .feature-card {
   @apply flex flex-col pt-14 h-72 border-transparent rounded-lg filter drop-shadow-sm bg-white transform transition duration-500 hover:scale-110;
 }
 
-/* Category Data */
-.category-data-style {
-  @apply flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-secondary-color sm:w-24 sm:h-24;
+/* Category */
+.category-data {
+  @apply flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-honeydew sm:w-24 sm:h-24;
 }
