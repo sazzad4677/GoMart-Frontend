@@ -18,15 +18,15 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 const Banner = () => {
-  const [data, SetData] = useState([]);
+  const [data, setData] = useState([]);
 
   // Get & set banner data
   useEffect(() => {
-    SetData(bannerData);
+    setData(bannerData);
   }, [data]);
 
   //navigation arrow is displayed only when the screen width exceeds 768px.
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(min-width: 768px)" });
 
   return (
     <section className="mb-16 lg:mb-0">
@@ -42,7 +42,7 @@ const Banner = () => {
           dynamicBullets: true,
         }}
         loop={true}
-        navigation={!isTabletOrMobile}
+        navigation={isTabletOrMobile}
         keyboard={{
           enabled: true,
         }}

@@ -31,5 +31,5 @@ module.exports = {
   variants: {
     textColor: ["responsive", "hover", "focus", "active"],
   },
-  plugins: [require("kutty")],
+  plugins: [require("daisyui")],
 };

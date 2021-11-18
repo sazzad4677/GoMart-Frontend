@@ -34,7 +34,10 @@ const Nav = () => {
               <a className="nav-icon" href="/wishlist">
                 <HeartIcon className="h-6 w-6" />
               </a>
-              <a className="nav-icon" href="/cart">
+              <a
+                className="flex items-center text-gray hover:text-primary-color"
+                href="/cart"
+              >
                 <ShoppingCartIcon className="h-6 w-6" />
                 <span className="flex absolute -mt-5 ml-4">
                   <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-green-pantone opacity-75"></span>
