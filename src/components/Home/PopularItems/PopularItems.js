@@ -37,15 +37,15 @@ const PopularItems = () => {
           <div className="flex justify-between items-center gap-8">
             <button
               ref={sliderArrowPrev}
-              className=" bg-white border-transparent font-semibold hover:bg-white"
+              className=" bg-white border-transparent font-semibold"
             >
-              <ArrowCircleLeftIcon className="h-8 w-8  text-dim-gray" />
+              <ArrowCircleLeftIcon className="h-8 w-8  text-dim-gray hover:text-kombu-green" />
             </button>
             <button
               ref={sliderArrowNext}
               className="bg-white border-transparent font-semibold  rounded-full "
             >
-              <ArrowCircleRightIcon className="h-8 w-8 text-green-pantone" />
+              <ArrowCircleRightIcon className="h-8 w-8 text-green-pantone hover:text-may-green" />
             </button>
           </div>
         </div>
@@ -59,11 +59,6 @@ const PopularItems = () => {
               prevEl: sliderArrowPrev.current,
               nextEl: sliderArrowNext.current,
             }}
-            // onInit={(swiper) => {
-            //   swiper.params.navigation.prevEl = sliderArrowPrev.current;
-            //   swiper.params.navigation.nextEl = sliderArrowNext.current;
-            //   swiper.navigation.update();
-            // }}
             className="grid gap-8 row-gap-10 sm:grid-cols-2 lg:grid-cols-4"
           >
             {products &&

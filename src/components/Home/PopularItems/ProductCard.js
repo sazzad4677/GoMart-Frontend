@@ -6,7 +6,7 @@ const ProductCard = ({ items }) => {
   const {
     id,
     ProductName,
-    productPrice,
+    ProductPrice,
     Brand,
     SellerName,
     Ratings,
@@ -20,18 +20,22 @@ const ProductCard = ({ items }) => {
     edit: false,
     activeColor: "#40AA54",
   };
-
-  // TotalOrder: 274,
   return (
     <Fragment>
       <div className="block bg-cultured-white shadow-md hover:shadow-xl rounded-lg overflow-hidden mb-10">
-        <div className="relative pb-48 overflow-hidden">
-          {/* Product Image */}
-          <img
-            className="absolute inset-0 h-full w-full object-cover transition transform hover:scale-105 duration-700"
-            src="https://media.istockphoto.com/photos/tomatoes-picture-id98026003?b=1&k=20&m=98026003&s=170667a&w=0&h=185rOlPM5RueuxjOUFCinuQICXAnUM9AIq_tDELKO4Q="
-            alt=""
-          />
+        <div
+          className="relative pb-48 overflow-hidden bg-cover "
+          style={{
+            backgroundImage:
+              'url("https://media.istockphoto.com/photos/tomatoes-picture-id98026003?b=1&k=20&m=98026003&s=170667a&w=0&h=185rOlPM5RueuxjOUFCinuQICXAnUM9AIq_tDELKO4Q=")',
+          }}
+        >
+          <div className="absolute bg-black bg-opacity-0 opacity-0 hover:opacity-100 hover:bg-opacity-50 h-full w-full translate transform-opacity duration-500">
+            <div className="absolute flex gap-6 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
+              <ShoppingCartIcon className="text-green-pantone h-10 w-10 cursor-pointer" />
+              <HeartIcon className="text-red-400 h-10 w-10 cursor-pointer" />
+            </div>
+          </div>
         </div>
         <div className="p-4">
           {/* product tag */}
@@ -57,7 +61,7 @@ const ProductCard = ({ items }) => {
           </div>
           {/* Product Seller */}
           <p className="flex font-display items-center mb-2 text-xs">
-            {SellerName}
+            <span className="font-semibold">Brand:&nbsp;</span> {SellerName}
           </p>
           {/* Product Small Description */}
           <article className="small-text">
@@ -66,9 +70,8 @@ const ProductCard = ({ items }) => {
           </article>
           <div className="flex gap-3">
             <div className="flex items-center mt-3">
-              <span className="text-sm font-semibold">Price: </span>&nbsp;
-              <span className="text-sm font-semibold mr-1"> ৳</span>
-              <span className="font-bold text-xl">{productPrice}</span>&nbsp;
+              <span className="text-sm font-semibold">Price:&nbsp;৳</span>&nbsp;
+              <span className="font-bold text-xl">{ProductPrice}</span>&nbsp;
             </div>
             <div className="flex items-center mt-3">
               <span className="font-normal text-sm  line-through">৳ 520</span>
@@ -81,7 +84,7 @@ const ProductCard = ({ items }) => {
         {/* Review */}
         <div className="p-4 border-t flex items-center text-sm text-gray-600">
           <ReactStars {...firstExample} />
-          <span className="ml-2">3 Reviews</span>
+          <span className="ml-2">{Ratings} Reviews</span>
         </div>
       </div>
     </Fragment>

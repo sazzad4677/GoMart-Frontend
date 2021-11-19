@@ -2,7 +2,7 @@ const fakeProducts = [
   {
     id: 1,
     ProductName: "Wrapsafe",
-    ProductPrice: "$3.15",
+    ProductPrice: "3.15",
     Brand: "Geba",
     SellerName: "Alexandros Clemens",
     Ratings: 3.57,
@@ -13,7 +13,7 @@ const fakeProducts = [
   {
     id: 2,
     ProductName: "Ronstring",
-    ProductPrice: "$7.44",
+    ProductPrice: "7.44",
     Brand: "Youopia",
     SellerName: "Peadar Francom",
     Ratings: 4.65,
@@ -24,7 +24,7 @@ const fakeProducts = [
   {
     id: 3,
     ProductName: "Transcof",
-    ProductPrice: "$4.30",
+    ProductPrice: "4.30",
     Brand: "Skajo",
     SellerName: "Tonia Hobell",
     Ratings: 2.27,
@@ -35,7 +35,7 @@ const fakeProducts = [
   {
     id: 4,
     ProductName: "Zaam-Dox",
-    ProductPrice: "$0.41",
+    ProductPrice: "0.41",
     Brand: "Buzzbean",
     SellerName: "Verine Lidierth",
     Ratings: 4.32,
@@ -46,7 +46,7 @@ const fakeProducts = [
   {
     id: 5,
     ProductName: "Treeflex",
-    ProductPrice: "$4.30",
+    ProductPrice: "4.30",
     Brand: "Twinte",
     SellerName: "Josi Rider",
     Ratings: 2.16,
@@ -57,7 +57,7 @@ const fakeProducts = [
   {
     id: 6,
     ProductName: "Otcom",
-    ProductPrice: "$0.95",
+    ProductPrice: "0.95",
     Brand: "Zoonder",
     SellerName: "Ulrikaumeko Brunsden",
     Ratings: 1.35,
@@ -68,7 +68,7 @@ const fakeProducts = [
   {
     id: 7,
     ProductName: "Stronghold",
-    ProductPrice: "$9.39",
+    ProductPrice: "9.39",
     Brand: "Mudo",
     SellerName: "Kippar Potte",
     Ratings: 3.58,
@@ -79,7 +79,7 @@ const fakeProducts = [
   {
     id: 8,
     ProductName: "Cardguard",
-    ProductPrice: "$5.13",
+    ProductPrice: "5.13",
     Brand: "Realcube",
     SellerName: "Bette-ann MacEnelly",
     Ratings: 2.89,
@@ -90,7 +90,7 @@ const fakeProducts = [
   {
     id: 9,
     ProductName: "Fix San",
-    ProductPrice: "$1.81",
+    ProductPrice: "1.81",
     Brand: "Livetube",
     SellerName: "Larry Camellini",
     Ratings: 1.42,
@@ -101,7 +101,7 @@ const fakeProducts = [
   {
     id: 10,
     ProductName: "Kanlam",
-    ProductPrice: "$8.88",
+    ProductPrice: "8.88",
     Brand: "Skipstorm",
     SellerName: "Courtnay Rushbrook",
     Ratings: 3.43,

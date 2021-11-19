@@ -43,7 +43,7 @@ const Hero = ({ data }) => {
       <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
         <div className="my-14 lg:my-44 lg:max-w-lg lg:pr-5">
           {/* label */}
-          <p className="inline-flex items-center px-4 py-2 bg-honeydew small-text">
+          <p className="bg-honeydew label-text inline-flex items-center ">
             {label}
             <span>
               {/* label image */}

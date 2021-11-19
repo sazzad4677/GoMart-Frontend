@@ -12,7 +12,7 @@ const Features = () => {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div className="flex flex-col justify-content-center">
-            <p className="small-text">What we Served</p>
+            <p className="label-text text-center">What we Served</p>
             <h2 className="heading-2 text-center">
               Fruits and Vegetables Delivered <br /> To Your Home
             </h2>
