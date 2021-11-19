@@ -18,7 +18,7 @@ const Features = () => {
             </h2>
           </div>
         </div>
-        <div className="grid gap-14 max-w-5xl lg:px-16 sm:grid-cols-2 lg:grid-cols-3 mx-auto z-10">
+        <div className="grid gap-14 max-w-5xl lg:px-16 sm:grid-cols-2 lg:grid-cols-3 mx-auto z-10 group">
           <div className="feature-card">
             <div className="font-display flex flex-col items-center text-center">
               <div className="w-16 h-16 mb-6">

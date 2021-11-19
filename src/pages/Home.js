@@ -4,6 +4,7 @@ import Navigation from "../components/Home/Nav/Nav";
 import Features from "../components/Home/Features/Features";
 import Categories from "../components/Home/Categories/Categories";
 import PopularItems from "../components/Home/PopularItems/PopularItems";
+import BestSeller from "../components/Home/BestSeller/BestSeller";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Features />
       <Categories />
       <PopularItems />
+      <BestSeller />
     </div>
   );
 };

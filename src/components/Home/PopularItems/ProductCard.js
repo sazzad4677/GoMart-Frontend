@@ -20,20 +20,32 @@ const ProductCard = ({ items }) => {
     edit: false,
     activeColor: "#40AA54",
   };
+  const handelShoppingCart = () => {
+    console.log("Shopping Cart");
+  };
+  const handelWishList = () => {
+    console.log("wish list");
+  };
+
   return (
     <Fragment>
-      <div className="block bg-cultured-white shadow-md hover:shadow-xl rounded-lg overflow-hidden mb-10">
-        <div
-          className="relative pb-48 overflow-hidden bg-cover "
-          style={{
-            backgroundImage:
-              'url("https://media.istockphoto.com/photos/tomatoes-picture-id98026003?b=1&k=20&m=98026003&s=170667a&w=0&h=185rOlPM5RueuxjOUFCinuQICXAnUM9AIq_tDELKO4Q=")',
-          }}
-        >
-          <div className="absolute bg-black bg-opacity-0 opacity-0 hover:opacity-100 hover:bg-opacity-50 h-full w-full translate transform-opacity duration-500">
+      <div className="block bg-cultured-white rounded-lg overflow-hidden mb-10 group shadow-2xl">
+        <div className="relative pb-48 overflow-hidden ">
+          <img
+            className="absolute inset-0 h-full w-full object-cover transform translate group-hover:scale-110 duration-1000"
+            src="https://media.istockphoto.com/photos/tomatoes-picture-id98026003?b=1&k=20&m=98026003&s=170667a&w=0&h=185rOlPM5RueuxjOUFCinuQICXAnUM9AIq_tDELKO4Q="
+            alt=""
+          />
+          <div className="absolute bg-black bg-opacity-0 opacity-0 group-hover:opacity-100 group-hover:bg-opacity-50 h-full w-full transform-opacity duration-500">
             <div className="absolute flex gap-6 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
-              <ShoppingCartIcon className="text-green-pantone h-10 w-10 cursor-pointer" />
-              <HeartIcon className="text-red-400 h-10 w-10 cursor-pointer" />
+              <ShoppingCartIcon
+                className="text-green-pantone h-10 w-10 cursor-pointer"
+                onClick={handelShoppingCart}
+              />
+              <HeartIcon
+                className="text-red-400 h-10 w-10 cursor-pointer"
+                onClick={handelWishList}
+              />
             </div>
           </div>
         </div>
@@ -49,15 +61,6 @@ const ProductCard = ({ items }) => {
             <h1 className="mt-2 mb-2  font-bold text-lg">
               {ProductName} -<span className="font-normal text-sm"> 3 KG</span>
             </h1>
-            {/* add to wishlist & cart */}
-            <div className="flex items-center space-x-5">
-              <button>
-                <HeartIcon className="h-6 w-6 text-red-400" />
-              </button>
-              <button>
-                <ShoppingCartIcon className="h-6 w-6 text-green-pantone" />
-              </button>
-            </div>
           </div>
           {/* Product Seller */}
           <p className="flex font-display items-center mb-2 text-xs">

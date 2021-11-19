@@ -22,15 +22,17 @@ module.exports = {
         display: ["Inter", "sans-serif"],
         body: ["Open Sans", "sans-serif"],
       },
-      scale: ["active", "group-hover"],
       spacing: {
         128: "32rem",
       },
+      scale: ["active", "group-hover"],
       brightness: ["hover", "focus"],
     },
   },
   variants: {
     textColor: ["responsive", "hover", "focus", "active"],
+    scale: ["responsive", "hover", "focus", "active", "group-hover"],
+    transform: ["responsive", "hover", "focus", "active", "group-hover"],
   },
   plugins: [require("daisyui")],
 };
