@@ -18,8 +18,8 @@ import "./styles.css";
 
 const Login = () => {
   // toggle password view
-  const [showPassword, setShowPassword] = useState(false);
-  const toggleShowPassword = () => setShowPassword((prev) => !prev);
+  const [showPassword, setShowPassword] = useState(true);
+
   // Background Image Bubble
   const rightImageBubble = 10;
 
@@ -29,6 +29,27 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(loginFormSchema) });
+
+  const inputData = [
+    {
+      id: 1,
+      name: "email",
+      type: "email",
+      labelFor: "email",
+      label: "Enter Your Email",
+      errors: errors.email?.message,
+      register: register,
+    },
+    {
+      id: 2,
+      name: "password",
+      type: !showPassword ? "text" : "password",
+      labelFor: "password",
+      label: "Enter Your Password",
+      errors: errors.password?.message,
+      register: register,
+    },
+  ];
 
   //handel form submit
   const onSubmit = (data) => {
@@ -74,39 +95,33 @@ const Login = () => {
             <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
               <input type="hidden" name="remember" value="true" />
               {/* Email Field */}
-              <div className="relative z-0">
-                <InputField
-                  name="email"
-                  type="email"
-                  labelFor="email"
-                  label="Enter email"
-                  register={register}
-                  errors={errors.email?.message}
-                />
-              </div>
-              {/* Password Field */}
-              <div className="relative z-0 mt-12 ">
-                {showPassword ? (
-                  <EyeIcon
-                    className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
-                    onClick={toggleShowPassword}
-                  />
-                ) : (
-                  <EyeOffIcon
-                    className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
-                    onClick={toggleShowPassword}
-                  />
-                )}
-                <InputField
-                  name="password"
-                  type={!showPassword ? "password" : "text"}
-                  labelFor="password"
-                  label="Password"
-                  register={register}
-                  errors={errors.password?.message}
-                />
-              </div>
-
+              {inputData.map(
+                ({ id, name, type, label, labelFor, errors, register }) => (
+                  <div key={id} className="relative z-0">
+                    {name === "password" &&
+                      (showPassword ? (
+                        <EyeIcon
+                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
+                          onClick={() => setShowPassword((prev) => !prev)}
+                        />
+                      ) : (
+                        <EyeOffIcon
+                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
+                          onClick={() => setShowPassword((prev) => !prev)}
+                        />
+                      ))}
+                    <InputField
+                      id={id}
+                      name={name}
+                      type={type}
+                      labelFor={name}
+                      label={label}
+                      errors={errors}
+                      register={register}
+                    />
+                  </div>
+                )
+              )}
               {/* Other fields */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center relative">

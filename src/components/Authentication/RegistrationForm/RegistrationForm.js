@@ -22,10 +22,8 @@ const Registration = () => {
   const rightImageBubble = 10;
 
   // toggle password view
-  const [showPassword, setShowPassword] = useState(false);
-  const [confirmPassword, setConfirmPassword] = useState(false);
-  const toggleShowPassword = () => setShowPassword((prev) => !prev);
-  const toggleConfirmPassword = () => setConfirmPassword((prev) => !prev);
+  const [passwordView, setPasswordView] = useState(true);
+  const [confirmPasswordView, setConfirmPasswordView] = useState(true);
 
   // form validator
   const {
@@ -33,6 +31,64 @@ const Registration = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(registerFormSchema) });
+
+  // Input Field Data
+  const inputData = [
+    {
+      id: 1,
+      name: "name",
+      type: "text",
+      labelFor: "name",
+      label: "Enter Your Name",
+      errors: errors.name?.message,
+      register: register,
+    },
+    {
+      id: 2,
+      name: "username",
+      type: "text",
+      labelFor: "username",
+      label: "Enter Your Username",
+      errors: errors.username?.message,
+      register: register,
+    },
+    {
+      id: 3,
+      name: "email",
+      type: "email",
+      labelFor: "email",
+      label: "Enter Your Email",
+      errors: errors.email?.message,
+      register: register,
+    },
+    {
+      id: 4,
+      name: "phone",
+      type: "text",
+      labelFor: "phone",
+      label: "Enter Your Phone Number",
+      errors: errors.phone?.message,
+      register: register,
+    },
+    {
+      id: 5,
+      name: "password",
+      type: !passwordView ? "text" : "password",
+      labelFor: "password",
+      label: "Enter Your Password",
+      errors: errors.password?.message,
+      register: register,
+    },
+    {
+      id: 6,
+      name: "confirmPassword",
+      type: !confirmPasswordView ? "text" : "password",
+      labelFor: "confirmPassword",
+      label: "Confirm your password",
+      errors: errors.confirmPassword && "Passwords not matched",
+      register: register,
+    },
+  ];
 
   //handel form submit
   const onSubmit = (data) => {
@@ -51,13 +107,11 @@ const Registration = () => {
                   Go<span className="text-skin-base"> Mart</span>
                 </span>
               </Link>
-              <h2 className="mt-6 text-3xl font-bold text-gray-900">
-                Join US :D
-              </h2>
-              <p className="mt-2 text-sm text-gray-500">It's free</p>
+              <h2 className="mt-6 text-3xl font-bold text-gray-900">Sign Up</h2>
+              <p className="mt-2 text-sm text-gray-500">It's Completely free</p>
             </div>
+            {/* Social Sign up*/}
             <div className="flex flex-row justify-center items-center space-x-10">
-              {/* Social Icon*/}
               <button>
                 <AiFillFacebook className="w-10 h-10 text-blue-500  hover:text-blue-400 " />
               </button>
@@ -72,97 +126,52 @@ const Registration = () => {
               </span>
               <span className="h-px w-16 bg-gray-200"></span>
             </div>
-            {/* Login Form */}
+            {/* Form */}
             <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
               <input type="hidden" name="remember" value="true" />
-              {/* Name Field */}
-              <div className="relative z-0">
-                <InputField
-                  name="name"
-                  type="text"
-                  labelFor="name"
-                  label="Enter Your Name"
-                  errors={errors.name?.message}
-                  register={register}
-                />
-              </div>
-              {/* Username Field */}
-              <div className="relative z-0 mt-6">
-                <InputField
-                  name="username"
-                  type="text"
-                  labelFor="username"
-                  label="Enter Username"
-                  register={register}
-                  errors={errors.username?.message}
-                />
-              </div>
-              {/* Email Field */}
-              <div className="relative z-0 mt-6">
-                <InputField
-                  name="email"
-                  type="email"
-                  labelFor="email"
-                  label="Enter email"
-                  register={register}
-                  errors={errors.email?.message}
-                />
-              </div>
-              {/* Password Field */}
-              <div className="relative z-0 mt-6 ">
-                {!showPassword ? (
-                  <EyeIcon
-                    className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
-                    onClick={toggleShowPassword}
-                  />
-                ) : (
-                  <EyeOffIcon
-                    className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
-                    onClick={toggleShowPassword}
-                  />
-                )}
-                <InputField
-                  name="password"
-                  type={!showPassword ? "password" : "text"}
-                  labelFor="password"
-                  label="Password"
-                  register={register}
-                  errors={errors.password?.message}
-                />
-              </div>
-              {/* Confirm Password Field */}
-              <div className="relative z-0 mt-6 ">
-                {!confirmPassword ? (
-                  <EyeIcon
-                    className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
-                    onClick={toggleConfirmPassword}
-                  />
-                ) : (
-                  <EyeOffIcon
-                    className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
-                    onClick={toggleConfirmPassword}
-                  />
-                )}
-                <InputField
-                  name="confirmPassword"
-                  type={!confirmPassword ? "password" : "text"}
-                  labelFor="confirmPassword"
-                  label="Confirm Password"
-                  register={register}
-                  errors={errors.confirmPassword && "Passwords not matched"}
-                />
-              </div>
-              {/* Phone Number */}
-              <div className="relative z-0 mt-6 ">
-                <InputField
-                  name="phone"
-                  type="string"
-                  labelFor="phone"
-                  label="Phone Number"
-                  register={register}
-                  errors={errors.phone?.message}
-                />
-              </div>
+              {inputData.map(
+                ({ id, name, type, label, labelFor, errors, register }) => (
+                  <div className="relative z-0" key={id}>
+                    {name === "password" &&
+                      (passwordView ? (
+                        <EyeIcon
+                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
+                          onClick={() => setPasswordView((prev) => !prev)}
+                        />
+                      ) : (
+                        <EyeOffIcon
+                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
+                          onClick={() => setPasswordView((prev) => !prev)}
+                        />
+                      ))}
+                    {name === "confirmPassword" &&
+                      (confirmPasswordView ? (
+                        <EyeIcon
+                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
+                          onClick={() =>
+                            setConfirmPasswordView((prev) => !prev)
+                          }
+                        />
+                      ) : (
+                        <EyeOffIcon
+                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
+                          onClick={() =>
+                            setConfirmPasswordView((prev) => !prev)
+                          }
+                        />
+                      ))}
+                    <InputField
+                      id={id}
+                      name={name}
+                      type={type}
+                      labelFor={name}
+                      label={label}
+                      errors={errors}
+                      register={register}
+                    />
+                  </div>
+                )
+              )}
               <div>
                 <button type="submit" className="green-button w-full">
                   Sign UP &rarr;
