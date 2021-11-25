@@ -2,32 +2,63 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 
+/* Theme Setup */
+:root {
+  /* background color*/
+  --scheme-based-bg-color: 255, 255, 255;
+  --primary-color: 64, 170, 84;
+  --secondary-color:242, 255, 245;
+  --accent-color: 248, 250, 249;
+  --inverted-color: 67, 71, 104;
+  --primary-hover-color: #6eb04e;
+  --secondary-hover-color: #eaeeeb;
+  /* button text color */
+  --btn-text-primary: #ffffff;
+  --btn-text-secondary: #434768;
+  /* text color */
+  --primary-text-color-: #2F3B34;
+  --secondary-text-color: #434768;
+  --accent-text-color: #F3F4F6;
+  --base-text-color: #40AA54; /* primary color of the site */
+  /* text color badge */
+  --label-text-color-1: #40AA54;
+  --label-text-color-2: #FFFFFF;
+  /* border color */
+  --primary-border-color: #434768;
+  --base-border-color: #40AA54;
+
+  /* Scrollbar */
+  --scrollbarBG: #e8eaf6;
+  --thumbBG: #40AA54;
+}
 /* Tailwind setup */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+
 /* Button */
 .green-button {
-  @apply flex btn  border-transparent bg-green-pantone text-white items-center font-display font-semibold filter drop-shadow-sm focus:ring-0 hover:bg-may-green
+  @apply flex btn border-transparent bg-skin-primary hover:bg-opacity-90 text-skin-primary-btn items-center font-display font-semibold shadow-xl focus:ring-0 
 }
 
 .white-button {
-  @apply flex btn  border-transparent font-display font-semibold  bg-cultured-white text-dim-gray items-center filter focus:ring-0 drop-shadow-sm  hover:bg-dimWhite;
+  @apply flex btn  bg-transparent  border-skin-base border-2 font-display font-semibold text-skin-base focus:ring-0 hover:border-transparent hover:text-white hover:bg-skin-primary
 }
 
 .green-circle-button {
-  @apply bg-green-pantone rounded-full h-10 w-10 flex items-center justify-center focus:ring-0;
+  @apply bg-skin-primary bg-opacity-100 rounded-full h-10 w-10 flex items-center justify-center focus:ring-0;
 }
 
 /* Navigation */
 .nav-icon{
-  @apply hidden xl:block text-kombu-green hover:text-green-pantone
+  @apply hidden xl:block text-skin-primary hover:text-skin-base
 }
 
 /* bottom nav */
 .bottom-nav {
-  @apply w-full text-dim-gray justify-center inline-block text-center pt-2;
+  @apply w-full text-skin-primary justify-center inline-block text-center pt-2;
 }
 
 .bottom-nav-icon {
@@ -36,20 +67,20 @@
 
 /* Text */
 .small-text {
-  @apply  text-dim-gray text-sm font-body tracking-wide;
+  @apply  text-skin-secondary text-sm font-body tracking-wide;
 }
 
 .label-text {
-  @apply  text-green-pantone text-sm font-display font-semibold tracking-wide px-4 py-2 rounded-full ;
+  @apply  text-skin-base text-sm font-display font-semibold tracking-wide px-4 py-2 rounded-full ;
 }
 
 
 .heading-1{
-  @apply mb-5 font-display text-3xl lg:text-5xl lg:leading-none capitalize font-extrabold tracking-normal text-kombu-green sm:text-4xl sm:leading-none
+  @apply mb-5 font-display text-3xl lg:text-5xl lg:leading-none capitalize font-extrabold tracking-normal text-skin-primary sm:text-4xl sm:leading-none
 }
 
 .heading-2 {
-  @apply font-display capitalize text-3xl pb-2 lg:text-4xl font-bold leading-none tracking-tight text-kombu-green sm:text-4xl  ;
+  @apply font-display capitalize text-3xl pb-2 lg:text-4xl font-bold leading-none tracking-tight text-skin-primary sm:text-4xl  ;
 }
 
 .heading-3{
@@ -58,10 +89,22 @@
 
 /* Feature */
 .feature-card {
-  @apply flex flex-col pt-14 h-72 border-transparent rounded-lg filter drop-shadow-sm bg-white transform transition duration-500 hover:scale-110;
+  @apply flex flex-col pt-14 h-72 border rounded-lg shadow-3xl bg-white transform transition duration-500 hover:scale-110;
 }
 
 /* Category */
 .category-data {
-  @apply flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-honeydew sm:w-24 sm:h-24;
+  @apply flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-skin-secondary bg-opacity-100 sm:w-24 sm:h-24;
+}
+
+/* input field animation */
+
+
+/* Form */
+.label{
+  @apply ml-3 text-sm font-body font-semibold text-gray-500 tracking-wide absolute duration-300 top-3
+}
+
+.form-input{
+ @apply block w-full text-base px-4 py-2 border-b bg-transparent appearance-none focus:outline-none rounded-2xl
 }

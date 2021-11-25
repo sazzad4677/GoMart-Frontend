@@ -49,18 +49,5 @@
 }
 
 .swiper-pagination-bullet-active {
-  background-color: var(--bgColorPrimary) !important;
-}
-
-.player-wrapper {
-  width: auto; 
-  height: auto; 
-}
-.react-player {
-  padding-top: 56.25%; 
-  position: relative;
-}
-
-.react-player > div {
-  position: absolute;
+  background-color: rgb(var(--primary-color)) !important;
 }

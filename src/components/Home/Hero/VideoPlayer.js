@@ -23,7 +23,7 @@ const VideoPlayer = ({ isOpen, setIsOpen }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-skin-accent bg-opacity-70 transition-opacity" />
           </Transition.Child>
           {/* Trick to center the video dialog box */}
           <span
@@ -32,7 +32,7 @@ const VideoPlayer = ({ isOpen, setIsOpen }) => {
           >
             &#8203;
           </span>
-          <div className="inline-block bg-white rounded-lg overflow-hidden shadow-xl transform transition-all mx-auto my-auto sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+          <div className="inline-block bg-skin-scheme-color rounded-lg overflow-hidden shadow-xl transform transition-all mx-auto my-auto sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
             <ReactPlayer
               controls
               url="https://youtu.be/mevoIZ-eAe4"

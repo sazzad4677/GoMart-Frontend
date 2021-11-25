@@ -1,15 +1,3 @@
-:root{
-  --bgColorPrimary:#40AA54;
-  --bgColorSecondary:#F2FFF5;
-  --accentColor:#4BC49C;
-  --textColorPrimary:#2F3B34;
-  --textColorSecondary:#6D6A6A;
-  --textColorActive:#40AA54;
-  --borderColorPrimary:#40AA54;
-  --linearGradientColor:#ffffff;
-  --scrollbarBG: #e8eaf6;
-  --thumbBG: #40AA54;
-}
 
 * {
   margin: 0;

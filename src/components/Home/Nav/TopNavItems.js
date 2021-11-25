@@ -12,13 +12,13 @@ const Navbars = () => {
   return (
     <Fragment>
       {topNavigation.map(({ name, href }, key) => (
-        <li key={key} className=" text-gray ">
+        <li key={key} className=" text-skin-secondary ">
           <NavLink
             className={({ isActive }) =>
               `nav-link link-underline link-underline-green 
               ${
                 isActive &&
-                "text-green-pantone link-underline link-underline-active"
+                " text-skin-base link-underline link-underline-active"
               }`
             }
             to={`${href}`}

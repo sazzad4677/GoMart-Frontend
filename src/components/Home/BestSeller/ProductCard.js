@@ -32,10 +32,9 @@ const ProductCard = ({ items }) => {
   const BuyNow = () => {
     console.log("buy now");
   };
-
   return (
     <Fragment>
-      <div className="block bg-white rounded-lg overflow-hidden mb-10 group shadow-4xl hover:shadow-lg border border-t-0 ">
+      <div className="block bg-white rounded-lg overflow-hidden mb-10 group shadow-3xl hover:shadow-lg border border-t-0 ">
         <div className="relative pb-48 overflow-hidden">
           <img
             className="absolute inset-0 h-full w-full object-cover transform translate group-hover:scale-110 duration-1000"

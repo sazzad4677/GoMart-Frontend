@@ -19,7 +19,7 @@ const Categories = () => {
           <h2 className="heading-2 text-center">Shop by Categories</h2>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-5 mb-10 sm:grid-cols-3 lg:grid-cols-6 text-kombu-green">
+      <div className="grid grid-cols-2 gap-5 mb-10 sm:grid-cols-3 lg:grid-cols-6 text-skin-primary">
         {/* first half of category items always visible */}
         {categoryData.slice(0, 6).map(({ id, name, image, link }) => (
           <Link to={link} key={id} className="text-center">
@@ -39,11 +39,13 @@ const Categories = () => {
       </div>
       <div className="flex justify-center">
         <button
-          className="green-circle-button animate-bounce"
+          className={`green-circle-button ${
+            !expendCategory ? "animate-bounce" : "animate-none"
+          } `}
           onClick={handelButtonClick}
         >
           <ArrowDownIcon
-            className={`h-6 w-6 text-white font-bold transition transform duration-1000
+            className={`h-6 w-6 text-skin-accent font-bold transition transform duration-1000
             ${expendCategory && "rotate-180"}`}
           />
         </button>

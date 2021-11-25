@@ -7,7 +7,7 @@ import secureCheckoutLogo from "../../../images/Features/Card-Logo/secure-checko
 
 const Features = () => {
   return (
-    <section className="bg-honeydew">
+    <section className="bg-skin-secondary bg-opacity-100">
       {/* <Fade bottom> */}
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -24,10 +24,10 @@ const Features = () => {
               <div className="w-16 h-16 mb-6">
                 <img src={freeShippingLogo} alt="Free Shipping" />
               </div>
-              <h6 className="text-kombu-green font-display text-lg font-bold leading-5 capitalize pb-5">
+              <h6 className="text-skin-primary font-display text-lg font-bold leading-5 capitalize pb-5">
                 Free Shipping
               </h6>
-              <p className="font-display text-center pl-7 pr-7 text-sm tracking-wide text-dim-gray">
+              <p className="font-display text-center pl-7 pr-7 text-base tracking-wide text-skin-secondary">
                 A flower in my garden, a mystery in my panties xyz xyz.
               </p>
             </div>
@@ -38,10 +38,10 @@ const Features = () => {
                 <div className="w-16 h-16 mb-6">
                   <img src={returnLogo} alt="return logo" />
                 </div>
-                <h6 className="text-kombu-green font-display text-lg font-bold leading-5 capitalize pb-5">
+                <h6 className="text-skin-primary font-display text-lg font-bold leading-5 capitalize pb-5">
                   15 Days return
                 </h6>
-                <p className="font-display text-center pl-7 pr-7 text-sm text-dim-gray">
+                <p className="font-display text-center pl-7 pr-7 text-sm text-skin-secondary">
                   A flower in my garden, a mystery in my panties xyz xyz.
                 </p>
               </div>
@@ -52,10 +52,10 @@ const Features = () => {
               <div className="w-16 h-16 mb-6">
                 <img src={secureCheckoutLogo} alt="Secure Checkout logo" />
               </div>
-              <h6 className="text-kombu-green font-display text-lg font-bold leading-5 capitalize pb-5">
+              <h6 className="text-skin-primary font-display text-lg font-bold leading-5 capitalize pb-5">
                 Secure Checkout
               </h6>
-              <p className="font-display text-center pl-7 pr-7 text-sm text-dim-gray">
+              <p className="font-display text-center pl-7 pr-7 text-sm text-skin-secondary">
                 A flower in my garden, a mystery in my panties xyz xyz.
               </p>
             </div>

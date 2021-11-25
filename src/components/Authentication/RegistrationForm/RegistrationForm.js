@@ -1,0 +1,210 @@
+import React, { useState } from "react";
+import InputField from "../InputField/InputField";
+import { Link } from "react-router-dom";
+// form validation
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { registerFormSchema } from "../../../Validation/UserFormValidation";
+import "yup-phone";
+// images
+import logo from "../../../images/Logo.png";
+import background from "../../../images/Registration/groceries.jpg";
+// icons
+import { AiFillFacebook } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
+import { BsArrowLeftShort } from "react-icons/bs";
+import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
+
+// form schema validation
+
+const Registration = () => {
+  // bubble logo for the right side image
+  const rightImageBubble = 10;
+
+  // toggle password view
+  const [showPassword, setShowPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState(false);
+  const toggleShowPassword = () => setShowPassword((prev) => !prev);
+  const toggleConfirmPassword = () => setConfirmPassword((prev) => !prev);
+
+  // form validator
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(registerFormSchema) });
+
+  //handel form submit
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <div className="relative min-h-screen flex ">
+      <div className="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 bg-skin-scheme-color">
+        <div className="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full xl:w-2/5 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-skin-scheme-color">
+          <div className="max-w-md w-full space-y-8">
+            <div className=" flex flex-col justify-center items-center">
+              <Link to="/" className="flex items-center">
+                <img src={logo} alt="Go Mart" className="object-contain w-10" />
+                <span className="font-display font-bold tracking-tight leading-snug text-skin-primary ml-2 text-center text-4xl">
+                  Go<span className="text-skin-base"> Mart</span>
+                </span>
+              </Link>
+              <h2 className="mt-6 text-3xl font-bold text-gray-900">
+                Join US :D
+              </h2>
+              <p className="mt-2 text-sm text-gray-500">It's free</p>
+            </div>
+            <div className="flex flex-row justify-center items-center space-x-10">
+              {/* Social Icon*/}
+              <button>
+                <AiFillFacebook className="w-10 h-10 text-blue-500  hover:text-blue-400 " />
+              </button>
+              <button>
+                <FcGoogle className="w-9 h-9  hover:opacity-70" />
+              </button>
+            </div>
+            <div className="flex items-center justify-center space-x-2">
+              <span className="h-px w-16 bg-gray-200"></span>
+              <span className="text-gray-300 font-normal">
+                or continue with
+              </span>
+              <span className="h-px w-16 bg-gray-200"></span>
+            </div>
+            {/* Login Form */}
+            <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+              <input type="hidden" name="remember" value="true" />
+              {/* Name Field */}
+              <div className="relative z-0">
+                <InputField
+                  name="name"
+                  type="text"
+                  labelFor="name"
+                  label="Enter Your Name"
+                  errors={errors.name?.message}
+                  register={register}
+                />
+              </div>
+              {/* Username Field */}
+              <div className="relative z-0 mt-6">
+                <InputField
+                  name="username"
+                  type="text"
+                  labelFor="username"
+                  label="Enter Username"
+                  register={register}
+                  errors={errors.username?.message}
+                />
+              </div>
+              {/* Email Field */}
+              <div className="relative z-0 mt-6">
+                <InputField
+                  name="email"
+                  type="email"
+                  labelFor="email"
+                  label="Enter email"
+                  register={register}
+                  errors={errors.email?.message}
+                />
+              </div>
+              {/* Password Field */}
+              <div className="relative z-0 mt-6 ">
+                {!showPassword ? (
+                  <EyeIcon
+                    className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
+                    onClick={toggleShowPassword}
+                  />
+                ) : (
+                  <EyeOffIcon
+                    className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
+                    onClick={toggleShowPassword}
+                  />
+                )}
+                <InputField
+                  name="password"
+                  type={!showPassword ? "password" : "text"}
+                  labelFor="password"
+                  label="Password"
+                  register={register}
+                  errors={errors.password?.message}
+                />
+              </div>
+              {/* Confirm Password Field */}
+              <div className="relative z-0 mt-6 ">
+                {!confirmPassword ? (
+                  <EyeIcon
+                    className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
+                    onClick={toggleConfirmPassword}
+                  />
+                ) : (
+                  <EyeOffIcon
+                    className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
+                    onClick={toggleConfirmPassword}
+                  />
+                )}
+                <InputField
+                  name="confirmPassword"
+                  type={!confirmPassword ? "password" : "text"}
+                  labelFor="confirmPassword"
+                  label="Confirm Password"
+                  register={register}
+                  errors={errors.confirmPassword && "Passwords not matched"}
+                />
+              </div>
+              {/* Phone Number */}
+              <div className="relative z-0 mt-6 ">
+                <InputField
+                  name="phone"
+                  type="string"
+                  labelFor="phone"
+                  label="Phone Number"
+                  register={register}
+                  errors={errors.phone?.message}
+                />
+              </div>
+              <div>
+                <button type="submit" className="green-button w-full">
+                  Sign UP &rarr;
+                </button>
+              </div>
+              <p className="flex flex-col items-center justify-center mt-10 text-center text-md text-skin-secondary">
+                <span>Already have an account?</span>
+                <Link
+                  to="/login"
+                  className="text-skin-base hover:opacity-80 no-underline cursor-pointer transition ease-in duration-300"
+                >
+                  Sign In
+                </Link>
+              </p>
+            </form>
+            <Link
+              to="/"
+              className=" flex items-center justify-center gap-2 mt-10 text-center text-md text-skin-secondary cursor-pointer"
+            >
+              <BsArrowLeftShort className="w-6 h-6" />
+              <span> Go Back to Home</span>
+            </Link>
+          </div>
+        </div>
+        {/* image bubble */}
+        <div
+          className="sm:w-1/2 xl:w-3/5 h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden text-white bg-no-repeat bg-cover relative
+        "
+          style={{ backgroundImage: `url(${background})` }}
+        >
+          <div className="absolute bg-gradient-to-b from-green-light to-green opacity-50  bg-skin-secondary inset-0 z-0"></div>
+          <ul className="circles">
+            {[...Array(rightImageBubble)].map((el, i) => (
+              <li key={i}>
+                <img src={logo} alt="Go Mart" className="object-contain" />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Registration;

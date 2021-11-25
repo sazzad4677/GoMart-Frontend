@@ -23,7 +23,7 @@ const Hero = ({ data }) => {
     <div className="min-w-full relative flex flex-col-reverse py-16 h-full lg:h-screen lg:pt-0 lg:flex-col lg:pb-0">
       <div className="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-8/12 lg:max-w-full lg:absolute xl:px-0">
         <svg
-          className="absolute left-0 hidden h-full text-white transform -translate-x-1/2 lg:block"
+          className="absolute left-0 hidden h-full text-skin-accent transform -translate-x-1/2 lg:block"
           viewBox="0 0 100 100"
           fill="currentColor"
           preserveAspectRatio="none slice"
@@ -43,7 +43,7 @@ const Hero = ({ data }) => {
       <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
         <div className="my-14 lg:my-44 lg:max-w-lg lg:pr-5">
           {/* label */}
-          <p className="bg-honeydew label-text inline-flex items-center ">
+          <p className="bg-skin-secondary label-text inline-flex items-center ">
             {label}
             <span>
               {/* label image */}
@@ -57,10 +57,10 @@ const Hero = ({ data }) => {
             {middleText}
             <span className="inline-block">
               {bottomText}
-              <span className="text-green-pantone">{colorText}</span>
+              <span className="text-skin-base">{colorText}</span>
             </span>
           </h1>
-          <p className="pr-5 mb-5 font-display lg:text-base text-dim-gray md:text-sm">
+          <p className="pr-5 mb-5 font-display lg:text-base text-skin-secondary md:text-sm">
             {description}
           </p>
           <div className="flex items-center space-x-4">
@@ -68,8 +68,7 @@ const Hero = ({ data }) => {
 
             {/* button for video dialog box */}
             <button className="white-button" onClick={openVideoPlayer}>
-              <PlayIcon className=" mr-2 text-green-pantone h-5 w-5" /> Order
-              Process
+              <PlayIcon className=" mr-2 h-5 w-5" /> Order Process
             </button>
             <VideoPlayer isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>

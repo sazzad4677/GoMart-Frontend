@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   UserCircleIcon,
   SearchIcon,
@@ -30,10 +31,10 @@ const BottomNav = () => {
           <LocationMarkerIcon className="bottom-nav-icon" />
           <span className="block text-xs">Tracking</span>
         </a>
-        <a href="/account" className="bottom-nav">
+        <Link to="/login" className="bottom-nav">
           <UserCircleIcon className="bottom-nav-icon" />
           <span className="block text-xs">Login</span>
-        </a>
+        </Link>
       </div>
     </div>
   );

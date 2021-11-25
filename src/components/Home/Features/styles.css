@@ -8,8 +8,7 @@
   height: 291px;
   width: 311px;
   position: absolute;
-  background-color: var(--bgColorPrimary);
-  border: var(--borderColor);
+  background-color: rgb(var(--primary-color));
   border-radius: 0.5rem;
   transform: translate(33px, -276px) rotate(5deg);
   transition: all 0.5s ease-in-out;
@@ -26,8 +25,7 @@
     height: 312px;
     width: 250px;
     display: inline-block;
-    background-color: var(--bgColorPrimary);
-    border: var(--borderColor);
+    background-color: rgb(var(--primary-color));
     border-radius: 0.5rem;
     transform: translate(35px, -292px) rotate(-5deg);
     position: absolute;
