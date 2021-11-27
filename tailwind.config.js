@@ -75,6 +75,9 @@ module.exports = {
       },
       scale: ["active", "group-hover"],
       brightness: ["hover", "focus"],
+      maxWidth: {
+        "9/10": "90%",
+      },
     },
   },
   variants: {
@@ -85,6 +88,7 @@ module.exports = {
     extend: {
       backgroundColor: ["checked"],
       borderColor: ["checked"],
+      borderWidth: ["hover", "focus"],
     },
   },
   plugins: [require("daisyui")],

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // form validation
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+// form schema validation
 import { registerFormSchema } from "../../../Validation/UserFormValidation";
 import "yup-phone";
 // images
@@ -14,8 +15,8 @@ import { AiFillFacebook } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
-
-// form schema validation
+// stylesheet
+import "../styles.css";
 
 const Registration = () => {
   // bubble logo for the right side image
@@ -108,7 +109,9 @@ const Registration = () => {
                 </span>
               </Link>
               <h2 className="mt-6 text-3xl font-bold text-gray-900">Sign Up</h2>
-              <p className="mt-2 text-sm text-gray-500">It's Completely free</p>
+              <p className="mt-2 text-sm text-skin-secondary">
+                It's Completely free
+              </p>
             </div>
             {/* Social Sign up*/}
             <div className="flex flex-row justify-center items-center space-x-10">
@@ -132,6 +135,16 @@ const Registration = () => {
               {inputData.map(
                 ({ id, name, type, label, labelFor, errors, register }) => (
                   <div className="relative z-0" key={id}>
+                    <InputField
+                      id={id}
+                      name={name}
+                      type={type}
+                      labelFor={name}
+                      label={label}
+                      errors={errors}
+                      register={register}
+                    />
+                    {/* Toggle Password View icon */}
                     {name === "password" &&
                       (passwordView ? (
                         <EyeIcon
@@ -160,15 +173,6 @@ const Registration = () => {
                           }
                         />
                       ))}
-                    <InputField
-                      id={id}
-                      name={name}
-                      type={type}
-                      labelFor={name}
-                      label={label}
-                      errors={errors}
-                      register={register}
-                    />
                   </div>
                 )
               )}
@@ -202,11 +206,11 @@ const Registration = () => {
         "
           style={{ backgroundImage: `url(${background})` }}
         >
-          <div className="absolute bg-gradient-to-b from-green-light to-green opacity-50  bg-skin-secondary inset-0 z-0"></div>
+          <div className="absolute bg-gradient-to-b from-green-light to-green-primary opacity-50  bg-skin-secondary inset-0 z-0"></div>
           <ul className="circles">
             {[...Array(rightImageBubble)].map((el, i) => (
               <li key={i}>
-                <img src={logo} alt="Go Mart" className="object-contain" />
+                {/* <img src={logo} alt="Go Mart" className="object-contain" /> */}
               </li>
             ))}
           </ul>

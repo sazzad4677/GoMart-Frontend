@@ -22,7 +22,7 @@ export const registerFormSchema = yup.object().shape({
   phone: yup
     .string()
     .required("Please Provide your phone number")
-    .phone("BD", true, "Provide Bangladeshi Phone number. ex: 01679436***"),
+    .phone("BD", true, "Provide Bangladeshi Phone number (01XXXNNNNNN)"),
 });
 
 // Login Form Schema

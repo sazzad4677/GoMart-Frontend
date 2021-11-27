@@ -18,7 +18,7 @@ const InputField = (props) => {
       />
       <label
         htmlFor={labelFor}
-        className="ml-3 text-sm font-body font-semibold text-gray-500 tracking-wide absolute duration-300 top-3 -z-1 origin-0"
+        className="ml-3 text-sm font-body font-semibold text-skin-secondary tracking-wide absolute duration-300 top-3 -z-1 origin-0"
       >
         {label}
       </label>

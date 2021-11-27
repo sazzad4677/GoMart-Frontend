@@ -17,7 +17,7 @@
   --btn-text-secondary: #434768;
   /* text color */
   --primary-text-color-: #2F3B34;
-  --secondary-text-color: #434768;
+  --secondary-text-color: #6B7280;
   --accent-text-color: #F3F4F6;
   --base-text-color: #40AA54; /* primary color of the site */
   /* text color badge */
@@ -40,7 +40,7 @@
 
 /* Button */
 .green-button {
-  @apply flex btn border-transparent bg-skin-primary hover:bg-opacity-90 text-skin-primary-btn items-center font-display font-semibold shadow-xl focus:ring-0 
+  @apply flex btn border-transparent bg-skin-primary hover:bg-opacity-90 text-skin-primary-btn items-center font-display font-semibold  focus:ring-0 
 }
 
 .white-button {

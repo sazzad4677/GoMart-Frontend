@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import InputField from "../InputField/InputField";
 // Form Validator
 import { useForm } from "react-hook-form";
+// form schema validation
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginFormSchema } from "../../../Validation/UserFormValidation";
 // images
@@ -14,7 +15,7 @@ import { FcGoogle } from "react-icons/fc";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 // stylesheet
-import "./styles.css";
+import "../styles.css";
 
 const Login = () => {
   // toggle password view
@@ -30,6 +31,7 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(loginFormSchema) });
 
+  // Input Field data
   const inputData = [
     {
       id: 1,
@@ -71,7 +73,7 @@ const Login = () => {
               <h2 className="mt-6 text-3xl font-bold text-gray-900">
                 Welcome Back :)
               </h2>
-              <p className="mt-2 text-sm text-gray-500">
+              <p className="mt-2 text-sm text-skin-secondary">
                 Please sign in to your account
               </p>
             </div>
@@ -98,18 +100,6 @@ const Login = () => {
               {inputData.map(
                 ({ id, name, type, label, labelFor, errors, register }) => (
                   <div key={id} className="relative z-0">
-                    {name === "password" &&
-                      (showPassword ? (
-                        <EyeIcon
-                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
-                          onClick={() => setShowPassword((prev) => !prev)}
-                        />
-                      ) : (
-                        <EyeOffIcon
-                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
-                          onClick={() => setShowPassword((prev) => !prev)}
-                        />
-                      ))}
                     <InputField
                       id={id}
                       name={name}
@@ -119,6 +109,18 @@ const Login = () => {
                       errors={errors}
                       register={register}
                     />
+                    {name === "password" &&
+                      (showPassword ? (
+                        <EyeIcon
+                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-skin-secondary"
+                          onClick={() => setShowPassword((prev) => !prev)}
+                        />
+                      ) : (
+                        <EyeOffIcon
+                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-skin-secondary"
+                          onClick={() => setShowPassword((prev) => !prev)}
+                        />
+                      ))}
                   </div>
                 )
               )}
@@ -174,12 +176,10 @@ const Login = () => {
         "
           style={{ backgroundImage: `url(${background})` }}
         >
-          <div className="absolute bg-gradient-to-b from-green-light to-green opacity-50  bg-skin-secondary inset-0 z-0"></div>
+          <div className="absolute bg-gradient-to-b from-green-light to-green-primary opacity-50  bg-skin-secondary inset-0 z-0"></div>
           <ul className="circles">
             {[...Array(rightImageBubble)].map((el, i) => (
-              <li key={i}>
-                <img src={logo} alt="Go Mart" className="object-contain" />
-              </li>
+              <li key={i}></li>
             ))}
           </ul>
         </div>

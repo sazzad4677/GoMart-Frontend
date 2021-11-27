@@ -91,7 +91,7 @@ const ProductCard = ({ items }) => {
               <span className="font-bold text-xl">{ProductPrice}</span>&nbsp;
             </div>
             <div className="flex items-center mt-3">
-              <span className="font-normal text-sm  line-through">৳ 520</span>
+              <strike className="font-normal text-sm ">৳ 520</strike>
               <span className="font-bold text-sm ml-3 text-skin-base">75%</span>
             </div>
           </div>

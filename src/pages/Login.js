@@ -3,9 +3,9 @@ import LoginForm from "../components/Authentication/LoginForm/LoginForm";
 
 const Authentication = () => {
   return (
-    <div>
+    <section>
       <LoginForm />
-    </div>
+    </section>
   );
 };
 

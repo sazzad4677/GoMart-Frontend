@@ -8,14 +8,14 @@ import BestSeller from "../components/Home/BestSeller/BestSeller";
 
 const Home = () => {
   return (
-    <div>
+    <section>
       <Navigation />
       <Banner />
       <Features />
       <Categories />
       <PopularItems />
       <BestSeller />
-    </div>
+    </section>
   );
 };
 
