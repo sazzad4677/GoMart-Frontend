@@ -1,25 +1,22 @@
-import React from "react";
-import TopNavItems from "./TopNavItems";
-import "./styles.css";
-import logo from "../../../images/Logo.png";
-import { Link } from "react-router-dom";
 import {
-  HeartIcon,
-  ShoppingCartIcon,
-  SearchIcon,
-  LoginIcon,
+  HeartIcon, LoginIcon, SearchIcon, ShoppingCartIcon
 } from "@heroicons/react/outline";
+import React from "react";
+import { Link } from "react-router-dom";
+import logo from "../../../images/Logo.png";
 import BottomNav from "./BottomNav";
+import "./styles.css";
+import TopNavItems from "./TopNavItems";
 
 const Nav = () => {
   return (
     <header className="top-0 w-full fixed z-50 bg-skin-scheme-color bg-opacity-50">
-      <nav className="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-8">
+      <nav className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-8">
         <div className="relative flex items-center justify-between ">
           <a className="flex items-center" href="/">
             <img src={logo} alt="Go Mart" className="object-contain w-8" />
             <span className="font-display font-bold tracking-tight leading-snug text-skin-primary ml-2  text-2xl">
-              Go<span className="text-skin-base"> Mart</span>
+              Go<span className="text-skin-base">Mart</span>
             </span>
           </a>
           {/* Nav Links */}

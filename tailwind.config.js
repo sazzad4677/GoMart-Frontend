@@ -65,6 +65,9 @@ module.exports = {
         white: {
           DEFAULT: "#FFFFFF",
         },
+        "dashboard-bg":{
+          DEFAULT: "#f9fafb"
+        }
       },
       fontFamily: {
         display: ["Inter", "sans-serif"],
@@ -75,8 +78,12 @@ module.exports = {
       },
       scale: ["active", "group-hover"],
       brightness: ["hover", "focus"],
+      width: {
+        90: "22.5rem",
+        98: "28rem",
+      },
       maxWidth: {
-        "9/10": "90%",
+        "9xl": "90rem",
       },
     },
   },
@@ -91,5 +98,5 @@ module.exports = {
       borderWidth: ["hover", "focus"],
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("kutty")],
 };

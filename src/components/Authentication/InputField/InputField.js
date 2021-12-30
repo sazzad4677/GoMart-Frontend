@@ -1,5 +1,4 @@
 import React from "react";
-import { EyeIcon } from "@heroicons/react/outline";
 
 const InputField = (props) => {
   const { name, type, label, labelFor, errors, register } = props;

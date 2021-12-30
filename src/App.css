@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: rgb( --scheme-based-bg-color)
 }
 html {
   scroll-behavior: smooth;

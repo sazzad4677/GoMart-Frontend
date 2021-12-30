@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import InputField from "../InputField/InputField";
-// Form Validator
-import { useForm } from "react-hook-form";
+import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 // form schema validation
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginFormSchema } from "../../../Validation/UserFormValidation";
-// images
-import logo from "../../../images/Logo.png";
-import background from "../../../images/Login/groceries.jpg";
+import React, { useState } from "react";
+// Form Validator
+import { useForm } from "react-hook-form";
 // icons
 import { AiFillFacebook } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
 import { BsArrowLeftShort } from "react-icons/bs";
-import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
+import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
+import background from "../../../images/Login/groceries.jpg";
+// images
+import logo from "../../../images/Logo.png";
+import { loginFormSchema } from "../../../Validation/UserFormValidation";
+import InputField from "../InputField/InputField";
 // stylesheet
 import "../styles.css";
 
@@ -146,8 +146,8 @@ const Login = () => {
                   </a>
                 </div>
               </div>
-              <div>
-                <button type="submit" className="green-button w-full">
+              <div className="flex justify-end ">
+                <button type="submit" className="green-button w-full h-12">
                   Sign In &rarr;
                 </button>
               </div>

@@ -40,11 +40,11 @@
 
 /* Button */
 .green-button {
-  @apply flex btn border-transparent bg-skin-primary hover:bg-opacity-90 text-skin-primary-btn items-center font-display font-semibold  focus:ring-0 
+  @apply flex btn  bg-skin-primary btn-primary hover:bg-opacity-90 text-skin-primary-btn justify-center items-center font-display font-semibold  focus:ring-0 
 }
 
 .white-button {
-  @apply flex btn  bg-transparent  border-skin-base border-2 font-display font-semibold text-skin-base focus:ring-0 hover:border-transparent hover:text-white hover:bg-skin-primary
+  @apply flex btn btn-primary  bg-transparent  border-skin-base border font-display font-semibold text-skin-base focus:ring-0 hover:border-transparent hover:text-white hover:bg-skin-primary
 }
 
 .green-circle-button {

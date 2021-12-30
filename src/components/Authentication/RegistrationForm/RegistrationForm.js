@@ -1,20 +1,20 @@
+import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
+import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";
-import InputField from "../InputField/InputField";
-import { Link } from "react-router-dom";
 // form validation
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-// form schema validation
-import { registerFormSchema } from "../../../Validation/UserFormValidation";
+// icons
+import { AiFillFacebook } from "react-icons/ai";
+import { BsArrowLeftShort } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 import "yup-phone";
 // images
 import logo from "../../../images/Logo.png";
 import background from "../../../images/Registration/groceries.jpg";
-// icons
-import { AiFillFacebook } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
-import { BsArrowLeftShort } from "react-icons/bs";
-import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
+// form schema validation
+import { registerFormSchema } from "../../../Validation/UserFormValidation";
+import InputField from "../InputField/InputField";
 // stylesheet
 import "../styles.css";
 
@@ -177,8 +177,8 @@ const Registration = () => {
                 )
               )}
               <div>
-                <button type="submit" className="green-button w-full">
-                  Sign UP &rarr;
+                <button type="submit" className="green-button w-full h-12">
+                  Sign up &rarr;
                 </button>
               </div>
               <p className="flex flex-col items-center justify-center mt-10 text-center text-md text-skin-secondary">
