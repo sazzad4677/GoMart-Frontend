@@ -145,7 +145,7 @@ const Registration = () => {
                       register={register}
                     />
                     {/* Toggle Password View icon */}
-                    {name === "password" &&
+                    {/* {name === "password" &&
                       (passwordView ? (
                         <EyeIcon
                           className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-gray-500"
@@ -172,7 +172,7 @@ const Registration = () => {
                             setConfirmPasswordView((prev) => !prev)
                           }
                         />
-                      ))}
+                      ))} */}
                   </div>
                 )
               )}
