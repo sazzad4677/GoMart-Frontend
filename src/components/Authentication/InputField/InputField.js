@@ -1,7 +1,12 @@
-import React from "react";
-
+import React,{useEffect} from "react";
+import { toast } from 'react-toastify';
 const InputField = (props) => {
   const { name, type, label, labelFor, errors, register } = props;
+  useEffect(() =>{
+    if (errors) {
+      toast.error(errors);
+    }
+  },[errors]);
 
   return (
     <>
@@ -44,7 +49,6 @@ const InputField = (props) => {
           </svg>
         )}
       </div>
-      {errors && <p className="text-red text-center">{errors}</p>}
     </>
   );
 };
