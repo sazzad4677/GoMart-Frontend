@@ -8,10 +8,10 @@ const ProductDetails = () => {
     const dispatch = useDispatch();
     const { loading, product, error } = useSelector(state => state.productDetails)
     useEffect(() => {
-        dispatch(getProductDetails(params.id));
         if (error) {
             return toast.error(error)
         }
+        dispatch(getProductDetails(params.id));
     }, [dispatch, error, params.id])
     return (
         <div>
