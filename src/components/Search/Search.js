@@ -5,7 +5,7 @@ const Search = ({ navigate }) => {
     const searchHandler = (e) => {
         e.preventDefault();
         if (keyword.trim()) {
-            navigate(`/products/search/${keyword}`)
+            navigate(`/productsold/search/${keyword}`)
         } else {
             navigate(`/`)
         }

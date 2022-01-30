@@ -3,12 +3,20 @@ import {
 } from "@heroicons/react/outline";
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../images/Logo.png";
+import logo from "../../images/Logo.png";
 import BottomNav from "./BottomNav";
 import "./styles.css";
 import TopNavItems from "./TopNavItems";
 
+
 const Nav = () => {
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "Products", href: "/products" },
+    { name: "Stores", href: "/stores" },
+    { name: "Contact Us", href: "/contact" },
+    { name: "Track Order", href: "/track-order" },
+  ];
   return (
     <header className="top-0 w-full fixed z-50 bg-skin-scheme-color bg-opacity-50">
       <nav className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-8">
@@ -21,12 +29,12 @@ const Nav = () => {
           </a>
           {/* Nav Links */}
           <ul className="hidden xl:flex px-4 font-body font-semibold font-heading space-x-12 text-skin-primary ">
-            <TopNavItems />
+            <TopNavItems items={navItems} />
           </ul>
           {/* Search, cart, wishlist */}
           <div className="flex items-center space-x-8">
             <div className="flex space-x-6">
-              <a className="nav-icon" href="/search">
+              <a className="nav-icon" href="/wishlist">
                 <SearchIcon className="h-6 w-6" />
               </a>
               <a className="nav-icon" href="/wishlist">

@@ -1,17 +1,11 @@
 import React from "react";
 import { Fragment } from "react";
 import { NavLink } from "react-router-dom";
-const Navbars = () => {
-  const topNavigation = [
-    { name: "Home", href: "/" },
-    { name: "Products", href: "/products" },
-    { name: "Stores", href: "/stores" },
-    { name: "Contact Us", href: "/contact" },
-    { name: "Track Order", href: "/track-order" },
-  ];
+const Navbars = ({items}) => {
+
   return (
     <Fragment>
-      {topNavigation.map(({ name, href }, key) => (
+      {items.map(({ name, href }, key) => (
         <li key={key} className=" text-skin-secondary ">
           <NavLink
             className={({ isActive }) =>

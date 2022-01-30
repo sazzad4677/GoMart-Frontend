@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import DashboardPage from "./pages/DashboardPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductsOld from "./components/Products/ProductsOld";
 import Products from "./components/Products/Products";
 import ProductDetails from "./components/Products/ProductDetails";
 import { ToastContainer } from 'react-toastify';
@@ -19,8 +20,10 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Registration />}></Route>
         <Route path="/dashboard" element={<DashboardPage />}></Route>
+        <Route path="/productsold" element={<ProductsOld />}></Route>
         <Route path="/products" element={<Products />}></Route>
-        <Route path="/products/search/:keyword" element={<Products />}></Route>
+        <Route path="/productsold" element={<ProductsOld />}></Route>
+        <Route path="/productsold/search/:keyword" element={<ProductsOld />}></Route>
         <Route path="/product/:id" element={<ProductDetails />}></Route>
       </Routes>
       <><ToastContainer /></>
