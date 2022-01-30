@@ -8,6 +8,7 @@ import Products from "./components/Products/Products";
 import ProductDetails from "./components/Products/ProductDetails";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Search from "./components/Search/Search";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/register" element={<Registration />}></Route>
         <Route path="/dashboard" element={<DashboardPage />}></Route>
         <Route path="/products" element={<Products />}></Route>
+        <Route path="/products/search/:keyword" element={<Products />}></Route>
         <Route path="/product/:id" element={<ProductDetails />}></Route>
       </Routes>
       <><ToastContainer /></>
