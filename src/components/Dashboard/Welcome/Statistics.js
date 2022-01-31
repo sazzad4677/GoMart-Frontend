@@ -3,18 +3,18 @@ import React from "react";
 const Statistics = () => {
   return (
     <section>
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-        <div class="p-6 card">
-          <div class="flex items-start justify-between">
-            <h2 class="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="p-6 card">
+          <div className="flex items-start justify-between">
+            <h2 className="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
               23,455
             </h2>
-            <span class="flex items-center space-x-1 text-sm font-medium leading-none text-green-600">
+            <span className="flex items-center space-x-1 text-sm font-medium leading-none text-green-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="flex-none w-4 h-4"
+                className="flex-none w-4 h-4"
               >
                 <path
                   fill-rule="evenodd"
@@ -25,19 +25,19 @@ const Statistics = () => {
               <span>40%</span>
             </span>
           </div>
-          <p class="text-sm leading-none text-gray-600">Posts</p>
+          <p className="text-sm leading-none text-gray-600">Posts</p>
         </div>
-        <div class="p-6 card">
-          <div class="flex items-start justify-between">
-            <h2 class="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
+        <div className="p-6 card">
+          <div className="flex items-start justify-between">
+            <h2 className="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
               55
             </h2>
-            <span class="flex items-center space-x-1 text-sm font-medium leading-none text-green-600">
+            <span className="flex items-center space-x-1 text-sm font-medium leading-none text-green-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="flex-none w-4 h-4"
+                className="flex-none w-4 h-4"
               >
                 <path
                   fill-rule="evenodd"
@@ -48,19 +48,19 @@ const Statistics = () => {
               <span>240%</span>
             </span>
           </div>
-          <p class="text-sm leading-none text-gray-600">Comments</p>
+          <p className="text-sm leading-none text-gray-600">Comments</p>
         </div>
-        <div class="p-6 card">
-          <div class="flex items-start justify-between">
-            <h2 class="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
+        <div className="p-6 card">
+          <div className="flex items-start justify-between">
+            <h2 className="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
               129,752
             </h2>
-            <span class="flex items-center space-x-1 text-sm font-medium leading-none text-red-600">
+            <span className="flex items-center space-x-1 text-sm font-medium leading-none text-red-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="flex-none w-4 h-4"
+                className="flex-none w-4 h-4"
               >
                 <path
                   fill-rule="evenodd"
@@ -71,19 +71,19 @@ const Statistics = () => {
               <span>22%</span>
             </span>
           </div>
-          <p class="text-sm leading-none text-gray-600">Activities</p>
+          <p className="text-sm leading-none text-gray-600">Activities</p>
         </div>
-        <div class="p-6 card">
-          <div class="flex items-start justify-between">
-            <h2 class="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
+        <div className="p-6 card">
+          <div className="flex items-start justify-between">
+            <h2 className="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
               1,255
             </h2>
-            <span class="flex items-center space-x-1 text-sm font-medium leading-none text-green-600">
+            <span className="flex items-center space-x-1 text-sm font-medium leading-none text-green-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="flex-none w-4 h-4"
+                className="flex-none w-4 h-4"
               >
                 <path
                   fill-rule="evenodd"
@@ -94,7 +94,7 @@ const Statistics = () => {
               <span>10%</span>
             </span>
           </div>
-          <p class="text-sm leading-none text-gray-600">Users</p>
+          <p className="text-sm leading-none text-gray-600">Users</p>
         </div>
       </div>
     </section>

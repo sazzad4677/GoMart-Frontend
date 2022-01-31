@@ -38,7 +38,7 @@ const Products = () => {
                             keyword ? <div > <div className="flex  w-64 m-auto items-center h-32 justify-center">
                                 <Range marks={{ 1: `$1`, 1000: `$1000` }} min={1} max={1000} default={[1, 1000]} tipFormatter={value => `${value}`} tipProps={{ placement: "top", visibility: "true" }} value={price} onChange={price => setPrice(price)} />
                             </div> {
-                                    products && products.map(product => <Link to={`/product/${product._id}`}>
+                                    products && products.map(product => <Link to={`/product/${product._id}`} key={product._id}>
                                         <h3>{product.name} </h3>
                                         <img src={product.images[0].url} alt={product.name} />
                                         <p>{product.price}</p>
@@ -57,9 +57,9 @@ const Products = () => {
             }
             {resultPerPage <= counts && (
                 <div>
-                    <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                    <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
                         <div >
-                            <div class="pagination" role="navigation" aria-label="pagination">
+                            <div className="pagination" role="navigation" aria-label="pagination">
                                 <Pagination
                                     activePage={currentPage}
                                     itemsCountPerPage={resultPerPage}
@@ -67,9 +67,9 @@ const Products = () => {
                                     onChange={setCurrentPageNo}
                                     nextPageText={"Next"}
                                     prevPageText={"Prev"}
-                                    disabledClass="pagination-disabled"
-                                    itemClass="pagination-link"
-                                    activeClass="pagination-link pagination-active bg-skin-primary hover:bg-skin-primary hover:bg-opacity-80"
+                                    disabledclassName="pagination-disabled"
+                                    itemclassName="pagination-link"
+                                    activeclassName="pagination-link pagination-active bg-skin-primary hover:bg-skin-primary hover:bg-opacity-80"
                                 />
                             </div>
                         </div>

@@ -2,24 +2,17 @@ import {
   HeartIcon, LoginIcon, SearchIcon, ShoppingCartIcon
 } from "@heroicons/react/outline";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import Search from "../../components/Search/Search";
 import logo from "../../images/Logo.png";
 import BottomNav from "./BottomNav";
 import "./styles.css";
-import TopNavItems from "./TopNavItems";
 
 
-const Nav = () => {
-  const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Products", href: "/products" },
-    { name: "Stores", href: "/stores" },
-    { name: "Contact Us", href: "/contact" },
-    { name: "Track Order", href: "/track-order" },
-  ];
+const Nav = ({ fixed, items, icons, SearchBarShow, suggestion, setSuggestion, products }) => {
   return (
-    <header className="top-0 w-full fixed z-50 bg-skin-scheme-color bg-opacity-50">
-      <nav className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-8">
+    <header className={`top-0 w-full ${fixed} z-50 bg-skin-scheme-color bg-opacity-50`}>
+      <nav className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-0">
         <div className="relative flex items-center justify-between ">
           <a className="flex items-center" href="/">
             <img src={logo} alt="Go Mart" className="object-contain w-8" />
@@ -29,13 +22,28 @@ const Nav = () => {
           </a>
           {/* Nav Links */}
           <ul className="hidden xl:flex px-4 font-body font-semibold font-heading space-x-12 text-skin-primary ">
-            <TopNavItems items={navItems} />
+            {items.map(({ name, href }, key) => (
+              <li key={key} className=" text-skin-secondary ">
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link link-underline link-underline-green 
+              ${isActive &&
+                    " text-skin-base link-underline link-underline-active"
+                    }`
+                  }
+                  to={`${href}`}
+                >
+                  {name}
+                </NavLink>
+              </li>
+            ))}
           </ul>
+          <Search SearchBarShow={SearchBarShow} suggestion={suggestion} setSuggestion={setSuggestion} products={products} />
           {/* Search, cart, wishlist */}
           <div className="flex items-center space-x-8">
             <div className="flex space-x-6">
-              <a className="nav-icon" href="/wishlist">
-                <SearchIcon className="h-6 w-6" />
+              <a className="nav-icon" >
+                <SearchIcon id="search-toggle" className={`h-6 w-6 ${icons}`} />
               </a>
               <a className="nav-icon" href="/wishlist">
                 <HeartIcon className="h-6 w-6" />

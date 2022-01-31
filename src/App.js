@@ -5,11 +5,10 @@ import Registration from "./pages/Registration";
 import DashboardPage from "./pages/DashboardPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductsOld from "./components/Products/ProductsOld";
-import Products from "./components/Products/Products";
 import ProductDetails from "./components/Products/ProductDetails";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Search from "./components/Search/Search";
+import ProductsPage from "./pages/ProductsPage";
 
 function App() {
   return (
@@ -21,7 +20,7 @@ function App() {
         <Route path="/register" element={<Registration />}></Route>
         <Route path="/dashboard" element={<DashboardPage />}></Route>
         <Route path="/productsold" element={<ProductsOld />}></Route>
-        <Route path="/products" element={<Products />}></Route>
+        <Route path="/products" element={<ProductsPage />}></Route>
         <Route path="/productsold" element={<ProductsOld />}></Route>
         <Route path="/productsold/search/:keyword" element={<ProductsOld />}></Route>
         <Route path="/product/:id" element={<ProductDetails />}></Route>

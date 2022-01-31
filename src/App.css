@@ -1,10 +1,10 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb( --scheme-based-bg-color)
+  background-color: rgb(--scheme-based-bg-color)
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -33,6 +33,15 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid var(--scrollbarBG);
 }
 
+[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  background-image: url(./images/cross.svg);
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
 
 /* firefox */
 @supports(scrollbar-color: var(--thumbBG) var(--scrollbarBG)) {

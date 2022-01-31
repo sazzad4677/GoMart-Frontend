@@ -7,12 +7,17 @@ import PopularItems from "../components/Home/PopularItems/PopularItems";
 import BestSeller from "../components/Home/BestSeller/BestSeller";
 import Testimonial from "../components/Home/Testimonial/Testimonial";
 
-
 const Home = () => {
-
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "Browse Products", href: "/products" },
+    { name: "Stores", href: "/stores" },
+    { name: "Contact Us", href: "/contact" },
+    { name: "Track Order", href: "/track-order" },
+  ];
   return (
     <section>
-      <Navigation />
+      <Navigation fixed={"fixed"} items={navItems} icons={"hidden"} SearchBarShow={"hidden"}/>
       <Banner />
       <Features />
       <Categories />
