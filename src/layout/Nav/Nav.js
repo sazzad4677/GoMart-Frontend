@@ -3,13 +3,14 @@ import {
 } from "@heroicons/react/outline";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import Search from "../../components/Search/Search";
+import Searchbar from "../../components/Search/Searchbar";
 import logo from "../../images/Logo.png";
 import BottomNav from "./BottomNav";
 import "./styles.css";
 
 
-const Nav = ({ fixed, items, icons, SearchBarShow, suggestion, setSuggestion, products }) => {
+const Nav = ({ ...props }) => {
+  const { fixed, items, SearchBarShow, suggestion, setSuggestion, productsData } = props
   return (
     <header className={`top-0 w-full ${fixed} z-50 bg-skin-scheme-color bg-opacity-50`}>
       <nav className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-0">
@@ -38,13 +39,13 @@ const Nav = ({ fixed, items, icons, SearchBarShow, suggestion, setSuggestion, pr
               </li>
             ))}
           </ul>
-          <Search SearchBarShow={SearchBarShow} suggestion={suggestion} setSuggestion={setSuggestion} products={products} />
+          <Searchbar SearchBarShow={SearchBarShow} suggestion={suggestion} setSuggestion={setSuggestion} productsData={productsData} />
           {/* Search, cart, wishlist */}
           <div className="flex items-center space-x-8">
             <div className="flex space-x-6">
-              <a className="nav-icon" >
-                <SearchIcon id="search-toggle" className={`h-6 w-6 ${icons}`} />
-              </a>
+              <Link to="/search" className="nav-icon" >
+                <SearchIcon id="search-toggle" className={`h-6 w-6 ${!SearchBarShow && "hidden"}`} />
+              </Link>
               <a className="nav-icon" href="/wishlist">
                 <HeartIcon className="h-6 w-6" />
               </a>

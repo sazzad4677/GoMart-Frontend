@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from "../../actions/productActions";
 import { toast } from 'react-toastify';
 import Pagination from "react-js-pagination";
-import Search from '../Search/Search';
+import Search from '../Search/Searchbar';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 const Products = () => {

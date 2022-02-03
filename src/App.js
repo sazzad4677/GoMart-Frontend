@@ -9,6 +9,7 @@ import ProductDetails from "./components/Products/ProductDetails";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductsPage from "./pages/ProductsPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <Route path="/productsold" element={<ProductsOld />}></Route>
         <Route path="/products" element={<ProductsPage />}></Route>
         <Route path="/productsold" element={<ProductsOld />}></Route>
+        <Route path="/search/" element={<SearchPage />}></Route>
+        <Route path="/search/:keyword" element={<ProductsPage />}></Route>
         <Route path="/productsold/search/:keyword" element={<ProductsOld />}></Route>
         <Route path="/product/:id" element={<ProductDetails />}></Route>
       </Routes>

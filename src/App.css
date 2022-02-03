@@ -50,3 +50,7 @@ body::-webkit-scrollbar-thumb {
     scrollbar-width: auto;
   }
 }
+
+.custom-img {
+  background-image: url("./images/grocery.png");
+}

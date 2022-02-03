@@ -1,4 +1,3 @@
-import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 // form schema validation
 import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";

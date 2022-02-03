@@ -24,6 +24,8 @@ module.exports = {
             `rgba(var(--secondary-color), ${opacityValue || 1} )`,
           accent: ({ opacityValue }) =>
             `rgba(var(--accent-color), ${opacityValue || 1} )`,
+          optional: ({ opacityValue }) =>
+            `rgba(var(--options-color), ${opacityValue || 1} )`,
           inverted: ({ opacityValue }) =>
             `rgba(var(--inverted-color), ${opacityValue || 1} )`,
           "scheme-color": ({ opacityValue }) =>

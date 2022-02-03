@@ -4,15 +4,10 @@ import ReactStars from "react-rating-stars-component";
 
 const ProductCard = ({ items }) => {
   const {
-    id,
     ProductName,
     ProductPrice,
-    Brand,
     SellerName,
     Ratings,
-    Size,
-    Quantity,
-    TotalOrder,
   } = items;
   const firstExample = {
     size: 24,
