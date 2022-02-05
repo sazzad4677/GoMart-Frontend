@@ -10,12 +10,12 @@ import "./styles.css";
 
 
 const Nav = ({ ...props }) => {
-  const { fixed, items, SearchBarShow, suggestion, setSuggestion, productsData } = props
+  const { fixed, items = [], SearchBarShow, productsData } = props
   return (
     <header className={`top-0 w-full ${fixed} z-50 bg-skin-scheme-color bg-opacity-50`}>
       <nav className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-0">
         <div className="relative flex items-center justify-between ">
-          <a className="flex items-center" href="/">
+          <a className="flex items-center " href="/">
             <img src={logo} alt="Go Mart" className="object-contain w-8" />
             <span className="font-display font-bold tracking-tight leading-snug text-skin-primary ml-2  text-2xl">
               Go<span className="text-skin-base">Mart</span>
@@ -39,7 +39,7 @@ const Nav = ({ ...props }) => {
               </li>
             ))}
           </ul>
-          <Searchbar SearchBarShow={SearchBarShow} suggestion={suggestion} setSuggestion={setSuggestion} productsData={productsData} />
+          <Searchbar SearchBarShow={SearchBarShow} productsData={productsData}/>
           {/* Search, cart, wishlist */}
           <div className="flex items-center space-x-8">
             <div className="flex space-x-6">
