@@ -7,10 +7,11 @@ import Nav from '../layout/Nav/Nav';
 import Page from '../layout/Pagination/Page';
 import Loader from '../layout/Loader/Loader';
 import Products from '../components/Products/Products';
-import CategorySection from '../layout/Products/CategorySection';
+import FilterSection from '../layout/Products/FilterSection';
 import TopBar from '../layout/Products/TopBar';
 import { toast } from 'react-toastify';
 import error404Image from '../images/404.png';
+import Metadata from '../layout/Metadata/Metadata';
 
 
 const SearchPage = () => {
@@ -35,10 +36,11 @@ const SearchPage = () => {
 
     return (
         <div>
+            <Metadata title={`Search ${keyword ? "-" + keyword : "Search From Thousand Of Products" }`} />
             <Nav productsData={productsData} />
             <div className="px-6  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-0 py-5">
                 <div className="flex gap-3" >
-                    <CategorySection price={price} setPrice={setPrice} />
+                    <FilterSection price={price} setPrice={setPrice} />
                     <div className="w-full flex flex-col gap-6">
                         <TopBar setResultPerPage={setResultPerPage} setSortType={setSortType} />
                         <div className="flex flex-col items-center justify-center  gap-3">

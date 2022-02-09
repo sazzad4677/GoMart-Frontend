@@ -16,12 +16,9 @@ import InputField from "../InputField/InputField";
 // stylesheet
 import "../styles.css";
 
-const Login = () => {
+const Login = ({submitHandler, loading}) => {
   // toggle password view
   const [showPassword, setShowPassword] = useState(true);
-
-  // Background Image Bubble
-  const rightImageBubble = 10;
 
   // form validator
   const {
@@ -52,10 +49,6 @@ const Login = () => {
     },
   ];
 
-  //handel form submit
-  const onSubmit = (data) => {
-    console.log(data);
-  };
 
   return (
     <div className="relative min-h-screen flex ">
@@ -93,13 +86,14 @@ const Login = () => {
               <span className="h-px w-16 bg-gray-200"></span>
             </div>
             {/* Login Form */}
-            <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+            <form className="mt-8 space-y-6" onSubmit={handleSubmit(submitHandler)} autocomplete="off">
               <input type="hidden" name="remember" value="true" />
               {/* Email Field */}
               {inputData.map(
                 ({ id, name, type, label, labelFor, errors, register }) => (
                   <div key={id} className="relative z-0">
                     <InputField
+                      identity="login"
                       id={id}
                       name={name}
                       type={type}
@@ -108,18 +102,6 @@ const Login = () => {
                       errors={errors}
                       register={register}
                     />
-                    {/* {name === "password" &&
-                      (showPassword ? (
-                        <EyeIcon
-                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-skin-secondary"
-                          onClick={() => setShowPassword((prev) => !prev)}
-                        />
-                      ) : (
-                        <EyeOffIcon
-                          className="absolute left-96 top-3 w-5 h-5 cursor-pointer  text-skin-secondary"
-                          onClick={() => setShowPassword((prev) => !prev)}
-                        />
-                      ))} */}
                   </div>
                 )
               )}
@@ -170,14 +152,10 @@ const Login = () => {
           </div>
         </div>
         {/* image bubble */}
-        <div
-          className="sm:w-1/2 xl:w-3/5 h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden text-white bg-no-repeat bg-cover relative
-        "
-          style={{ backgroundImage: `url(${background})` }}
-        >
+        <div className="sm:w-1/2 xl:w-3/5 h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden text-white bg-no-repeat bg-cover relative" style={{ backgroundImage: `url(${background})` }} >
           <div className="absolute bg-gradient-to-b from-green-light to-green-primary opacity-50  bg-skin-secondary inset-0 z-0"></div>
           <ul className="circles">
-            {[...Array(rightImageBubble)].map((el, i) => (
+            {[...Array(10)].map((el, i) => (
               <li key={i}></li>
             ))}
           </ul>

@@ -11,6 +11,7 @@ const Categories = () => {
   const handelButtonClick = () => {
     setExpendCategory((prev) => !prev);
   };
+  
   return (
     <section className="px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-10">
       <div className="max-w-xl md:mx-auto sm:text-center lg:max-w-screen-xl px-4 pb-5">

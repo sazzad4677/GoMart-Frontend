@@ -6,8 +6,9 @@ import Nav from '../layout/Nav/Nav';
 import { getProducts } from "../actions/productActions";
 import Page from '../layout/Pagination/Page';
 import Loader from '../layout/Loader/Loader';
-import CategorySection from '../layout/Products/CategorySection';
+import FilterSection from '../layout/Products/FilterSection';
 import TopBar from '../layout/Products/TopBar';
+import Metadata from '../layout/Metadata/Metadata';
 
 
 const ProductsPage = () => {
@@ -16,25 +17,31 @@ const ProductsPage = () => {
     const [currentPage, setCurrentPage] = useState(1)
     // total product per page => default = 10
     const [resultPerPage, setResultPerPage] = useState(10)
-    // product price sorting
-    const [price, setPrice] = useState([parseInt(1), parseInt(5000)])
+    // filter by product price
+    const [price, setPrice] = useState([1,5000])
+    // Filter by  stock
+    const [stock, setStock] = useState([])
+    // Filter by ratings
+    const [ratings, setRatings] = useState(0)
     // sorting by price high to low / low to high
     const [sortType, setSortType] = useState("0");
     // products data
     const productsData = useSelector(state => state.products)
+    console.log(productsData);
     useEffect(() => {
         if (productsData.errors) {
             return toast.error(productsData.errors)
         }
-        dispatch(getProducts("", currentPage, resultPerPage, price, sortType));
-    }, [dispatch, productsData.errors, currentPage, resultPerPage, price, sortType])
+        dispatch(getProducts("", currentPage, resultPerPage, price, sortType, stock, ratings));
+    }, [dispatch, productsData.errors, currentPage, resultPerPage, price, sortType, stock, ratings])
 
     return (
         <div>
+            <Metadata title={"Search From Thousand Of Products"}/>
             <Nav productsData={productsData} />
             <div className="px-6  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-0 py-5 ">
                 <div className="flex gap-3" >
-                    <CategorySection price={price} setPrice={setPrice} />
+                    <FilterSection price={price} setPrice={setPrice} setStock={stock} setRatings={setRatings}/>
                     <div className="w-full flex flex-col gap-6">
                         <TopBar setResultPerPage={setResultPerPage} setSortType={setSortType} />
                         <div>

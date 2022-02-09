@@ -28,16 +28,17 @@ const Products = ({ ...props }) => {
                             src="https://media.istockphoto.com/photos/tomatoes-picture-id98026003?b=1&k=20&m=98026003&s=170667a&w=0&h=185rOlPM5RueuxjOUFCinuQICXAnUM9AIq_tDELKO4Q="
                             alt=""
                         />
-                        <div
-                            className="absolute bg-skin-inverted bg-opacity-0 opacity-0 group-hover:opacity-100 group-hover:bg-opacity-50 h-full w-full transform-opacity duration-500 cursor-pointer"
+                        {/* Buy Now button */}
+                        <Link to="#"
+                            className={`absolute bg-skin-inverted bg-opacity-0 opacity-0 group-hover:opacity-100 group-hover:bg-opacity-50 ${!products.stock && "bg-opacity-50 opacity-100"} h-full w-full transform-opacity duration-500 cursor-pointer`}
                             onClick={BuyNow}
                         >
                             <div className="absolute flex gap-6 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
-                                <button className="font-body text-white font-extrabold text-2xl">
-                                    Buy Now
+                                <button className="font-body text-white font-extrabold text-2xl" disabled={!products.stock ? true : false}>
+                                    {!products.stock ? "Out of Stock" : "Buy Now"}
                                 </button>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                     <div className="p-4 ">
                         {/* product tag */}

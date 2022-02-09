@@ -1,7 +1,10 @@
 import {
-  HeartIcon, LoginIcon, SearchIcon, ShoppingCartIcon
+  ChevronDownIcon,
+  HeartIcon, LoginIcon, LogoutIcon, SearchIcon, ShoppingCartIcon
 } from "@heroicons/react/outline";
-import React from "react";
+import { CogIcon, UserIcon } from "@heroicons/react/solid";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import Searchbar from "../../components/Search/Searchbar";
 import logo from "../../images/Logo.png";
@@ -11,6 +14,7 @@ import "./styles.css";
 
 const Nav = ({ ...props }) => {
   const { fixed, items = [], SearchBarShow, productsData } = props
+  const { isAuthenticated, user, error, loading } = useSelector(state => state.authReducers)
   return (
     <header className={`top-0 w-full ${fixed} z-50 bg-skin-scheme-color bg-opacity-50`}>
       <nav className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-0">
@@ -39,7 +43,7 @@ const Nav = ({ ...props }) => {
               </li>
             ))}
           </ul>
-          <Searchbar SearchBarShow={SearchBarShow} productsData={productsData}/>
+          <Searchbar SearchBarShow={SearchBarShow} productsData={productsData} />
           {/* Search, cart, wishlist */}
           <div className="flex items-center space-x-8">
             <div className="flex space-x-6">
@@ -62,10 +66,39 @@ const Nav = ({ ...props }) => {
               {/* Sign In / Register Button*/}
             </div>
             <div className="hidden xl:block">
-              <Link to="/login" className="green-button">
-                <LoginIcon className="h-5 w-5 self-center mr-1" />
-                Login
-              </Link>
+              {!isAuthenticated ?
+                <Link to="/login" className="green-button">
+                  <LoginIcon className="h-5 w-5 self-center mr-1" />
+                  Login
+                </Link>
+                // Logged in Profile 
+                : <div x-data="dropdown()">
+                  <button class="p-0" x-spread="trigger">
+                    <div class="flex items-center gap-2 rounded-full" >
+                      <div class="avatar avatar-sm bg-skin-secondary">
+                        {user.avatar
+                          ? <img src={user.avatar.url} alt={user && user.name} />
+                          : <UserIcon className="h-4 w-4 text-gray-600" />}
+                      </div>
+                      <ChevronDownIcon className="h-4 w-4" />
+                    </div>
+                  </button>
+                  <div class="dropdown-list" id="profile-menu" x-position="left-start" x-spread="dropdown" x-cloak="true" >
+                    <p class="dropdown-header">Signed In as <span class="text-skin-primary text-bold">{user && user.name}</span></p>
+                    <Link to="#" class="dropdown-item focus:ring-0 flex gap-2 items-center">
+                      <UserIcon className="w-6 h-6" />
+                      Profile
+                    </Link>
+                    <Link to="#" class="dropdown-item focus:ring-0 flex gap-2 items-center">
+                      <CogIcon className="w-6 h-6" />
+                      Settings
+                    </Link>
+                    <Link to="#" class="dropdown-item focus:ring-0 flex gap-2 items-center">
+                      <LogoutIcon className="w-6 h-6" />
+                      Log out
+                    </Link>
+                  </div>
+                </div>}
             </div>
           </div>
         </div>

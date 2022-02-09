@@ -1,23 +1,29 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { toast } from 'react-toastify';
 const InputField = (props) => {
-  const { name, type, label, labelFor, errors, register } = props;
-  useEffect(() =>{
+  const { name, type, label, labelFor, errors, register, identity } = props;
+  useEffect(() => {
     if (errors) {
       toast.error(errors);
+      // console.log(errors);
     }
-  },[errors]);
+  }, [errors]);
+
+  const handlePaste = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <>
       <input
         name={name}
         className={`block w-full text-base px-4 py-2 border-b bg-transparent appearance-none focus:outline-none rounded-2xl 
-                  ${
-                    errors ? "border-red focus:border-red" : "border-skin-base"
-                  }`}
+                  ${errors ? "border-red focus:border-red" : "border-skin-base"
+          }`}
         type={type}
         placeholder=" "
+        autoComplete="off"
+        // onPaste={handlePaste}
         {...register(name)}
       />
       <label
@@ -26,6 +32,9 @@ const InputField = (props) => {
       >
         {label}
       </label>
+      {
+        (identity === "register" && name === "password") && <p class="px-3 text-xs text-gray-500" id="user_avatar_help"><span class="text-red">*</span>Password at least 6 characters long</p>
+      }
       <div className="absolute right-3 -mt-8">
         {/* Error Icon */}
         {errors && (

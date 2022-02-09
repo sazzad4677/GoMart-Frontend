@@ -6,6 +6,7 @@ import Categories from "../components/Home/Categories/Categories";
 import PopularItems from "../components/Home/PopularItems/PopularItems";
 import BestSeller from "../components/Home/BestSeller/BestSeller";
 import Testimonial from "../components/Home/Testimonial/Testimonial";
+import Metadata from "../layout/Metadata/Metadata";
 
 const Home = () => {
   const navItems = [
@@ -17,6 +18,7 @@ const Home = () => {
   ];
   return (
     <section>
+      <Metadata title={"Your Grocery Delivery Partner"}/>
       <Navigation fixed={"fixed"} items={navItems} icons={"hidden"} SearchBarShow={"hidden"}/>
       <Banner />
       <Features />
