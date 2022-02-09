@@ -1,4 +1,5 @@
 // form schema validation
+import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";
 // Form Validator
@@ -16,10 +17,7 @@ import InputField from "../InputField/InputField";
 // stylesheet
 import "../styles.css";
 
-const Login = ({submitHandler, loading}) => {
-  // toggle password view
-  const [showPassword, setShowPassword] = useState(true);
-
+const Login = ({submitHandler, loading, remember, setRemember}) => {
   // form validator
   const {
     register,
@@ -41,7 +39,7 @@ const Login = ({submitHandler, loading}) => {
     {
       id: 2,
       name: "password",
-      type: !showPassword ? "text" : "password",
+      type: "password",
       labelFor: "password",
       label: "Enter Your Password",
       errors: errors.password?.message,
@@ -86,7 +84,7 @@ const Login = ({submitHandler, loading}) => {
               <span className="h-px w-16 bg-gray-200"></span>
             </div>
             {/* Login Form */}
-            <form className="mt-8 space-y-6" onSubmit={handleSubmit(submitHandler)} autocomplete="off">
+            <form className="mt-8 space-y-6" onSubmit={handleSubmit(submitHandler)} autoComplete="off">
               <input type="hidden" name="remember" value="true" />
               {/* Email Field */}
               {inputData.map(
@@ -119,6 +117,7 @@ const Login = ({submitHandler, loading}) => {
                     name="remember_me"
                     type="checkbox"
                     className="h-4 w-4 rounded absolute checked:bg-skin-primary checked:border-transparent"
+                    onClick={() => setRemember( prev => !prev)}
                   />
                 </div>
                 <div className="text-sm">

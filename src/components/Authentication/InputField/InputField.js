@@ -1,11 +1,11 @@
+import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import React, { useEffect } from "react";
 import { toast } from 'react-toastify';
 const InputField = (props) => {
-  const { name, type, label, labelFor, errors, register, identity } = props;
+  const { name, type, label, labelFor, errors, register, identity, showPassword, setShowPassword } = props;
   useEffect(() => {
     if (errors) {
       toast.error(errors);
-      // console.log(errors);
     }
   }, [errors]);
 

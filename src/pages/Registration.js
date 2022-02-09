@@ -17,14 +17,20 @@ const Registration = () => {
       toast.success("Successfully logged in")
     }
     if (error) {
+      if (error === "You are not authenticated") {
+        dispatch(clearErrors())
+        return
+      }
       toast.error(error)
-      dispatch(clearErrors);
+      dispatch(clearErrors());
     }
   }, [dispatch, isAuthenticated, error, navigate])
 
   const submitHandler = ({ name, username, email, password, phone, avatar }) => {
-    console.log();
     if (avatar.length > 0) {
+      if (avatar[0].type !== 'image/jpg' || avatar[0].type !== 'image/jpeg' || avatar[0].type !== 'image/png') {
+          return toast.error("Only jpg, png and jpeg files are allowed")
+      }
       if ((avatar[0].size / 1024 / 1024).toFixed(2) > 2) {
         return toast.error("File size is more than 2 MB.")
       }

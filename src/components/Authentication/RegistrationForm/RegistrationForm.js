@@ -19,9 +19,6 @@ import InputField from "../InputField/InputField";
 import "../styles.css";
 
 const Registration = ({ submitHandler, loading }) => {
-
-  // toggle password view
-  const [passwordView, setPasswordView] = useState(true);
   const [confirmPasswordView, setConfirmPasswordView] = useState(true);
 
   // form validator
@@ -72,7 +69,7 @@ const Registration = ({ submitHandler, loading }) => {
     {
       id: 5,
       name: "password",
-      type: !passwordView ? "text" : "password",
+      type: "password",
       labelFor: "password",
       label: "Enter Your Password",
       errors: errors.password?.message,

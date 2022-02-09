@@ -36,7 +36,7 @@ const SearchPage = () => {
 
     return (
         <div>
-            <Metadata title={`Search ${keyword ? "-" + keyword : "Search From Thousand Of Products" }`} />
+            <Metadata title={`${!keyword ? "Search From Thousand Of Products"  : "Search - "+keyword }`} />
             <Nav productsData={productsData} />
             <div className="px-6  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-0 py-5">
                 <div className="flex gap-3" >

@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { ShoppingCartIcon, HeartIcon, StarIcon } from "@heroicons/react/solid";
 import { Link } from 'react-router-dom';
-import TopBar from '../../layout/Products/TopBar';
 
 const Products = ({ ...props }) => {
-    const { productsData: { products }, setResultPerPage, setSortType, keyword } = props
-
+    const { productsData: { products }} = props
     const handelShoppingCart = () => {
         console.log("Shopping Cart");
     };
-
     const [state, setState] = useState(false);
     const handelWishList = () => {
         setState((prev) => !prev);
