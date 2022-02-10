@@ -1,5 +1,6 @@
 import { PlayIcon } from "@heroicons/react/outline";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
 const Hero = ({ data }) => {
   const {
@@ -64,11 +65,11 @@ const Hero = ({ data }) => {
             {description}
           </p>
           <div className="flex items-center space-x-4">
-            <button className="green-button">Explore</button>
+            <Link to="/products" className="green-button">Explore</Link>
 
             {/* button for video dialog box */}
             <button className="white-button" onClick={openVideoPlayer}>
-              <PlayIcon className=" mr-2 h-5 w-5" /> Order Process
+              <PlayIcon className=" mr-2 h-5 w-5" /> How We Process The Order
             </button>
             <VideoPlayer isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>

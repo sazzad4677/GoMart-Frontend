@@ -11,6 +11,7 @@ const Registration = () => {
   const dispatch = useDispatch()
   const { isAuthenticated, error, loading } = useSelector(state => state.authReducers)
   const [userAvatar, setUserAvatar] = useState("")
+  const [userAvatarPreview, setUserAvatarPreview] = useState("")
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/")
@@ -26,21 +27,10 @@ const Registration = () => {
     }
   }, [dispatch, isAuthenticated, error, navigate])
 
-  const submitHandler = ({ name, username, email, password, phone, avatar }) => {
-    if (avatar.length > 0) {
-      if (avatar[0].type !== 'image/jpg' || avatar[0].type !== 'image/jpeg' || avatar[0].type !== 'image/png') {
-          return toast.error("Only jpg, png and jpeg files are allowed")
-      }
-      if ((avatar[0].size / 1024 / 1024).toFixed(2) > 2) {
-        return toast.error("File size is more than 2 MB.")
-      }
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        if (reader.readyState === 2) {
-          setUserAvatar(reader.result)
-        }
-      }
-      reader.readAsDataURL(avatar[0])
+  const submitHandler = ({ name, username, email, password, phone }) => {
+    const type = userAvatar.split(';')[0].split('/')[1];
+    if (type !== 'jpg' && type !== 'png' && type !== 'jpeg') {
+        return toast.error("Only jpg, png and jpeg files are allowed")
     }
     const formData = new FormData()
     formData.set('name', name)
@@ -55,7 +45,7 @@ const Registration = () => {
   return (
     <div>
       <Metadata title={"Register"} />
-      <RegistrationForm submitHandler={submitHandler} loading={loading} />
+      <RegistrationForm submitHandler={submitHandler} loading={loading} userAvatarPreview={userAvatarPreview} userAvatar={userAvatar} setUserAvatar={setUserAvatar} setUserAvatarPreview={setUserAvatarPreview}/>
     </div>
   );
 };

@@ -175,9 +175,9 @@ const Category = ({ price, setPrice, setRatings }) => {
         <div className="w-1/5 ">
             {/* Filter by Price */}
             <div className="flex flex-col gap-6">
-                <div class="card rounded-lg shadow border">
-                    <div class="card-header">
-                        <div class="font-semibold text-skin-primary p-1 font-semibold">Price Range</div>
+                <div className="card rounded-lg shadow border">
+                    <div className="card-header">
+                        <div className="font-semibold text-skin-primary p-1 font-semibold">Price Range</div>
                     </div>
                     <div className="p-3">
                         <div className="pr-2 pl-2 flex flex-col justify-center">
@@ -194,15 +194,15 @@ const Category = ({ price, setPrice, setRatings }) => {
                                 railStyle={{ backgroundColor: '#D3D3D3', height: '10px' }}
                             />
                         </div>
-                        <div class="flex items-center justify-between pt-5 space-x-4 text-sm text-gray-700">
+                        <div className="flex items-center justify-between pt-5 space-x-4 text-sm text-gray-700">
                             <form className="text-center" onSubmit={handelSubmittedPriceRange}>
                                 <input type="number" name="Min"
-                                    class="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none text-skin-primary text-base" onChange={(e) => setMinPrice(e.target.value)} value={minPrice} />
+                                    className="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none text-skin-primary text-base" onChange={(e) => setMinPrice(e.target.value)} value={minPrice} />
                                 <label for="Min" className="text-skin-secondary"> Min</label>
                             </form>
                             <form className="text-center " onSubmit={handelSubmittedPriceRange}>
                                 <input type="number" name="Max"
-                                    class="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none text-skin-primary text-base" onChange={(e) => setMaxPrice(e.target.value)} value={maxPrice} />
+                                    className="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none text-skin-primary text-base" onChange={(e) => setMaxPrice(e.target.value)} value={maxPrice} />
                                 <label for="Max" className="text-skin-secondary"> Max</label>
                             </form>
                         </div>
@@ -210,9 +210,9 @@ const Category = ({ price, setPrice, setRatings }) => {
                 </div>
                 {/* TODO => Filter By Availity */}
                 <div>
-                    <div class="card rounded-lg shadow border">
-                        <div class="card-header" onClick={() => setAvailityCollapsed(prev => !prev)} >
-                            <div class="font-semibold text-skin-primary p-1 font-semibold">Availability</div>
+                    <div className="card rounded-lg shadow border">
+                        <div className="card-header" onClick={() => setAvailityCollapsed(prev => !prev)} >
+                            <div className="font-semibold text-skin-primary p-1 font-semibold">Availability</div>
                             <ChevronDownIcon className={`h-4 w-4 transition transform duration-1000 ${availityCollapsed && "rotate-180"}`}></ChevronDownIcon>
                         </div>
                         <Collapse isOpened={availityCollapsed} >
@@ -229,9 +229,9 @@ const Category = ({ price, setPrice, setRatings }) => {
                 </div>
                 {/* Filter By Review */}
                 <div>
-                    <div class="card rounded-lg shadow border">
-                        <div class="card-header" onClick={() => setRatingCollapsed(prev => !prev)} >
-                            <div class="font-semibold text-skin-primary p-1 font-semibold">Review</div>
+                    <div className="card rounded-lg shadow border">
+                        <div className="card-header" onClick={() => setRatingCollapsed(prev => !prev)} >
+                            <div className="font-semibold text-skin-primary p-1 font-semibold">Review</div>
                             <ChevronDownIcon className={`h-4 w-4 transition transform duration-1000 ${ratingCollapsed && "rotate-180"}`}></ChevronDownIcon>
                         </div>
                         <Collapse isOpened={ratingCollapsed} >

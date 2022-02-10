@@ -1,8 +1,8 @@
 import {
   ChevronDownIcon,
-  HeartIcon, LoginIcon, LogoutIcon, SearchIcon, ShoppingCartIcon, ViewGridIcon, ViewListIcon
+  HeartIcon, LoginIcon, LogoutIcon, SearchIcon, ShoppingCartIcon, ViewGridIcon,
 } from "@heroicons/react/outline";
-import { CogIcon, UserIcon } from "@heroicons/react/solid";
+import { UserIcon } from "@heroicons/react/solid";
 import { toast } from 'react-toastify';
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,15 +23,15 @@ const Nav = ({ ...props }) => {
     toast.success("Successfully Logged out")
   }
   return (
-    <header className={`top-0 w-full ${fixed} z-50 bg-skin-scheme-color bg-opacity-50`}>
+    <header className={`top-0 w-full ${fixed} z-50 bg-skin-scheme-color bg-opacity-70`}>
       <nav className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-0">
         <div className="relative flex items-center justify-between ">
-          <a className="flex items-center " href="/">
+          <Link to ="/" className="flex items-center">
             <img src={logo} alt="Go Mart" className="object-contain w-8" />
             <span className="font-display font-bold tracking-tight leading-snug text-skin-primary ml-2  text-2xl">
               Go<span className="text-skin-base">Mart</span>
             </span>
-          </a>
+          </Link>
           {/* Nav Links */}
           <ul className="hidden xl:flex px-4 font-body font-semibold font-heading space-x-12 text-skin-primary ">
             {items.map(({ name, href }, key) => (
@@ -72,37 +72,37 @@ const Nav = ({ ...props }) => {
             <div className="hidden xl:block">
               {user ?
                 <div x-data="dropdown()">
-                  <button class="p-0" x-spread="trigger">
-                    <div class="flex items-center gap-2 rounded-full" >
-                      <div class="avatar avatar-sm bg-skin-secondary">
+                  <button className="p-0" x-spread="trigger">
+                    <div className="flex items-center gap-2 rounded-full" >
+                      <div className="avatar avatar-sm bg-skin-secondary">
                         {user.avatar
-                          ? <img src={user.avatar.url} alt={ user.name} />
+                          ? <img src={user.avatar.url} alt={user.name} />
                           : <UserIcon className="h-4 w-4 text-gray-600" />}
                       </div>
                       <ChevronDownIcon className="h-4 w-4" />
                     </div>
                   </button>
-                  <div class="dropdown-list" id="profile-menu" x-position="left-start" x-spread="dropdown" x-cloak="true" >
-                    <p class="dropdown-header text-skin-secondary text-bold">{ user.name}</p>
-                    <Link to="/profile" class="dropdown-item focus:ring-0 flex gap-2 items-center">
+                  <div className="dropdown-list" id="profile-menu" x-position="left-start" x-spread="dropdown" x-cloak="true" >
+                    <p className="dropdown-header text-skin-secondary text-bold">{user.username}</p>
+                    <Link to="/profile" className="dropdown-item focus:ring-0 flex gap-2 items-center">
                       <UserIcon className="w-6 h-6" />
                       Profile
                     </Link>
                     {
                       user.role === "admin"
-                        ? <Link to="/dashboard" class="dropdown-item focus:ring-0 flex gap-2 items-center">
+                        ? <Link to="/dashboard" className="dropdown-item focus:ring-0 flex gap-2 items-center">
                           <ViewGridIcon className="w-6 h-6" />
                           Dashboard
                         </Link>
-                        : <Link to="/orders" class="dropdown-item focus:ring-0 flex gap-2 items-center">
+                        : <Link to="/orders" className="dropdown-item focus:ring-0 flex gap-2 items-center">
                           <ViewGridIcon className="w-6 h-6" />
                           Orders
                         </Link>
                     }
-                    <div onClick={logoutHandler} class="dropdown-item focus:ring-0 flex gap-2 items-center text-red">
+                    <Link to="/" onClick={logoutHandler} className="dropdown-item focus:ring-0 flex gap-2 items-center text-red">
                       <LogoutIcon className="w-6 h-6" style={{ color: 'red' }} />
                       <span className="text-red">Log out</span>
-                    </div>
+                    </Link>
                   </div>
                 </div>
                 // Logged in Profile 

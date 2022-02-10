@@ -27,7 +27,6 @@ const ProductsPage = () => {
     const [sortType, setSortType] = useState("0");
     // products data
     const productsData = useSelector(state => state.products)
-    console.log(productsData);
     useEffect(() => {
         if (productsData.errors) {
             return toast.error(productsData.errors)

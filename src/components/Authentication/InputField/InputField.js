@@ -33,7 +33,7 @@ const InputField = (props) => {
         {label}
       </label>
       {
-        (identity === "register" && name === "password") && <p class="px-3 text-xs text-gray-500" id="user_avatar_help"><span class="text-red">*</span>Password at least 6 characters long</p>
+        (identity === "register" && name === "password") && <p className="px-3 text-xs text-gray-500" id="user_avatar_help"><span className="text-red">*</span>Password at least 6 characters long</p>
       }
       <div className="absolute right-3 -mt-8">
         {/* Error Icon */}

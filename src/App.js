@@ -13,6 +13,7 @@ import ProductsPage from "./pages/ProductsPage";
 import SearchPage from "./pages/SearchPage";
 import { loadUser } from "./actions/authActions"
 import store from "./store"
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />}></Route>
         <Route path="/productsold" element={<ProductsOld />}></Route>
         <Route path="/products" element={<ProductsPage />}></Route>
+        <Route path="/profile" element={<ProfilePage />}></Route>
         <Route path="/productsold" element={<ProductsOld />}></Route>
         <Route path="/search/" element={<SearchPage />}></Route>
         <Route path="/search/:keyword" element={<SearchPage />}></Route>

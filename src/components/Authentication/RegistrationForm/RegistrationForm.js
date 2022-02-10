@@ -1,13 +1,15 @@
-import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useState } from "react";
+import React from "react";
+import { useEffect } from "react";
 // form validation
 import { useForm } from "react-hook-form";
 // icons
+import { UserIcon } from "@heroicons/react/solid";
 import { AiFillFacebook } from "react-icons/ai";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import "yup-phone";
 // images
 import logo from "../../../images/Logo.png";
@@ -18,9 +20,7 @@ import InputField from "../InputField/InputField";
 // stylesheet
 import "../styles.css";
 
-const Registration = ({ submitHandler, loading }) => {
-  const [confirmPasswordView, setConfirmPasswordView] = useState(true);
-
+const Registration = ({ submitHandler, loading, userAvatarPreview, setUserAvatarPreview, setUserAvatar }) => {
   // form validator
   const {
     register,
@@ -60,7 +60,7 @@ const Registration = ({ submitHandler, loading }) => {
     {
       id: 4,
       name: "phone",
-      type: "text",
+      type: "number",
       labelFor: "phone",
       label: "Enter Your Phone Number",
       errors: errors.phone?.message,
@@ -78,7 +78,7 @@ const Registration = ({ submitHandler, loading }) => {
     {
       id: 6,
       name: "confirmPassword",
-      type: !confirmPasswordView ? "text" : "password",
+      type: "password",
       labelFor: "confirmPassword",
       label: "Confirm your password",
       errors: errors.confirmPassword && "Passwords not matched",
@@ -140,13 +140,49 @@ const Registration = ({ submitHandler, loading }) => {
                 )
               )}
               {/* User profile picture */}
-              <div>
-                <label class="text-sm font-medium text-skin-secondary block" for="user_avatar">Upload a profile picture
-                  <input {...register("avatar")} class="block w-full cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:border-transparent text-sm rounded-lg" aria-describedby="user_avatar_help" id="user_avatar" type="file" data-max-size="2048" accept="image/jpg, image/jpeg, image/png" pattern="/.*\.(gif|jpe?g|bmp|png)$/igm" /> </label>
-                <p class=" text-xs text-gray-500 px-1" id="user_avatar_help">A profile picture is useful to confirm your are logged into your account</p>
-                <p class=" text-xs text-gray-500" id="user_avatar_help"><span class="text-red">*</span>File Size not more than 2MB</p>
+              <div className="flex flex-col gap-2">
+                <p className="text-sm font-medium text-skin-secondary">Upload a profile picture</p>
+                <div>
+                  <div className="flex gap-3 items-center ">
+                    <div className="border rounded-full avatar  bg-white">
+                      {
+                        userAvatarPreview
+                          ? <img src={userAvatarPreview} alt="preview" className="avatar"/>
+                          : <UserIcon className="h-6 w-6 text-gray-500 " />
+                      }
+                    </div>
+                    <input {...register("avatar",
+                      {
+                        onChange: (avatar) => {
+                          if (avatar.target.files.length > 0) {
+                            if (avatar.target.files[0].type !== 'image/jpg' && avatar.target.files[0].type !== 'image/jpeg' && avatar.target.files[0].type !== 'image/png') {
+                              return toast.error("Only jpg, png and jpeg files are allowed")
+                            }
+                            if ((avatar.target.files[0].size / 1024 / 1024).toFixed(2) > 2) {
+                              return toast.error("File size is more than 2 MB.")
+                            }
+                            const reader = new FileReader()
+                            reader.onload = () => {
+                              if (reader.readyState === 2) {
+                                setUserAvatar(reader.result)
+                                setUserAvatarPreview(reader.result)
+                              }
+                            }
+                            reader.onerror = () => {
+                              return toast.error("Failed to read file!" + reader.error)
+                            }
+                            reader.readAsDataURL(avatar.target.files[0])
+                          }
+                        }
+                      })} className="block w-full cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:border-transparent text-sm rounded-lg" aria-describedby="user_avatar_help" id="user_avatar" type="file" data-max-size="2048" accept="image/jpg, image/jpeg, image/png" pattern="/.*\.(gif|jpe?g|bmp|png)$/igm"
+                    />
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    <p>A profile picture is useful to confirm your are logged into your account</p>
+                    <p><span className="text-red">*</span>File Size not more than 2MB</p>
+                  </div>
+                </div>
               </div>
-              {/* <button type="reset" @click="files = null" class="btn btn-light mt-2">Reset</button> */}
               <div>
                 <button type="submit" className="green-button w-full h-12" disabled={loading ? true : false}>
                   Sign up &rarr;
