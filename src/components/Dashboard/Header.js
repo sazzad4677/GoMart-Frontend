@@ -11,27 +11,27 @@ const Header = () => {
     <Disclosure as="nav" className="bg-skin-scheme-color">
       {() => (
         <>
-          <div className="relative  flex items-center justify-end h-16">
+          <div className="relative  flex h-16 items-center justify-end">
             <div className="absolute inset-y-0 right-0 flex items-center  sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <button
                 type="button"
-                className="relative bg-skin-scheme-color p-1 rounded-full text-skin-base focus:outline-none focus:ring-0"
+                className="bg-skin-scheme-color text-skin-base relative rounded-full p-1 focus:outline-none focus:ring-0"
               >
                 <span className="sr-only">View notifications</span>
                 <BellIcon
-                  className="h-6 w-6 hover:fill-green"
+                  className="hover:fill-green h-6 w-6"
                   aria-hidden="true"
                 />
-                <span className="flex absolute -mt-6 ml-3">
-                  <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-skin-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-skin-primary"></span>
+                <span className="absolute -mt-6 ml-3 flex">
+                  <span className="bg-skin-primary absolute inline-flex h-2 w-2 animate-ping rounded-full opacity-75"></span>
+                  <span className="bg-skin-primary relative inline-flex h-2 w-2 rounded-full"></span>
                 </span>
               </button>
 
               {/* Profile dropdown */}
-              <Menu as="div" className="ml-3 relative">
+              <Menu as="div" className="relative ml-3">
                 <div>
-                  <Menu.Button className="bg-skin-secondary flex text-sm rounded-full border border-skin-base focus:outline-none  focus:ring-0">
+                  <Menu.Button className="bg-skin-secondary border-skin-base flex rounded-full border text-sm focus:outline-none  focus:ring-0">
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="h-8 w-8 rounded-full"
@@ -49,14 +49,14 @@ const Header = () => {
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <Menu.Item>
                       {({ active }) => (
                         <a
                           href="#"
                           className={classNames(
                             active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-skin-primary"
+                            "text-skin-primary block px-4 py-2 text-sm"
                           )}
                         >
                           Your Profile
@@ -69,7 +69,7 @@ const Header = () => {
                           href="#"
                           className={classNames(
                             active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-skin-primary"
+                            "text-skin-primary block px-4 py-2 text-sm"
                           )}
                         >
                           Settings
@@ -82,7 +82,7 @@ const Header = () => {
                           href="#"
                           className={classNames(
                             active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-skin-primary"
+                            "text-skin-primary block px-4 py-2 text-sm"
                           )}
                         >
                           Sign out
@@ -94,13 +94,13 @@ const Header = () => {
               </Menu>
               <button
                 type="button"
-                className="relative ml-6 h-16 px-4 bg-skin-primary text-white focus:outline-none focus:ring-0"
+                className="bg-skin-primary relative ml-6 h-16 px-4 text-white focus:outline-none focus:ring-0"
               >
                 <span className="sr-only">View Chat</span>
                 <ChatAltIcon className="h-6 w-6 " />
-                <span className="flex absolute -mt-6 ml-4">
-                  <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-white opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-skin-secondary"></span>
+                <span className="absolute -mt-6 ml-4 flex">
+                  <span className="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-white opacity-75"></span>
+                  <span className="bg-skin-secondary relative inline-flex h-2 w-2 rounded-full"></span>
                 </span>
               </button>
             </div>

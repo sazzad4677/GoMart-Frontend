@@ -1,32 +1,43 @@
-import React from 'react';
+import React from "react";
+const TopBar = ({ setResultPerPage, setSortType }) => {
+  return (
+    <div className="card flex flex-row items-center justify-between rounded-lg border px-2 shadow">
+      <div className="card-header">
+        <p className="text-skin-primary p-1 font-semibold font-semibold">
+          Component
+        </p>
+      </div>
 
-const TopBar = ({setResultPerPage,setSortType} ) => {
-    return (
-        <div className="card flex flex-row justify-between items-center border rounded-lg px-2 shadow">
-            <div className="card-header">
-                <p className="font-semibold text-skin-primary p-1 font-semibold">Component</p>
-            </div>
-            <div className="flex">
-                <div className="flex px-2 items-center">
-                    <p className="font-semibold text-skin-secondary p-1 text-sm">Show:</p>
-                    <select className=" text-skin-primary p-1 focus:outline-none text-sm bg-skin-optional" onChange={(e) => setResultPerPage(e.target.value)}>
-                        <option value="10"> 10</option>
-                        <option value="20"> 20</option>
-                        <option value="30"> 30</option>
-                        <option value="40"> 40</option>
-                    </select>
-                </div>
-                <div className="flex px-2 items-center">
-                    <p className="font-semibold text-skin-secondary p-1 text-sm">Sort By:</p>
-                    <select className=" text-skin-primary p-1 focus:outline-none text-sm bg-skin-optional" onChange={(e) => setSortType(e.target.value)}>
-                        <option value="0"> Default</option>
-                        <option value="-1"> Price ( High {'>'} Low )</option>
-                        <option value="1"> Price ( Low {'>'} High )</option>
-                    </select>
-                </div>
-            </div>
+      <div className="flex">
+        <div className="flex items-center px-2">
+          <p className="text-skin-secondary p-1 text-sm font-semibold">Show:</p>
+          <select
+            className=" text-skin-primary bg-skin-optional p-1 text-sm focus:outline-none"
+            onChange={(e) => setResultPerPage(e.target.value)}
+          >
+            {[10, 20, 30, 40].map((number, key) => (
+              <option key={key} value={number}>
+                {number}
+              </option>
+            ))}
+          </select>
         </div>
-    );
+        <div className="flex items-center px-2">
+          <p className="text-skin-secondary p-1 text-sm font-semibold">
+            Sort By:
+          </p>
+          <select
+            className=" text-skin-primary bg-skin-optional p-1 text-sm focus:outline-none"
+            onChange={(e) => setSortType(e.target.value)}
+          >
+            <option value="0"> Default</option>)
+            <option value="-1"> Price ( High {">"} Low )</option>
+            <option value="1"> Price ( Low {">"} High )</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default TopBar;

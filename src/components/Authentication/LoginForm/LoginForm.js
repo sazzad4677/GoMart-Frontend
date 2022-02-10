@@ -17,7 +17,7 @@ import InputField from "../InputField/InputField";
 // stylesheet
 import "../styles.css";
 
-const Login = ({submitHandler, loading, remember, setRemember}) => {
+const Login = ({ submitHandler, loading, remember, setRemember }) => {
   // form validator
   const {
     register,
@@ -47,44 +47,47 @@ const Login = ({submitHandler, loading, remember, setRemember}) => {
     },
   ];
 
-
   return (
-    <div className="relative min-h-screen flex ">
-      <div className="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 bg-skin-scheme-color">
-        <div className="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full xl:w-2/5 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-skin-scheme-color">
-          <div className="max-w-md w-full space-y-8">
-            <div className=" flex flex-col justify-center items-center">
+    <div className="relative flex min-h-screen ">
+      <div className="bg-skin-scheme-color flex min-w-0 flex-auto flex-col items-center sm:flex-row sm:justify-center md:items-start md:justify-start">
+        <div className="bg-skin-scheme-color w-full p-8 sm:w-auto sm:rounded-lg md:flex md:h-full md:items-center  md:justify-center md:rounded-none md:p-10 lg:p-14 xl:w-2/5">
+          <div className="w-full max-w-md space-y-8">
+            <div className=" flex flex-col items-center justify-center">
               <Link to="/" className="flex items-center">
-                <img src={logo} alt="Go Mart" className="object-contain w-10" />
-                <span className="font-display font-bold tracking-tight leading-snug text-skin-primary ml-2 text-center text-4xl">
+                <img src={logo} alt="Go Mart" className="w-10 object-contain" />
+                <span className="font-display text-skin-primary ml-2 text-center text-4xl font-bold leading-snug tracking-tight">
                   Go<span className="text-skin-base"> Mart</span>
                 </span>
               </Link>
               <h2 className="mt-6 text-3xl font-bold text-gray-900">
                 Welcome Back :)
               </h2>
-              <p className="mt-2 text-sm text-skin-secondary">
+              <p className="text-skin-secondary mt-2 text-sm">
                 Please sign in to your account
               </p>
             </div>
-            <div className="flex flex-row justify-center items-center space-x-10">
+            <div className="flex flex-row items-center justify-center space-x-10">
               {/* Social Icon*/}
               <button>
-                <AiFillFacebook className="w-10 h-10 text-blue-500  hover:text-blue-400 " />
+                <AiFillFacebook className="h-10 w-10 text-blue-500  hover:text-blue-400 " />
               </button>
               <button>
-                <FcGoogle className="w-9 h-9  hover:opacity-70" />
+                <FcGoogle className="h-9 w-9  hover:opacity-70" />
               </button>
             </div>
             <div className="flex items-center justify-center space-x-2">
               <span className="h-px w-16 bg-gray-200"></span>
-              <span className="text-gray-300 font-normal">
+              <span className="font-normal text-gray-300">
                 or continue with
               </span>
               <span className="h-px w-16 bg-gray-200"></span>
             </div>
             {/* Login Form */}
-            <form className="mt-8 space-y-6" onSubmit={handleSubmit(submitHandler)} autoComplete="off">
+            <form
+              className="mt-8 space-y-6"
+              onSubmit={handleSubmit(submitHandler)}
+              autoComplete="off"
+            >
               <input type="hidden" name="remember" value="true" />
               {/* Email Field */}
               {inputData.map(
@@ -105,10 +108,10 @@ const Login = ({submitHandler, loading, remember, setRemember}) => {
               )}
               {/* Other fields */}
               <div className="flex items-center justify-between">
-                <div className="flex items-center relative">
+                <div className="relative flex items-center">
                   <label
                     htmlFor="remember_me"
-                    className=" text-sm text-skin-secondary absolute left-6 right-6 w-28"
+                    className=" text-skin-secondary absolute left-6 right-6 w-28 text-sm"
                   >
                     Remember me
                   </label>
@@ -116,8 +119,8 @@ const Login = ({submitHandler, loading, remember, setRemember}) => {
                     id="remember_me"
                     name="remember_me"
                     type="checkbox"
-                    className="h-4 w-4 rounded absolute checked:bg-skin-primary checked:border-transparent"
-                    onClick={() => setRemember( prev => !prev)}
+                    className="checked:bg-skin-primary absolute h-4 w-4 rounded checked:border-transparent"
+                    onClick={() => setRemember((prev) => !prev)}
                   />
                 </div>
                 <div className="text-sm">
@@ -127,15 +130,15 @@ const Login = ({submitHandler, loading, remember, setRemember}) => {
                 </div>
               </div>
               <div className="flex justify-end ">
-                <button type="submit" className="green-button w-full h-12">
+                <button type="submit" className="green-button h-12 w-full">
                   Sign In &rarr;
                 </button>
               </div>
-              <p className="flex flex-col items-center justify-center mt-10 text-center text-md text-skin-secondary">
+              <p className="text-md text-skin-secondary mt-10 flex flex-col items-center justify-center text-center">
                 <span>Don't have an account?</span>
                 <Link
                   to="/register"
-                  className="text-skin-base hover:opacity-80 no-underline cursor-pointer transition ease-in duration-300"
+                  className="text-skin-base cursor-pointer no-underline transition duration-300 ease-in hover:opacity-80"
                 >
                   Sign up
                 </Link>
@@ -143,16 +146,19 @@ const Login = ({submitHandler, loading, remember, setRemember}) => {
             </form>
             <Link
               to="/"
-              className=" flex items-center justify-center gap-2 mt-10 text-center text-md text-skin-secondary cursor-pointer"
+              className=" text-md text-skin-secondary mt-10 flex cursor-pointer items-center justify-center gap-2 text-center"
             >
-              <BsArrowLeftShort className="w-6 h-6" />
+              <BsArrowLeftShort className="h-6 w-6" />
               <span> Go Back to Home</span>
             </Link>
           </div>
         </div>
         {/* image bubble */}
-        <div className="sm:w-1/2 xl:w-3/5 h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden text-white bg-no-repeat bg-cover relative" style={{ backgroundImage: `url(${background})` }} >
-          <div className="absolute bg-gradient-to-b from-green-light to-green-primary opacity-50  bg-skin-secondary inset-0 z-0"></div>
+        <div
+          className="relative hidden h-full flex-auto items-center justify-center overflow-hidden bg-cover bg-no-repeat p-10 text-white sm:w-1/2 md:flex xl:w-3/5"
+          style={{ backgroundImage: `url(${background})` }}
+        >
+          <div className="from-green-light to-green-primary bg-skin-secondary absolute inset-0  z-0 bg-gradient-to-b opacity-50"></div>
           <ul className="circles">
             {[...Array(10)].map((el, i) => (
               <li key={i}></li>

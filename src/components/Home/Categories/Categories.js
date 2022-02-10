@@ -11,16 +11,16 @@ const Categories = () => {
   const handelButtonClick = () => {
     setExpendCategory((prev) => !prev);
   };
-  
+
   return (
-    <section className="px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-10">
-      <div className="max-w-xl md:mx-auto sm:text-center lg:max-w-screen-xl px-4 pb-5">
-        <div className="flex flex-col justify-content-center">
+    <section className="mx-auto  mt-10 px-4 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
+      <div className="max-w-xl px-4 pb-5 sm:text-center md:mx-auto lg:max-w-screen-xl">
+        <div className="justify-content-center flex flex-col">
           <p className="label-text text-center">Here's what you need</p>
           <h2 className="heading-2 text-center">Shop by Categories</h2>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-5 mb-10 sm:grid-cols-3 lg:grid-cols-6 text-skin-primary">
+      <div className="text-skin-primary mb-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
         {/* first half of category items always visible */}
         {categoryData.slice(0, 6).map(({ id, name, image, link }) => (
           <Link to={link} key={id} className="text-center">
@@ -46,7 +46,7 @@ const Categories = () => {
           onClick={handelButtonClick}
         >
           <ArrowDownIcon
-            className={`h-6 w-6 text-skin-accent font-bold transition transform duration-1000
+            className={`text-skin-accent h-6 w-6 transform font-bold transition duration-1000
             ${expendCategory && "rotate-180"}`}
           />
         </button>

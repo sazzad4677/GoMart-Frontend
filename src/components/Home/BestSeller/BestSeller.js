@@ -26,28 +26,28 @@ const BestSeller = () => {
   const sliderArrowNext = useRef(null);
   return (
     <section className=" p-2">
-      <div className="px-3  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-8 mt-10">
-        <div className="flex justify-between items-center ">
+      <div className="mx-auto  mt-10 px-3 sm:max-w-xl md:max-w-full md:px-20 lg:max-w-screen-xl lg:px-8">
+        <div className="flex items-center justify-between ">
           <h2 className="heading-3">
             <span className="text-skin-base">Best</span>{" "}
             <span className="text-skin-primary">Sellers</span>
           </h2>
-          <div className="flex justify-between items-center gap-8 ">
+          <div className="flex items-center justify-between gap-8 ">
             <button
               ref={sliderArrowPrev}
-              className=" bg-transparent border-transparent font-semibold"
+              className=" border-transparent bg-transparent font-semibold"
             >
-              <ArrowCircleLeftIcon className="h-8 w-8  text-skin-secondary hover:opacity-80" />
+              <ArrowCircleLeftIcon className="text-skin-secondary h-8  w-8 hover:opacity-80" />
             </button>
             <button
               ref={sliderArrowNext}
-              className="bg-transparent border-transparent font-semibold  rounded-full "
+              className="rounded-full border-transparent bg-transparent  font-semibold "
             >
-              <ArrowCircleRightIcon className="h-8 w-8 text-skin-base hover:opacity-80" />
+              <ArrowCircleRightIcon className="text-skin-base h-8 w-8 hover:opacity-80" />
             </button>
           </div>
         </div>
-        <div className="antialiased text-skin-primary pt-6">
+        <div className="text-skin-primary pt-6 antialiased">
           <Swiper
             slidesPerGroup={2}
             loop={true}
@@ -73,7 +73,7 @@ const BestSeller = () => {
                 spaceBetween: 30,
               },
             }}
-            className="grid gap-8 row-gap-10 sm:grid-cols-2 lg:grid-cols-4"
+            className="row-gap-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
           >
             {products &&
               products.map((items) => (

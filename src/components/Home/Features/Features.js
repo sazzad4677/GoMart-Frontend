@@ -9,39 +9,39 @@ const Features = () => {
   return (
     <section className="bg-skin-secondary bg-opacity-100">
       {/* <Fade bottom> */}
-      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-          <div className="flex flex-col justify-content-center">
+      <div className="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
+        <div className="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
+          <div className="justify-content-center flex flex-col">
             <p className="label-text text-center">What we Served</p>
             <h2 className="heading-2 text-center">
               Fruits and Vegetables Delivered <br /> To Your Home
             </h2>
           </div>
         </div>
-        <div className="grid gap-14 max-w-5xl lg:px-16 sm:grid-cols-2 lg:grid-cols-3 mx-auto z-10 group">
+        <div className="group z-10 mx-auto grid max-w-5xl gap-14 sm:grid-cols-2 lg:grid-cols-3 lg:px-16">
           <div className="feature-card">
             <div className="font-display flex flex-col items-center text-center">
-              <div className="w-16 h-16 mb-6">
+              <div className="mb-6 h-16 w-16">
                 <img src={freeShippingLogo} alt="Free Shipping" />
               </div>
-              <h6 className="text-skin-primary font-display text-lg font-bold leading-5 capitalize pb-5">
+              <h6 className="text-skin-primary font-display pb-5 text-lg font-bold capitalize leading-5">
                 Free Shipping
               </h6>
-              <p className="font-display text-center pl-7 pr-7 text-base tracking-wide text-skin-secondary">
+              <p className="font-display text-skin-secondary pl-7 pr-7 text-center text-base tracking-wide">
                 A flower in my garden, a mystery in my panties xyz xyz.
               </p>
             </div>
           </div>
           <div className="feature-card-background">
             <div className="feature-card ">
-              <div className="font-display flex flex-col items-center text-center z-10">
-                <div className="w-16 h-16 mb-6">
+              <div className="font-display z-10 flex flex-col items-center text-center">
+                <div className="mb-6 h-16 w-16">
                   <img src={returnLogo} alt="return logo" />
                 </div>
-                <h6 className="text-skin-primary font-display text-lg font-bold leading-5 capitalize pb-5">
+                <h6 className="text-skin-primary font-display pb-5 text-lg font-bold capitalize leading-5">
                   15 Days return
                 </h6>
-                <p className="font-display text-center pl-7 pr-7 text-sm text-skin-secondary">
+                <p className="font-display text-skin-secondary pl-7 pr-7 text-center text-sm">
                   A flower in my garden, a mystery in my panties xyz xyz.
                 </p>
               </div>
@@ -49,13 +49,13 @@ const Features = () => {
           </div>
           <div className="feature-card">
             <div className="font-display flex flex-col items-center text-center">
-              <div className="w-16 h-16 mb-6">
+              <div className="mb-6 h-16 w-16">
                 <img src={secureCheckoutLogo} alt="Secure Checkout logo" />
               </div>
-              <h6 className="text-skin-primary font-display text-lg font-bold leading-5 capitalize pb-5">
+              <h6 className="text-skin-primary font-display pb-5 text-lg font-bold capitalize leading-5">
                 Secure Checkout
               </h6>
-              <p className="font-display text-center pl-7 pr-7 text-sm text-skin-secondary">
+              <p className="font-display text-skin-secondary pl-7 pr-7 text-center text-sm">
                 A flower in my garden, a mystery in my panties xyz xyz.
               </p>
             </div>

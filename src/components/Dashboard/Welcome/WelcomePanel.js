@@ -4,17 +4,16 @@ const Welcome = () => {
   return (
     <div className="mb-6">
       <div className="flex">
-        <div className="md:flex items-center gap-6">
-          <h1 className="font-display text-2xl md:text-3xl text-gray-600 font-bold mb-1">
+        <div className="items-center gap-6 md:flex">
+          <h1 className="font-display mb-1 text-2xl font-bold text-gray-600 md:text-3xl">
             Hi, Welcome back!
           </h1>
           <small className="font-display text-skin-secondary">
             Last login was 23 hours ago.&nbsp;
-            <span className="underline cursor-pointer">View Details </span>
+            <span className="cursor-pointer underline">View Details </span>
           </small>
         </div>
-        <div>
-        </div>
+        <div></div>
       </div>
     </div>
   );

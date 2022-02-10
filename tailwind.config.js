@@ -67,9 +67,9 @@ module.exports = {
         white: {
           DEFAULT: "#FFFFFF",
         },
-        "dashboard-bg":{
-          DEFAULT: "#f9fafb"
-        }
+        "dashboard-bg": {
+          DEFAULT: "#f9fafb",
+        },
       },
       fontFamily: {
         display: ["Inter", "sans-serif"],

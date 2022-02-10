@@ -7,7 +7,7 @@
   /* background color*/
   --scheme-based-bg-color: 255, 255, 255;
   --primary-color: 64, 170, 84;
-  --secondary-color:242, 255, 245;
+  --secondary-color: 242, 255, 245;
   --options-color: 241, 243, 245;
   --accent-color: 248, 250, 249;
   --inverted-color: 67, 71, 104;
@@ -17,101 +17,98 @@
   --btn-text-primary: #ffffff;
   --btn-text-secondary: #434768;
   /* text color */
-  --primary-text-color-: #2F3B34;
-  --secondary-text-color: #6B7280;
-  --accent-text-color: #F3F4F6;
-  --base-text-color: #40AA54; /* primary color of the site */
+  --primary-text-color-: #2f3b34;
+  --secondary-text-color: #6b7280;
+  --accent-text-color: #f3f4f6;
+  --base-text-color: #40aa54; /* primary color of the site */
   /* text color badge */
-  --label-text-color-1: #40AA54;
-  --label-text-color-2: #FFFFFF;
+  --label-text-color-1: #40aa54;
+  --label-text-color-2: #ffffff;
   /* border color */
   --primary-border-color: #434768;
-  --base-border-color: #40AA54;
+  --base-border-color: #40aa54;
 
   /* Scrollbar */
   --scrollbarBG: #e8eaf6;
-  --thumbBG: #40AA54;
+  --thumbBG: #40aa54;
 }
 /* Tailwind setup */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-input[type=file]::-webkit-file-upload-button,
-input[type=file]::file-selector-button {
-    @apply text-white bg-gray-700 hover:bg-gray-600 font-medium text-sm cursor-pointer border-0 py-2.5 pl-8 pr-4;
-    margin-inline-start: -1rem;
-    margin-inline-end: 1rem;
+input[type="file"]::-webkit-file-upload-button,
+input[type="file"]::file-selector-button {
+  @apply cursor-pointer border-0 bg-gray-700 py-2.5 pl-8 pr-4 text-sm font-medium text-white hover:bg-gray-600;
+  margin-inline-start: -1rem;
+  margin-inline-end: 1rem;
 }
-
 
 /* Button */
 .green-button {
-  @apply flex btn  bg-skin-primary btn-primary hover:bg-opacity-90 text-skin-primary-btn justify-center items-center font-display font-semibold  focus:ring-0 
+  @apply btn bg-skin-primary  btn-primary text-skin-primary-btn font-display flex items-center justify-center font-semibold hover:bg-opacity-90  focus:ring-0;
 }
 
 .white-button {
-  @apply flex btn btn-primary  bg-transparent  border-skin-base border font-display font-semibold text-skin-base focus:ring-0 hover:border-transparent hover:text-white hover:bg-skin-primary
+  @apply btn btn-primary border-skin-base  font-display  text-skin-base hover:bg-skin-primary flex border bg-transparent font-semibold hover:border-transparent hover:text-white focus:ring-0;
 }
 
 .green-circle-button {
-  @apply bg-skin-primary bg-opacity-100 rounded-full h-10 w-10 flex items-center justify-center focus:ring-0;
+  @apply bg-skin-primary flex h-10 w-10 items-center justify-center rounded-full bg-opacity-100 focus:ring-0;
 }
 
 /* Navigation */
-.nav-icon{
-  @apply hidden xl:block text-skin-primary hover:text-skin-base
+.nav-icon {
+  @apply text-skin-primary hover:text-skin-base hidden xl:block;
 }
 
 /* bottom nav */
 .bottom-nav {
-  @apply w-full text-skin-primary justify-center inline-block text-center pt-2;
+  @apply text-skin-primary inline-block w-full justify-center pt-2 text-center;
 }
 
 .bottom-nav-icon {
-  @apply w-6 h-6 inline-block mb-1;
+  @apply mb-1 inline-block h-6 w-6;
 }
 
 /* Text */
 .small-text {
-  @apply  text-skin-secondary text-sm font-body tracking-wide;
+  @apply text-skin-secondary font-body text-sm tracking-wide;
 }
 
 .label-text {
-  @apply  text-skin-base text-sm font-display font-semibold tracking-wide px-4 py-2 rounded-full ;
+  @apply text-skin-base font-display rounded-full px-4 py-2 text-sm font-semibold tracking-wide;
 }
 
-
-.heading-1{
-  @apply mb-5 font-display text-3xl lg:text-5xl lg:leading-none capitalize font-extrabold tracking-normal text-skin-primary sm:text-4xl sm:leading-none
+.heading-1 {
+  @apply font-display text-skin-primary mb-5 text-3xl font-extrabold capitalize tracking-normal sm:text-4xl sm:leading-none lg:text-5xl lg:leading-none;
 }
 
 .heading-2 {
-  @apply font-display capitalize text-3xl pb-2 lg:text-4xl font-bold leading-none tracking-tight text-skin-primary sm:text-4xl  ;
+  @apply font-display text-skin-primary pb-2 text-3xl font-bold capitalize leading-none tracking-tight sm:text-4xl lg:text-4xl;
 }
 
-.heading-3{
-  @apply font-display capitalize text-2xl lg:text-4xl font-bold leading-none tracking-tight sm:text-4xl
+.heading-3 {
+  @apply font-display text-2xl font-bold capitalize leading-none tracking-tight sm:text-4xl lg:text-4xl;
 }
 
 /* Feature */
 .feature-card {
-  @apply flex flex-col pt-14 h-72 border rounded-lg shadow-3xl bg-white transform transition duration-500 hover:scale-110;
+  @apply shadow-3xl flex h-72 transform flex-col rounded-lg border bg-white pt-14 transition duration-500 hover:scale-110;
 }
 
 /* Category */
 .category-data {
-  @apply flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-skin-secondary bg-opacity-100 sm:w-24 sm:h-24;
+  @apply bg-skin-secondary mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-opacity-100 sm:h-24 sm:w-24;
 }
 
 /* input field animation */
 
-
 /* Form */
-.label{
-  @apply ml-3 text-sm font-body font-semibold text-gray-500 tracking-wide absolute duration-300 top-3
+.label {
+  @apply font-body absolute top-3 ml-3 text-sm font-semibold tracking-wide text-gray-500 duration-300;
 }
 
-.form-input{
- @apply block w-full text-base px-4 py-2 border-b bg-transparent appearance-none focus:outline-none rounded-2xl
+.form-input {
+  @apply block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-2 text-base focus:outline-none;
 }

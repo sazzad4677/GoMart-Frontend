@@ -18,8 +18,13 @@ const Home = () => {
   ];
   return (
     <section>
-      <Metadata title={"Your Grocery Delivery Partner"}/>
-      <Navigation fixed={"fixed"} items={navItems} icons={"hidden"} SearchBarShow={"hidden"}/>
+      <Metadata title={"Your Grocery Delivery Partner"} />
+      <Navigation
+        fixed={"fixed"}
+        items={navItems}
+        icons={"hidden"}
+        SearchBarShow={"hidden"}
+      />
       <Banner />
       <Features />
       <Categories />

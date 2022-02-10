@@ -12,7 +12,7 @@ const BottomNav = () => {
   return (
     <div
       id="bottom-navigation"
-      className="xl:hidden sm:block md:block fixed inset-x-0 bottom-0 z-10 bg-white shadow"
+      className="fixed inset-x-0 bottom-0 z-10 bg-white shadow sm:block md:block xl:hidden"
     >
       <div id="tabs" className="flex justify-between ">
         <a href="/home" className="bottom-nav">

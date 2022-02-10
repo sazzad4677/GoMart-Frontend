@@ -3,12 +3,7 @@ import { ShoppingCartIcon, HeartIcon } from "@heroicons/react/solid";
 import ReactStars from "react-rating-stars-component";
 
 const ProductCard = ({ items }) => {
-  const {
-    ProductName,
-    ProductPrice,
-    SellerName,
-    Ratings,
-  } = items;
+  const { ProductName, ProductPrice, SellerName, Ratings } = items;
   const firstExample = {
     size: 24,
     value: Ratings,
@@ -30,19 +25,19 @@ const ProductCard = ({ items }) => {
 
   return (
     <Fragment>
-      <div className="block bg-white rounded-lg overflow-hidden mb-10 group shadow-4xl hover:shadow-lg border border-t-0 ">
-        <div className="relative pb-48 overflow-hidden">
+      <div className="group shadow-4xl mb-10 block overflow-hidden rounded-lg border border-t-0 bg-white hover:shadow-lg ">
+        <div className="relative overflow-hidden pb-48">
           <img
-            className="absolute inset-0 h-full w-full object-cover transform translate group-hover:scale-110 duration-1000"
+            className="translate absolute inset-0 h-full w-full transform object-cover duration-1000 group-hover:scale-110"
             src="https://media.istockphoto.com/photos/tomatoes-picture-id98026003?b=1&k=20&m=98026003&s=170667a&w=0&h=185rOlPM5RueuxjOUFCinuQICXAnUM9AIq_tDELKO4Q="
             alt=""
           />
           <div
-            className="absolute bg-skin-inverted bg-opacity-0 opacity-0 group-hover:opacity-100 group-hover:bg-opacity-50 h-full w-full transform-opacity duration-500 cursor-pointer"
+            className="bg-skin-inverted transform-opacity absolute h-full w-full cursor-pointer bg-opacity-0 opacity-0 duration-500 group-hover:bg-opacity-50 group-hover:opacity-100"
             onClick={BuyNow}
           >
-            <div className="absolute flex gap-6 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
-              <button className="font-body text-white font-extrabold text-2xl">
+            <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 transform gap-6 ">
+              <button className="font-body text-2xl font-extrabold text-white">
                 Buy Now
               </button>
             </div>
@@ -51,14 +46,14 @@ const ProductCard = ({ items }) => {
         <div className="p-4 ">
           {/* product tag */}
           <div className="flex gap-2 ">
-            <span className="badge border-transparent bg-skin-primary text-skin-label-text-2">
+            <span className="badge bg-skin-primary text-skin-label-text-2 border-transparent">
               On Sale
             </span>
           </div>
-          <div className="flex font-display text-skin-primary items-center justify-between">
+          <div className="font-display text-skin-primary flex items-center justify-between">
             {/* product name */}
-            <h1 className="mt-2 mb-2  font-bold text-lg">
-              {ProductName} -<span className="font-normal text-lg"> 3 KG</span>
+            <h1 className="mt-2 mb-2  text-lg font-bold">
+              {ProductName} -<span className="text-lg font-normal"> 3 KG</span>
             </h1>
             <div className="flex gap-4">
               <ShoppingCartIcon
@@ -72,7 +67,7 @@ const ProductCard = ({ items }) => {
             </div>
           </div>
           {/* Product Seller */}
-          <p className="flex font-display items-center mb-2 text-xs">
+          <p className="font-display mb-2 flex items-center text-xs">
             <span className="font-semibold">Brand:&nbsp;</span> {SellerName}
           </p>
           {/* Product Small Description */}
@@ -81,18 +76,18 @@ const ProductCard = ({ items }) => {
             ullamcorper nulla non metus auctor fringilla.
           </article>
           <div className="flex gap-3">
-            <div className="flex items-center mt-3">
+            <div className="mt-3 flex items-center">
               <span className="text-sm font-semibold">Price:&nbsp;৳</span>&nbsp;
-              <span className="font-bold text-xl">{ProductPrice}</span>&nbsp;
+              <span className="text-xl font-bold">{ProductPrice}</span>&nbsp;
             </div>
-            <div className="flex items-center mt-3">
-              <strike className="font-normal text-sm ">৳ 520</strike>
-              <span className="font-bold text-sm ml-3 text-skin-base">75%</span>
+            <div className="mt-3 flex items-center">
+              <strike className="text-sm font-normal ">৳ 520</strike>
+              <span className="text-skin-base ml-3 text-sm font-bold">75%</span>
             </div>
           </div>
         </div>
         {/* Review */}
-        <div className="p-4 border-t flex items-center justify-between text-sm text-skin-secondary">
+        <div className="text-skin-secondary flex items-center justify-between border-t p-4 text-sm">
           <ReactStars {...firstExample} />
           <span className="ml-2">{Ratings} Reviews</span>
         </div>

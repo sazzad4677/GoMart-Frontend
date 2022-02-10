@@ -4,9 +4,9 @@ const Statistics = () => {
   return (
     <section>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-        <div className="p-6 card">
+        <div className="card p-6">
           <div className="flex items-start justify-between">
-            <h2 className="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
+            <h2 className="mb-2 truncate font-mono text-2xl font-light leading-none text-gray-900">
               23,455
             </h2>
             <span className="flex items-center space-x-1 text-sm font-medium leading-none text-green-600">
@@ -14,7 +14,7 @@ const Statistics = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="flex-none w-4 h-4"
+                className="h-4 w-4 flex-none"
               >
                 <path
                   fillRule="evenodd"
@@ -27,9 +27,9 @@ const Statistics = () => {
           </div>
           <p className="text-sm leading-none text-gray-600">Posts</p>
         </div>
-        <div className="p-6 card">
+        <div className="card p-6">
           <div className="flex items-start justify-between">
-            <h2 className="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
+            <h2 className="mb-2 truncate font-mono text-2xl font-light leading-none text-gray-900">
               55
             </h2>
             <span className="flex items-center space-x-1 text-sm font-medium leading-none text-green-600">
@@ -37,7 +37,7 @@ const Statistics = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="flex-none w-4 h-4"
+                className="h-4 w-4 flex-none"
               >
                 <path
                   fillRule="evenodd"
@@ -50,9 +50,9 @@ const Statistics = () => {
           </div>
           <p className="text-sm leading-none text-gray-600">Comments</p>
         </div>
-        <div className="p-6 card">
+        <div className="card p-6">
           <div className="flex items-start justify-between">
-            <h2 className="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
+            <h2 className="mb-2 truncate font-mono text-2xl font-light leading-none text-gray-900">
               129,752
             </h2>
             <span className="flex items-center space-x-1 text-sm font-medium leading-none text-red-600">
@@ -60,7 +60,7 @@ const Statistics = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="flex-none w-4 h-4"
+                className="h-4 w-4 flex-none"
               >
                 <path
                   fillRule="evenodd"
@@ -73,9 +73,9 @@ const Statistics = () => {
           </div>
           <p className="text-sm leading-none text-gray-600">Activities</p>
         </div>
-        <div className="p-6 card">
+        <div className="card p-6">
           <div className="flex items-start justify-between">
-            <h2 className="mb-2 font-mono text-2xl font-light leading-none text-gray-900 truncate">
+            <h2 className="mb-2 truncate font-mono text-2xl font-light leading-none text-gray-900">
               1,255
             </h2>
             <span className="flex items-center space-x-1 text-sm font-medium leading-none text-green-600">
@@ -83,7 +83,7 @@ const Statistics = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="flex-none w-4 h-4"
+                className="h-4 w-4 flex-none"
               >
                 <path
                   fillRule="evenodd"

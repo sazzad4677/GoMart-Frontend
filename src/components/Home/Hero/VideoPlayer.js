@@ -9,11 +9,11 @@ const VideoPlayer = ({ isOpen, setIsOpen }) => {
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed z-10 inset-0 overflow-y-auto"
+        className="fixed inset-0 z-10 overflow-y-auto"
         initialFocus={cancelButtonRef}
         onClose={setIsOpen}
       >
-        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div className="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -23,16 +23,16 @@ const VideoPlayer = ({ isOpen, setIsOpen }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-skin-accent bg-opacity-70 transition-opacity" />
+            <Dialog.Overlay className="bg-skin-accent fixed inset-0 bg-opacity-70 transition-opacity" />
           </Transition.Child>
           {/* Trick to center the video dialog box */}
           <span
-            className="hidden sm:inline-block sm:align-middle sm:h-screen"
+            className="hidden sm:inline-block sm:h-screen sm:align-middle"
             aria-hidden="true"
           >
             &#8203;
           </span>
-          <div className="inline-block bg-skin-scheme-color rounded-lg overflow-hidden shadow-xl transform transition-all mx-auto my-auto sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+          <div className="bg-skin-scheme-color mx-auto my-auto inline-block transform overflow-hidden rounded-lg shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle">
             <ReactPlayer
               controls
               url="https://youtu.be/mevoIZ-eAe4"

@@ -13,42 +13,42 @@ const SidePanel = () => {
     {
       name: "Dashboard",
       href: "/dashboard",
-      icon: <ViewGridIcon className="w-6 h-6" />,
+      icon: <ViewGridIcon className="h-6 w-6" />,
     },
     {
       name: "Products",
       href: "/products",
-      icon: <FiShoppingBag className="w-5 h-5" />,
+      icon: <FiShoppingBag className="h-5 w-5" />,
     },
     {
       name: "Category",
       href: "/category",
-      icon: <AiOutlineUnorderedList className="w-5 h-5" />,
+      icon: <AiOutlineUnorderedList className="h-5 w-5" />,
     },
     {
       name: "Customers",
       href: "/customers",
-      icon: <IoPeopleOutline className="w-5 h-5" />,
+      icon: <IoPeopleOutline className="h-5 w-5" />,
     },
     {
       name: "Orders",
       href: "/orders",
-      icon: <FiCompass className="w-5 h-5" />,
+      icon: <FiCompass className="h-5 w-5" />,
     },
     {
       name: "Coupons",
       href: "/coupons",
-      icon: <AiOutlineGift className="w-5 h-5" />,
+      icon: <AiOutlineGift className="h-5 w-5" />,
     },
     {
       name: "Staff",
       href: "/staff",
-      icon: <UserIcon className="w-5 h-5" />,
+      icon: <UserIcon className="h-5 w-5" />,
     },
     {
       name: "Settings",
       href: "/settings",
-      icon: <FiSettings className="w-5 h-5" />,
+      icon: <FiSettings className="h-5 w-5" />,
     },
   ];
   //assigning location variable
@@ -61,20 +61,20 @@ const SidePanel = () => {
   const splitLocation = pathname.split("/");
 
   return (
-    <div className="static  flex flex-col left-0 w-14 hover:w-64 md:w-64 bg-white dark:bg-gray-900 h-full text-black transition-all duration-300 border-none sidebar z-20">
-      <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow ">
-        <ul className="flex flex-col space-y-2 mt-1">
+    <div className="sidebar  static left-0 z-20 flex h-full w-14 flex-col border-none bg-white text-black transition-all duration-300 hover:w-64 dark:bg-gray-900 md:w-64">
+      <div className="flex flex-grow flex-col justify-between overflow-y-auto overflow-x-hidden ">
+        <ul className="mt-1 flex flex-col space-y-2">
           <li>
             <Link
               to="/"
-              className="relative flex flex-grow items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent px-2"
+              className="text-white-600 hover:text-white-800 relative flex h-11 flex-grow items-center border-l-4 border-transparent px-2 focus:outline-none"
             >
               <img
                 src={logo}
                 alt="Go Mart"
-                className="object-contain w-6 ml-3"
+                className="ml-3 w-6 object-contain"
               />
-              <span className=" font-display font-bold tracking-tight leading-snug text-skin-primary ml-3  text-2xl">
+              <span className=" font-display text-skin-primary ml-3 text-2xl font-bold leading-snug  tracking-tight">
                 Go<span className="text-skin-base">Mart</span>
               </span>
             </Link>
@@ -83,11 +83,11 @@ const SidePanel = () => {
             <li className="relative" key={id}>
               <Link
                 to={href}
-                className="px-2 py-4 inline-flex items-center w-full text-sm font-semibold text-skin-secondary hover:text-skin-base"
+                className="text-skin-secondary hover:text-skin-base inline-flex w-full items-center px-2 py-4 text-sm font-semibold"
               >
                 {/* Icons */}
                 <span
-                  className={`inline-flex justify-center items-center ml-4 ${
+                  className={`ml-4 inline-flex items-center justify-center ${
                     splitLocation[1] === href.split("/")[1] && "text-skin-base"
                   }`}
                 >
@@ -105,7 +105,7 @@ const SidePanel = () => {
               {/* Left side border */}
               {splitLocation[1] === href.split("/")[1] && (
                 <span
-                  className="absolute inset-y-0 left-0 w-1 bg-skin-primary rounded-tr-lg rounded-br-lg"
+                  className="bg-skin-primary absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
               )}
@@ -114,12 +114,12 @@ const SidePanel = () => {
         </ul>
         <button
           type="button"
-          className="align-bottom flex items-center px-2 py-3  "
+          className="flex items-center px-2 py-3 align-bottom  "
         >
-          <span className="inline-flex justify-center items-center ml-4">
-            <LogoutIcon className="w-6 h-6 text-skin-secondary font-semibold" />
+          <span className="ml-4 inline-flex items-center justify-center">
+            <LogoutIcon className="text-skin-secondary h-6 w-6 font-semibold" />
           </span>
-          <span className="ml-3 text-sm text-skin-secondary font-display font-semibold">
+          <span className="text-skin-secondary font-display ml-3 text-sm font-semibold">
             Logout
           </span>
         </button>
