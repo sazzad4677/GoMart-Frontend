@@ -20,10 +20,6 @@ const Registration = () => {
       toast.success("Successfully logged in");
     }
     if (error) {
-      if (error === "You are not authenticated") {
-        dispatch(clearErrors());
-        return;
-      }
       toast.error(error);
       dispatch(clearErrors());
     }

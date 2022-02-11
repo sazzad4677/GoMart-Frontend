@@ -9,7 +9,6 @@ import Loader from "../layout/Loader/Loader";
 import FilterSection from "../layout/Products/FilterSection";
 import TopBar from "../layout/Products/TopBar";
 import Metadata from "../layout/Metadata/Metadata";
-import Category from "../layout/Category/Category";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();

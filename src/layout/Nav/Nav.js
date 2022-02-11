@@ -21,6 +21,7 @@ import { Menu, Transition } from "@headlessui/react";
 import "./styles.css";
 
 const Nav = ({ ...props }) => {
+  const [iconRotate, setIconRotate] = useState(false);
   const dispatch = useDispatch();
   const { fixed, items = [], SearchBarShow, productsData } = props;
   const { isAuthenticated, user, error, loading } = useSelector(
@@ -100,14 +101,18 @@ const Nav = ({ ...props }) => {
                     className="relative z-50 inline-block text-left"
                   >
                     <div>
-                      <Menu.Button className="inline-flex w-full justify-center rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 ">
+                      <Menu.Button className={`inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white ${user.avatar ? "px-3 py-1" : "px-4 py-3"} text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50`}>
                         {user.avatar ? (
-                          <img src={user.avatar.url} alt={user.name} />
+                          <img
+                            src={user.avatar.url}
+                            alt={user.name}
+                            className="avatar avatar-sm"
+                          />
                         ) : (
-                          <UserIcon className="h-4 w-4 text-gray-600" />
+                          <UserIcon className="h-4 w-4 bg-white text-gray-600" />
                         )}
                         <ChevronDownIcon
-                          className="-mr-1 ml-2 h-5 w-5"
+                          className="h-4 w-4 transform font-bold transition duration-1000"
                           aria-hidden="true"
                         />
                       </Menu.Button>
@@ -182,7 +187,7 @@ const Nav = ({ ...props }) => {
                             <Menu.Item>
                               {({ active }) => (
                                 <Link
-                                  to="/profile"
+                                  to="/"
                                   onClick={logoutHandler}
                                   className={classNames(
                                     active

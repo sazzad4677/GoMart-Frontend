@@ -18,11 +18,8 @@ const Authentication = () => {
       toast.success("Successfully logged in");
     }
     if (error) {
-      if (error === "You are not authenticated") {
-        return dispatch(clearErrors());
-      }
-      toast.error(error);
-      dispatch(clearErrors());
+        toast.error(error);
+        dispatch(clearErrors());
     }
   }, [dispatch, isAuthenticated, error, navigate]);
 
