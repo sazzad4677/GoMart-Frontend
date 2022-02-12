@@ -1,3 +1,4 @@
+import { UserIcon } from "@heroicons/react/outline";
 import {
   AdjustmentsIcon,
   PencilAltIcon,
@@ -22,27 +23,14 @@ const About = ({ user }) => {
   } = user;
   return (
     <>
-      <div className="font-display rounded-md bg-gray-100 p-3 shadow-sm">
-        <div className="flex items-center space-x-2 font-semibold leading-8 text-gray-900">
+      <div className="font-display rounded-md bg-gray-100 shadow">
+        <div className="flex w-full items-center space-x-2 border-b-2 border-gray-200 bg-gray-100 p-3 font-semibold leading-8 text-gray-900 mt-3 lg:mt-0">
           <span clas="text-green-500">
-            <svg
-              className="h-5"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              />
-            </svg>
+            <UserIcon className="h-5 w-5"/>
           </span>
           <span className="tracking-wide">About</span>
         </div>
-        <div className="text-gray-700">
+        <div className="p-3 text-gray-700">
           <div className="grid text-sm md:grid-cols-2">
             <div className="grid grid-cols-2">
               <div className="px-4 py-2 font-semibold">Name</div>
@@ -62,11 +50,15 @@ const About = ({ user }) => {
             </div>
             <div className="grid grid-cols-2">
               <div className="px-4 py-2 font-semibold"> Shipping Address</div>
-              <div className="px-2 py-2">{shippingAddress && shippingAddress}</div>
+              <div className="px-2 py-2">
+                {shippingAddress && shippingAddress}
+              </div>
             </div>
             <div className="grid grid-cols-2">
               <div className="px-4 py-2 font-semibold">Billing Address</div>
-              <div className="px-2 py-2">{billingAddress && billingAddress}</div>
+              <div className="px-2 py-2">
+                {billingAddress && billingAddress}
+              </div>
             </div>
             <div className="grid grid-cols-2">
               <div className="px-4 py-2 font-semibold">Email.</div>
@@ -81,26 +73,26 @@ const About = ({ user }) => {
               <div className="px-4 py-2">{birthday && birthday}</div>
             </div>
           </div>
-          <div className="flex">
+          <div className="mt-4 flex gap-3">
             <Link
               to=""
-              className="btn btn-icon my-4 flex w-full gap-2  rounded-lg text-sm font-semibold text-blue-800 hover:bg-gray-100 hover:shadow focus:bg-gray-100 focus:ring-orange-600"
+              className="green-button flex w-full gap-2  rounded-lg text-sm font-semibold "
             >
-              <ViewListIcon className="h-4 w-4" />
+              <ViewListIcon className="h-4 w-4 hidden md:flex" />
               My Orders
             </Link>
             <Link
               to=""
-              className="btn btn-icon my-4 flex w-full gap-2  rounded-lg text-sm font-semibold text-blue-800 hover:bg-gray-100 hover:shadow focus:bg-gray-100 focus:ring-orange-600"
+              className="green-button flex w-full gap-2  rounded-lg text-sm font-semibold "
             >
-              <PencilAltIcon className="h-4 w-4" />
+              <PencilAltIcon className="h-4 w-4 hidden md:flex" />
               Edit Profile
             </Link>
             <Link
               to=""
-              className="btn btn-icon my-4 flex w-full gap-2  rounded-lg text-sm font-semibold text-blue-800 hover:bg-gray-100 hover:shadow focus:bg-gray-100 focus:ring-orange-600"
+              className="green-button flex w-full gap-2  rounded-lg text-sm font-semibold "
             >
-              <AdjustmentsIcon className="h-4 w-4" />
+              <AdjustmentsIcon className="h-4 w-4 hidden md:flex" />
               Update Password
             </Link>
           </div>

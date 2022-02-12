@@ -53,7 +53,7 @@ const Testimonial = () => {
     },
   ];
   return (
-    <div className="mb-16 ">
+    <div className="">
       <div className="bg-gray-100">
         <div className="container mx-auto flex justify-center pt-16">
           <div>

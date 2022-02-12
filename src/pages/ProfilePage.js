@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import RecentOrder from "../components/Orders/RecentOrder";
 import About from "../components/Profile/About";
 import Profile from "../components/Profile/Profile";
+import Footer from "../layout/Footer/Footer";
 import Loader from "../layout/Loader/Loader";
 import Metadata from "../layout/Metadata/Metadata";
 import Nav from "../layout/Nav/Nav";
@@ -15,7 +16,7 @@ const ProfilePage = () => {
         <Loader />
       ) : (
         <div>
-          <Metadata title={`${user && user.username} - Profile`} />
+          <Metadata title={`${user && user.username} `} />
           <Nav />
           <div className="mx-auto px-4 py-5 sm:max-w-xl md:max-w-full md:px-20 lg:max-w-screen-xl lg:px-0">
             <div class="container mx-auto my-5 p-5">
@@ -28,6 +29,7 @@ const ProfilePage = () => {
               </div>
             </div>
           </div>
+          <Footer/>
         </div>
       )}
     </>

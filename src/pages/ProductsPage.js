@@ -9,6 +9,7 @@ import Loader from "../layout/Loader/Loader";
 import FilterSection from "../layout/Products/FilterSection";
 import TopBar from "../layout/Products/TopBar";
 import Metadata from "../layout/Metadata/Metadata";
+import Footer from "../layout/Footer/Footer";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
@@ -88,6 +89,7 @@ const ProductsPage = () => {
         </div>
       </div>
       {productsData.loading && <Loader />}
+      <Footer/>
     </div>
   );
 };

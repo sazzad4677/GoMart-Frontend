@@ -7,6 +7,7 @@ import PopularItems from "../components/Home/PopularItems/PopularItems";
 import BestSeller from "../components/Home/BestSeller/BestSeller";
 import Testimonial from "../components/Home/Testimonial/Testimonial";
 import Metadata from "../layout/Metadata/Metadata";
+import Footer from "../layout/Footer/Footer";
 
 const Home = () => {
   const navItems = [
@@ -31,6 +32,7 @@ const Home = () => {
       <PopularItems />
       <BestSeller />
       <Testimonial />
+      <Footer/>
     </section>
   );
 };

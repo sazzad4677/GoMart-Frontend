@@ -5,7 +5,7 @@ const Metadata = ({ title }) => {
   return (
     <Helmet>
       <meta charSet="utf-8" />
-      <title>{`${title} - GoMart`}</title>
+      <title>{`${title} | GoMart`}</title>
     </Helmet>
   );
 };
