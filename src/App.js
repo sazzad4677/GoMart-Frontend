@@ -14,6 +14,7 @@ import { loadUser } from "./actions/authActions";
 import store from "./store";
 import ProfilePage from "./pages/ProfilePage";
 import PrivateOutlet from "./components/Route/PrivateOutlet";
+import UpdateProfilePage from "./pages/UpdateProfilePage";
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/products" element={<ProductsPage />}></Route>
         <Route path="/*" element={<PrivateOutlet />}>
           <Route path="profile" element={<ProfilePage />}></Route>
+          <Route path="update-profile" element={<UpdateProfilePage />}></Route>
           <Route path="dashboard" element={<DashboardPage />}></Route>
         </Route>
         <Route path="/search/" element={<SearchPage />}></Route>

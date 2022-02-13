@@ -1,29 +1,25 @@
-import React, { useEffect } from "react";
-import { toast } from "react-toastify";
+import React, { useEffect } from 'react';
+import { toast } from 'react-toastify';
+
 const InputField = (props) => {
-  const {
-    name,
-    type,
-    label,
-    labelFor,
-    errors,
-    register,
-    identity,
-    showPassword,
-    setShowPassword,
-  } = props;
-  useEffect(() => {
-    if (errors) {
-      toast.error(errors);
-    }
-  }, [errors]);
-
-  const handlePaste = (e) => {
-    e.preventDefault();
-  };
-
-  return (
-    <>
+    const {
+        name,
+        type,
+        label,
+        labelFor,
+        errors,
+        register,
+        identity,
+        showPassword,
+        setShowPassword,
+      } = props;
+      useEffect(() => {
+        if (errors) {
+          toast.error(errors);
+        }
+      }, [errors]);
+    return (
+        <>
       <input
         name={name}
         className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-2 text-base focus:outline-none 
@@ -36,12 +32,6 @@ const InputField = (props) => {
         // onPaste={handlePaste}
         {...register(name)}
       />
-      <label
-        htmlFor={labelFor}
-        className="font-body text-skin-secondary -z-1 origin-0 absolute top-3 ml-3 text-sm font-semibold tracking-wide duration-300"
-      >
-        {label}
-      </label>
       {identity === "register" && name === "password" && (
         <p className="px-3 text-xs text-gray-500" id="user_avatar_help">
           <span className="text-red">*</span>Password at least 6 characters long
@@ -71,7 +61,7 @@ const InputField = (props) => {
         )}
       </div>
     </>
-  );
+    );
 };
 
 export default InputField;

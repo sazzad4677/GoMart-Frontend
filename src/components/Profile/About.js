@@ -82,7 +82,7 @@ const About = ({ user }) => {
               My Orders
             </Link>
             <Link
-              to=""
+              to="/update-profile"
               className="green-button flex w-full gap-2  rounded-lg text-sm font-semibold "
             >
               <PencilAltIcon className="h-4 w-4 hidden md:flex" />
