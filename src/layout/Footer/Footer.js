@@ -7,7 +7,7 @@ import { BsLinkedin } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <section className="border-t bg-gray-50">
+    <section className="border-t bg-gray-50 min-h-auto">
       <footer className="font-display mx-auto max-w-7xl px-4 py-12">
         <div className="mb-3 grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
           <div className="col-span-3">

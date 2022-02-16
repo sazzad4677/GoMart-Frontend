@@ -39,23 +39,21 @@ const InputField = (props) => {
           </label>
         </>
       )}
-      {identity === "register" && name === "password" && (
-        <p className="px-3 text-xs text-gray-500" id="user_avatar_help">
-          <span className="text-red">*</span>Password at least 6 characters long
-        </p>
-      )}
       {identity === "register" && name === "phone" && (
         <PhoneInputWithCountry
-          international
           name="phone"
           control={control}
-          defaultCountry="BD"
+          defaultCountry={"BD"}
+          countries={["BD"]}
           country="BD"
           id="phone"
+          international={true}
+          limitMaxLength={11}
+          addInternationalOption={false}
+          countryCallingCodeEditable={false}
+          withCountryCallingCode
           className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-2 text-base focus:outline-none 
-          ${
-            errors ? "border-red focus:border-red" : "border-skin-base"
-          }`}
+          ${errors ? "border-red focus:border-red" : "border-skin-base"}`}
         />
       )}
       <div className="absolute right-3 -mt-8">

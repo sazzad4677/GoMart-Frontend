@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { clearErrors, loadUser, updateProfile } from "../actions/authActions";
 import UpdateAbout from "../components/UpdateProfile/UpdateAbout";
@@ -10,9 +10,12 @@ import Loader from "../layout/Loader/Loader";
 import Metadata from "../layout/Metadata/Metadata";
 import Nav from "../layout/Nav/Nav";
 import { UPDATE_PROFILE_RESET } from "../constants/authConstants";
+import UpdatePassword from "../components/UpdateProfile/UpdatePassword";
+import { useForm } from "react-hook-form";
 
 const UpdateProfilePage = () => {
   const navigate = useNavigate();
+  const params = useParams();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.authReducers);
   const { error, isUpdated, loading } = useSelector(
@@ -22,6 +25,15 @@ const UpdateProfilePage = () => {
   const [userAvatarPreview, setUserAvatarPreview] = useState(""); // avatar preview
   const [birthDate, setBirthDate] = useState(() => birthDateSetter()); // date picker
   const [birthDay, setBirthDay] = useState(""); // send to backend
+
+  // React hook form
+  const {
+    register,
+    handleSubmit,
+    control,
+    watch,
+    formState: { errors },
+  } = useForm();
 
   // If the birthday is already stored in the database, the function will return it; otherwise, a new date will be generated.
   function birthDateSetter() {
@@ -131,13 +143,30 @@ const UpdateProfilePage = () => {
                   setUserAvatarPreview={setUserAvatarPreview}
                   submitHandler={submitHandler}
                   handleProfileImageChange={handleProfileImageChange}
+                  register={register}
+                  handleSubmit={handleSubmit}
+                  control={control}
+                  watch={watch}
+                  errors={errors}
                 />
-                <div className="mx-2 h-64 w-full md:w-9/12">
+                <div className="mx-2 mx-auto flex h-full w-full flex-col gap-6 md:w-9/12">
                   <UpdateAbout
                     user={user}
                     submitHandler={submitHandler}
                     birthDate={birthDate}
                     birthDateOnChange={birthDateOnChange}
+                    register={register}
+                    handleSubmit={handleSubmit}
+                    control={control}
+                    watch={watch}
+                    errors={errors}
+                  />
+                  <UpdatePassword 
+                    register={register}
+                    handleSubmit={handleSubmit}
+                    control={control}
+                    watch={watch}
+                    errors={errors}
                   />
                 </div>
               </div>

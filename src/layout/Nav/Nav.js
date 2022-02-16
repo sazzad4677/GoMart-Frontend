@@ -230,7 +230,7 @@ const Nav = ({ ...props }) => {
         </div>
       </nav>
       {/* Bottom Navigation -> mobile*/}
-      <BottomNav />
+      {/* <BottomNav /> */}
     </header>
   );
 };

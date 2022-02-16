@@ -1,10 +1,9 @@
-import { CollectionIcon, ViewListIcon } from "@heroicons/react/solid";
+import { ViewListIcon } from "@heroicons/react/solid";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const RecentOrder = () => {
   return (
-    <div>
       <div className="font-display -mx-4 overflow-x-auto px-4 py-4 sm:-mx-8 sm:px-8">
         <div className="inline-block min-w-full overflow-hidden rounded-lg shadow">
           <div className="border-b-2 border-gray-200 bg-gray-100 p-3 shadow-sm ">
@@ -90,7 +89,6 @@ const RecentOrder = () => {
           </table>
         </div>
       </div>
-    </div>
   );
 };
 

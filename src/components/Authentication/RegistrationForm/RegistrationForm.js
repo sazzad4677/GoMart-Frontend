@@ -1,6 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
-import { useEffect } from "react";
 // form validation
 import { useForm } from "react-hook-form";
 // icons
@@ -9,7 +8,6 @@ import { AiFillFacebook } from "react-icons/ai";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import "yup-phone";
 // images
 import logo from "../../../images/Logo.png";
@@ -147,6 +145,15 @@ const Registration = ({
                       register={register}
                       control={control}
                     />
+                    {name === "password" && (
+                      <p
+                        className="px-3 text-xs text-gray-500"
+                        id="user_avatar_help"
+                      >
+                        <span className="text-red">*</span>Password at least 6
+                        characters long
+                      </p>
+                    )}
                   </div>
                 )
               )}

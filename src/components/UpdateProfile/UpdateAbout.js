@@ -12,7 +12,11 @@ const UpdateAbout = ({
   submitHandler,
   birthDate,
   birthDateOnChange,
-  setConfirmModal,
+  register,
+  handleSubmit,
+  control,
+  watch,
+  errors,
 }) => {
   const {
     name,
@@ -23,13 +27,6 @@ const UpdateAbout = ({
     shippingAddress,
     billingAddress,
   } = user;
-  const {
-    register,
-    handleSubmit,
-    control,
-    watch,
-    formState: { errors },
-  } = useForm();
 
   // for update button decision
   const watchAllFields = watch();
@@ -49,7 +46,7 @@ const UpdateAbout = ({
           <span clas="text-green-500">
             <UserIcon className="h-5 w-5" />
           </span>
-          <span className="tracking-wide">About</span>
+          <span className="tracking-wide">Update About</span>
         </div>
         <div className="flex gap-3">
           {Object.keys(watchAllFields).length > 0 && (
@@ -58,14 +55,14 @@ const UpdateAbout = ({
               to="/update-profile"
               className="green-button w- flex gap-2  rounded-lg text-sm font-semibold"
             >
-              <CheckIcon className="hidden h-4 w-4 md:flex" />
+              <CheckIcon className="h-4 w-4" />
             </button>
           )}
           <Link
             to="/profile"
             className="red-button w- flex gap-2  rounded-lg text-sm font-semibold "
           >
-            <XIcon className="hidden h-4 w-4 md:flex" />
+            <XIcon className="h-4 w-4" />
           </Link>
         </div>
       </div>
@@ -77,7 +74,10 @@ const UpdateAbout = ({
               Name
             </label>
             <input
-              className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+             className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
+             ${
+              Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+             }`}
               id="name"
               type="text"
               placeholder="Your Name"
@@ -91,7 +91,10 @@ const UpdateAbout = ({
               Username
             </label>
             <input
-              className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
+              ${
+                Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+              }`}
               id="username"
               type="text"
               placeholder="Your Username"
@@ -99,21 +102,22 @@ const UpdateAbout = ({
               defaultValue={username}
             ></input>
           </div>
-          {/* Gender */}
+          {/* Email */}
           <div className="grid grid-cols-2">
-            <div className="px-4 py-2 font-semibold">Gender</div>
-            <select
-              className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green-500"
-              id="username"
-              type="text"
-              placeholder="Your Gender"
-              defaultValue={gender && gender}
-              {...register("gender")}
-            >
-              <option value="">Click to select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
+            <label htmlFor="email" className="px-4 py-2 font-semibold">
+              Email.
+            </label>
+            <input
+              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
+              ${
+                Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+              }`}
+              id="email"
+              type="email"
+              placeholder="Your email"
+              {...register("email")}
+              defaultValue={email}
+            ></input>
           </div>
           {/* Contact No. */}
           <div className="grid grid-cols-2">
@@ -126,15 +130,60 @@ const UpdateAbout = ({
               defaultValue={phone && phone}
               defaultCountry={"BD"}
               countries={["BD"]}
-              // countrySelectComponent={"disabled"}
               international={true}
               limitMaxLength={11}
               addInternationalOption={false}
               countryCallingCodeEditable={false}
               withCountryCallingCode
               id="phone"
-              className="phone grid-col-2 grid rounded rounded-full bg-gray-100 py-1 px-4 text-gray-700 shadow-sm"
+              className="phone rounded rounded-full bg-gray-100 py-1 px-4 text-gray-700 shadow-sm"
             />
+          </div>
+          {/* Gender */}
+          <div className="grid grid-cols-2">
+            <div className="px-4 py-2 font-semibold">Gender</div>
+            <select
+              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
+              ${
+                Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+              }`}
+              id="username"
+              type="text"
+              placeholder="Your Gender"
+              defaultValue={gender && gender}
+              {...register("gender")}
+            >
+              <option value="">Click to select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          {/* BirthDay */}
+          <div className="grid grid-cols-2">
+            <label htmlFor="birthDate" className="px-4 py-2 font-semibold">
+              Birthday
+            </label>
+            <div id="birthDate">
+              <DatePicker
+                className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
+                ${
+                  Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+                }`}
+                portalId="root-portal"
+                onChange={birthDateOnChange}
+                selected={birthDate}
+                closeOnScroll={true}
+                maxDate={new Date()}
+                openToDate={new Date("2007/01/01")}
+                isClearable={false}
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+                timeCaption="time"
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Click to select a date"
+              />
+            </div>
           </div>
           {/* Shipping Address */}
           <div className="grid grid-cols-2">
@@ -145,12 +194,15 @@ const UpdateAbout = ({
               Shipping Address
             </label>
             <Autocomplete
-              className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
+              ${
+                Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+              }`}
               apiKey={"AIzaSyDMuTTurSbA7-GqIVOy80S6gOFHCv5xqB8"}
               onPlaceSelected={(place) => console.log(place)}
             />
             {/* <input
-              className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+              className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green"
               id="shippingAddress"
               type="text"
               placeholder="Your Shipping Address"
@@ -159,55 +211,21 @@ const UpdateAbout = ({
             ></input> */}
           </div>
           {/* Billing Address */}
-          <div className="grid grid-cols-2 truncate whitespace-nowrap overflow-hidden">
+          <div className="grid grid-cols-2">
             <label htmlFor="billingAddress" className="px-4 py-2 font-semibold">
               Billing Address
             </label>
             <input
-              className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
+              ${
+                Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+              }`}
               id="billingAddress"
               type="text"
               placeholder="Your billing address"
               {...register("billingAddress")}
               defaultValue={billingAddress}
             ></input>
-          </div>
-          {/* Email */}
-          <div className="grid grid-cols-2">
-            <label htmlFor="email" className="px-4 py-2 font-semibold">
-              Email.
-            </label>
-            <input
-              className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green-500"
-              id="email"
-              type="email"
-              placeholder="Your email"
-              {...register("email")}
-              defaultValue={email}
-            ></input>
-          </div>
-          {/* BirthDay */}
-          <div className="grid grid-cols-2">
-            <label htmlFor="birthDate" className="px-4 py-2 font-semibold">
-              Birthday
-            </label>
-            <div id="birthDate" onChange={() => setConfirmModal(true)}>
-              <DatePicker
-                className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green-500"
-                onChange={birthDateOnChange}
-                selected={birthDate}
-                closeOnScroll={true}
-                maxDate={new Date()}
-                openToDate={new Date("2007/01/01")}
-                isClearable
-                showMonthDropdown
-                showYearDropdown
-                dropdownMode="select"
-                timeCaption="time"
-                dateFormat="dd/MM/yyyy"
-                placeholderText="Click to select a date"
-              />
-            </div>
           </div>
         </div>
       </div>

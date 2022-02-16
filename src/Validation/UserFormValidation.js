@@ -22,6 +22,7 @@ export const registerFormSchema = yup.object().shape({
   phone: yup
     .string()
     .required("Please Provide your phone number")
+    .nullable()
     .phone("BD", true, "Provide Bangladeshi Phone number (01XXXNNNNNN)"),
 });
 
@@ -34,3 +35,19 @@ export const loginFormSchema = yup.object().shape({
     .min(6, "Password at least 6 characters")
     .max(20, "Password at most 20 characters"),
 });
+
+
+  // Update password Form Schema
+export const updatePasswordSchema = yup.object().shape({
+    oldPassword: yup
+      .string()
+      .required("Old Password is Required")
+      .min(6, "Password at least 6 characters Long")
+      .max(20, "Password at most 20 characters"),
+    newPassword: yup
+      .string()
+      .required("New Password is Required")
+      .min(6, "Password at least 6 characters Long")
+      .max(20, "Password at most 20 characters"),
+    confirmPassword: yup.string().oneOf([yup.ref("newPassword"), "Password Not Matched"], "Password Not Matched"),
+  });
