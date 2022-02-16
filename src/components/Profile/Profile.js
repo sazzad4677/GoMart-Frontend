@@ -22,7 +22,7 @@ const Profile = ({ user }) => {
                   <UserIcon className="rounded-full  text-gray-300" />
                 )}
               </div>
-              <h1 className="my-1 text-center text-xl font-bold leading-8 text-gray-900  break-all">
+              <h1 className="my-1 text-center text-xl font-bold leading-8 text-gray-900 truncate whitespace-nowrap overflow-hidden">
                 {name}
               </h1>
               <div className="mt-6 flex justify-around text-center">

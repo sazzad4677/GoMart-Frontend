@@ -1,12 +1,12 @@
 import { CheckIcon, UserIcon } from "@heroicons/react/outline";
 import React, { useEffect } from "react";
-import {  useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import { XIcon } from "@heroicons/react/solid";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
-import { isValidPhoneNumber } from 'react-phone-number-input'
 import { toast } from "react-toastify";
+import Autocomplete from "react-google-autocomplete";
 const UpdateAbout = ({
   user,
   submitHandler,
@@ -14,15 +14,22 @@ const UpdateAbout = ({
   birthDateOnChange,
   setConfirmModal,
 }) => {
-  const { name, username, email, gender, phone, shippingAddress, billingAddress } =
-    user;
-    const {
-      register,
-      handleSubmit,
-      control,
-      watch,
-      formState: { errors },
-    } = useForm();
+  const {
+    name,
+    username,
+    email,
+    gender,
+    phone,
+    shippingAddress,
+    billingAddress,
+  } = user;
+  const {
+    register,
+    handleSubmit,
+    control,
+    watch,
+    formState: { errors },
+  } = useForm();
 
   // for update button decision
   const watchAllFields = watch();
@@ -74,7 +81,7 @@ const UpdateAbout = ({
               id="name"
               type="text"
               placeholder="Your Name"
-              {...register("name",{min: 3, max: 255,})}
+              {...register("name", { min: 3, max: 255 })}
               defaultValue={name}
             ></input>
           </div>
@@ -88,7 +95,7 @@ const UpdateAbout = ({
               id="username"
               type="text"
               placeholder="Your Username"
-              {...register("username", {min: 3, max: 20})}
+              {...register("username", { min: 3, max: 20 })}
               defaultValue={username}
             ></input>
           </div>
@@ -122,7 +129,7 @@ const UpdateAbout = ({
               // countrySelectComponent={"disabled"}
               international={true}
               limitMaxLength={11}
-              addInternationalOption = {false}
+              addInternationalOption={false}
               countryCallingCodeEditable={false}
               withCountryCallingCode
               id="phone"
@@ -137,17 +144,22 @@ const UpdateAbout = ({
             >
               Shipping Address
             </label>
-            <input
+            <Autocomplete
+              className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+              apiKey={"AIzaSyDMuTTurSbA7-GqIVOy80S6gOFHCv5xqB8"}
+              onPlaceSelected={(place) => console.log(place)}
+            />
+            {/* <input
               className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green-500"
               id="shippingAddress"
               type="text"
               placeholder="Your Shipping Address"
               {...register("shippingAddress")}
               defaultValue={shippingAddress}
-            ></input>
+            ></input> */}
           </div>
           {/* Billing Address */}
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2 truncate whitespace-nowrap overflow-hidden">
             <label htmlFor="billingAddress" className="px-4 py-2 font-semibold">
               Billing Address
             </label>

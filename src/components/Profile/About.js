@@ -19,6 +19,20 @@ const About = ({ user }) => {
     birthDay,
   } = user;
 
+  const fieldValues = [
+    { fieldName: "Name", value: name && name },
+    { fieldName: "Username", value: username && username },
+    { fieldName: "Email", value: email && email },
+    { fieldName: "Contact No.", value: (phone === "undefined" || phone === "null") ? "" : phone },
+    { fieldName: "Gender.", value: gender && gender },
+    {
+      fieldName: "Shipping Address",
+      value: (shippingAddress === "undefined" || shippingAddress === "null") ? "" : shippingAddress ,
+    },
+    { fieldName: "Billing Address", value: (billingAddress === "undefined" || billingAddress === "null") ? "" : billingAddress },
+    { fieldName: "Birthday", value: birthDay && birthDay },
+  ];
+
   return (
     <>
       <div className="font-display rounded-md bg-gray-100 shadow">
@@ -31,57 +45,15 @@ const About = ({ user }) => {
           </div>
         </div>
         <div className="p-3 text-gray-700">
-          <div className="grid text-sm md:grid-cols-2 break-all">
-            {/* Name */}
-            <div className="grid grid-cols-2">
-              <div className="px-4 py-2 font-semibold">Name</div>
-              <div className="px-2 py-2 text-ellipsis ">{name && name}</div>
-            </div>
-            {/* username */}
-            <div className="grid grid-cols-2">
-              <div className="px-4 py-2 font-semibold">Username</div>
-              <div className="px-2 py-2 ">{username}</div>
-            </div>
-            {/* Gender */}
-            <div className="grid grid-cols-2">
-              <div className="px-4 py-2 font-semibold">Gender</div>
-              <div className="px-2 py-2 ">{gender && gender}</div>
-            </div>
-            {/* Contact no */}
-            <div className="grid grid-cols-2">
-              <div className="px-4 py-2 font-semibold">Contact No.</div>
-              <div className="px-2 py-2 ">{(phone === "null" || phone === "undefined")? "" : phone}</div>
-            </div>
-            {/* Shipping Address */}
-            <div className="grid grid-cols-2">
-              <div className="px-4 py-2 font-semibold"> Shipping Address</div>
-              <div className="px-2 py-2">
-                {shippingAddress && shippingAddress}
+          <div className="grid text-sm md:grid-cols-2 ">
+            {fieldValues.map(({ fieldName, value }, key) => (
+              <div className="grid grid-cols-2" key={key}>
+                <div className="px-4 py-2 font-semibold">{fieldName}</div>
+                <div className="overflow-hidden truncate text-ellipsis whitespace-nowrap px-2 py-2">
+                  {value}
+                </div>
               </div>
-            </div>
-            {/* Billing Address */}
-            <div className="grid grid-cols-2">
-              <div className="px-4 py-2 font-semibold">Billing Address</div>
-              <div className="px-2 py-2 ">
-                {billingAddress && billingAddress}
-              </div>
-            </div>
-            {/* Email */}
-            <div className="grid grid-cols-2 overflow-hidden">
-              <div className="px-4 py-2 font-semibold">Email.</div>
-              <div className="px-2 py-2 ">
-                <a className="text-blue-800 " href={`mailto:${email}`}>
-                  {email}
-                </a>
-              </div>
-            </div>
-            {/* BirthDay */}
-            <div className="grid grid-cols-2">
-              <div className="px-4 py-2 font-semibold">Birthday</div>
-              <div className="px-2 py-2">
-                {birthDay }
-              </div>
-            </div>
+            ))}
           </div>
           {/* Buttons */}
           <div className="mt-4 flex justify-end gap-3">
