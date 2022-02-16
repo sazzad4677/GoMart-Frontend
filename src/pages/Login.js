@@ -4,24 +4,28 @@ import { toast } from "react-toastify";
 import LoginForm from "../components/Authentication/LoginForm/LoginForm";
 import Metadata from "../layout/Metadata/Metadata";
 import { login, clearErrors } from "../actions/authActions";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 const Authentication = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
   const [remember, setRemember] = useState(false);
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.authReducers
   );
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated && !location.state?.from) {
       navigate("/");
       toast.success("Successfully logged in");
+    }
+    if (isAuthenticated && location.state?.from) {
+      navigate(location.state.from)
     }
     if (error) {
         toast.error(error);
         dispatch(clearErrors());
     }
-  }, [dispatch, isAuthenticated, error, navigate]);
+  }, [dispatch, isAuthenticated, error, navigate,location.state?.from]);
 
   const submitHandler = ({ email, password }) => {
     dispatch(login(email, password, remember));

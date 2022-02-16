@@ -18,18 +18,18 @@ const ProfilePage = () => {
         <div>
           <Metadata title={`${user && user.username} `} />
           <Nav />
-          <div className="mx-auto px-4 py-5 sm:max-w-xl md:max-w-full md:px-20 lg:max-w-screen-xl lg:px-0">
-            <div class="container mx-auto my-5 p-5">
-              <div class="no-wrap md:-mx-2 md:flex ">
+          <div className="mx-auto px-4 py-5 pb-20 sm:max-w-xl md:max-w-full md:px-20 lg:max-w-screen-xl lg:px-0">
+            <div className="container mx-auto my-5 p-5">
+              <div className="no-wrap md:-mx-2 md:flex ">
                 <Profile user={user} />
-                <div class="mx-2 h-64 w-full md:w-9/12">
+                <div className="mx-2 h-64 w-full md:w-9/12">
                   <About user={user} />
                   <RecentOrder />
                 </div>
               </div>
             </div>
           </div>
-          <Footer/>
+          <Footer />
         </div>
       )}
     </>

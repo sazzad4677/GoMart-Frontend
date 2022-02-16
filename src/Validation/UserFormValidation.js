@@ -8,7 +8,7 @@ export const registerFormSchema = yup.object().shape({
     .string()
     .required("Provide Your username")
     .min(3, "Username at least 3 characters")
-    .max(10, "Username can't be exist more than 10 characters'"),
+    .max(20, "Username can't be exist more than 20 characters'"),
   email: yup
     .string()
     .email("Must be a valid email address")

@@ -101,7 +101,11 @@ const Nav = ({ ...props }) => {
                     className="relative z-50 inline-block text-left"
                   >
                     <div>
-                      <Menu.Button className={`inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white ${user.avatar ? "px-3 py-1" : "px-4 py-3"} text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50`}>
+                      <Menu.Button
+                        className={`inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white ${
+                          user.avatar ? "px-3 py-1" : "px-4 py-3"
+                        } text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50`}
+                      >
                         {user.avatar ? (
                           <img
                             src={user.avatar.url}
@@ -211,52 +215,6 @@ const Nav = ({ ...props }) => {
                       </Menu.Items>
                     </Transition>
                   </Menu>
-                  <div
-                    className="dropdown-list"
-                    id="profile-menu"
-                    x-position="left-start"
-                    x-spread="dropdown"
-                    x-cloak="true"
-                  >
-                    <p className="dropdown-header text-skin-secondary text-bold">
-                      {user.username}
-                    </p>
-                    <Link
-                      to="/profile"
-                      className="dropdown-item flex items-center gap-2 focus:ring-0"
-                    >
-                      <UserIcon className="h-6 w-6" />
-                      Profile
-                    </Link>
-                    {user.role === "admin" ? (
-                      <Link
-                        to="/dashboard"
-                        className="dropdown-item flex items-center gap-2 focus:ring-0"
-                      >
-                        <ViewGridIcon className="h-6 w-6" />
-                        Dashboard
-                      </Link>
-                    ) : (
-                      <Link
-                        to="/orders"
-                        className="dropdown-item flex items-center gap-2 focus:ring-0"
-                      >
-                        <ViewGridIcon className="h-6 w-6" />
-                        Orders
-                      </Link>
-                    )}
-                    <Link
-                      to="/"
-                      onClick={logoutHandler}
-                      className="dropdown-item text-red flex items-center gap-2 focus:ring-0"
-                    >
-                      <LogoutIcon
-                        className="h-6 w-6"
-                        style={{ color: "red" }}
-                      />
-                      <span className="text-red">Log out</span>
-                    </Link>
-                  </div>
                 </div>
               ) : (
                 // Logged in Profile

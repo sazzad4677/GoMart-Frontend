@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "rc-slider/assets/index.css";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../actions/productActions";
 import Nav from "../layout/Nav/Nav";

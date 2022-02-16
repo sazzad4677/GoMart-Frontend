@@ -92,14 +92,18 @@ export const loadUser = () => async (dispatch) => {
 export const updateProfile = (userData) => async (dispatch) => {
   try {
     dispatch({
-      type:   UPDATE_PROFILE_REQUEST,
+      type: UPDATE_PROFILE_REQUEST,
     });
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     };
-    const { data } = await axios.put("/api/v1/update/profile", userData, config);
+    const { data } = await axios.put(
+      "/api/v1/update/profile",
+      userData,
+      config
+    );
     dispatch({
       type: UPDATE_PROFILE_SUCCESS,
       payload: data.success,

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Slider from "rc-slider";
-import "rc-slider/assets/index.css";
 import { Collapse } from "react-collapse";
 import { ChevronDownIcon } from "@heroicons/react/outline";
 import ReactStars from "react-rating-stars-component";
@@ -72,7 +71,7 @@ const FilterSection = ({ price, setPrice, setRatings }) => {
                   onChange={(e) => setMinPrice(e.target.value)}
                   value={minPrice}
                 />
-                <label for="Min" className="text-skin-secondary">
+                <label htmlFor="Min" className="text-skin-secondary">
                   {" "}
                   Min
                 </label>
@@ -88,7 +87,7 @@ const FilterSection = ({ price, setPrice, setRatings }) => {
                   onChange={(e) => setMaxPrice(e.target.value)}
                   value={maxPrice}
                 />
-                <label for="Max" className="text-skin-secondary">
+                <label htmlFor="Max" className="text-skin-secondary">
                   {" "}
                   Max
                 </label>
@@ -121,8 +120,11 @@ const FilterSection = ({ price, setPrice, setRatings }) => {
                     "Newest",
                     "Up coming",
                     "Pre Order",
-                  ].map((available) => (
-                    <label className="text-md font- flex cursor-pointer items-center gap-2 text-gray-900 ">
+                  ].map((available, key) => (
+                    <label
+                      key={key}
+                      className="text-md font- flex cursor-pointer items-center gap-2 text-gray-900 "
+                    >
                       <input type="checkbox" className="h-4 w-4 rounded" />
                       <span>{available}</span>
                     </label>

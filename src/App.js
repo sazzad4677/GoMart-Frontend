@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./App.css";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
@@ -7,7 +6,6 @@ import DashboardPage from "./pages/DashboardPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductDetails from "./components/Products/ProductDetails";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import ProductsPage from "./pages/ProductsPage";
 import SearchPage from "./pages/SearchPage";
 import { loadUser } from "./actions/authActions";

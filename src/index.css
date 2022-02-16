@@ -48,6 +48,9 @@ input[type="file"]::file-selector-button {
 .green-button {
   @apply btn bg-skin-primary  btn-primary text-skin-primary-btn font-display flex items-center justify-center font-semibold hover:bg-opacity-90  focus:ring-0;
 }
+.red-button {
+  @apply btn bg-red btn-primary text-skin-primary-btn font-display flex items-center justify-center font-semibold hover:bg-opacity-90  focus:ring-0;
+}
 
 .white-button {
   @apply btn btn-primary border-skin-base  font-display  text-skin-base hover:bg-skin-primary flex border bg-transparent font-semibold hover:border-transparent hover:text-white focus:ring-0;

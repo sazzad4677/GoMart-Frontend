@@ -17,7 +17,7 @@ import InputField from "../InputField/InputField";
 // stylesheet
 import "../styles.css";
 
-const Login = ({ submitHandler, loading, remember, setRemember }) => {
+const Login = ({ submitHandler, setRemember }) => {
   // form validator
   const {
     register,

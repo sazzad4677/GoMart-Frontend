@@ -12,22 +12,40 @@ const Registration = () => {
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.authReducers
   );
-  const [userAvatar, setUserAvatar] = useState("");
-  const [userAvatarPreview, setUserAvatarPreview] = useState("");
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/");
-      toast.success("Successfully logged in");
-    }
-    if (error) {
-      toast.error(error);
-      dispatch(clearErrors());
-    }
-  }, [dispatch, isAuthenticated, error, navigate]);
+  const [userAvatar, setUserAvatar] = useState(""); // set user avatar
+  const [userAvatarPreview, setUserAvatarPreview] = useState(""); // show the preview of avatar
 
+  // set the avatar and preview the user avatar
+  const profileImageHandler = (avatar) => {
+    if (avatar.target.files.length > 0) {
+      if (
+        avatar.target.files[0].type !== "image/jpg" &&
+        avatar.target.files[0].type !== "image/jpeg" &&
+        avatar.target.files[0].type !== "image/png"
+      ) {
+        return toast.error("Only jpg, png and jpeg files are allowed");
+      }
+      if ((avatar.target.files[0].size / 1024 / 1024).toFixed(2) > 2) {
+        return toast.error("File size is more than 2 MB.");
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setUserAvatar(reader.result);
+          setUserAvatarPreview(reader.result);
+        }
+      };
+      reader.onerror = () => {
+        return toast.error("Failed to read file!" + reader.error);
+      };
+      reader.readAsDataURL(avatar.target.files[0]);
+    }
+  };
+
+  // submit the form
   const submitHandler = ({ name, username, email, password, phone }) => {
     const type = userAvatar.split(";")[0].split("/")[1];
-    if (type !== "jpg" && type !== "png" && type !== "jpeg") {
+    if (userAvatar && type !== "jpg" && type !== "png" && type !== "jpeg") {
       return toast.error("Only jpg, png and jpeg files are allowed");
     }
     const formData = new FormData();
@@ -40,6 +58,18 @@ const Registration = () => {
 
     dispatch(register(formData));
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+      toast.success("Successfully logged in");
+    }
+    if (error) {
+      toast.error(error);
+      dispatch(clearErrors());
+    }
+  }, [dispatch, isAuthenticated, error, navigate]);
+
   return (
     <div>
       <Metadata title={"Register"} />
@@ -47,9 +77,7 @@ const Registration = () => {
         submitHandler={submitHandler}
         loading={loading}
         userAvatarPreview={userAvatarPreview}
-        userAvatar={userAvatar}
-        setUserAvatar={setUserAvatar}
-        setUserAvatarPreview={setUserAvatarPreview}
+        profileImageHandler={profileImageHandler}
       />
     </div>
   );

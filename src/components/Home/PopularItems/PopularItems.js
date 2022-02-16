@@ -9,9 +9,6 @@ import ProductCard from "./ProductCard";
 import Products from "../../../Data/Products";
 // Swiper Js import
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
-import "swiper/components/navigation/navigation.min.css";
-import "swiper/components/pagination/pagination.min.css";
 import SwiperCore, { Pagination, Navigation } from "swiper";
 
 SwiperCore.use([Pagination, Navigation]);

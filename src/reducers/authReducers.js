@@ -94,7 +94,12 @@ export const userReducer = (state = {}, action) => {
       return {
         ...state,
         loading: false,
-        error: action.payload
+        error: action.payload,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
       };
     default:
       return state;

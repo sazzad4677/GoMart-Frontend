@@ -4,14 +4,14 @@ import {
 import React from "react";
 
 const Profile = ({ user }) => {
-  const { name, username, email, avatar, status, accountCreatedAt } = user;
+  const { name, avatar, status, accountCreatedAt } = user;
   return (
     <>
       {user && (
         <>
           <div className="font-display w-full md:mx-2 md:w-3/12">
             <div className="border-skin-base rounded-md border-t-4 bg-gray-100 p-3">
-              <div className="image overflow-hidden ">
+              <div className="image overflow-hidden">
                 {avatar ? (
                   <img
                     className="mx-auto h-56 w-56 rounded-full border"
@@ -22,7 +22,7 @@ const Profile = ({ user }) => {
                   <UserIcon className="rounded-full  text-gray-300" />
                 )}
               </div>
-              <h1 className="my-1 text-center text-xl font-bold leading-8 text-gray-900">
+              <h1 className="my-1 text-center text-xl font-bold leading-8 text-gray-900  break-all">
                 {name}
               </h1>
               <div className="mt-6 flex justify-around text-center">
@@ -70,11 +70,11 @@ const Profile = ({ user }) => {
                 </li>
                 <li className="flex items-center py-3">
                   <span>Last Login</span>
-                  <span className="ml-auto">{`${"Feb 13 2022"}`}</span>
+                  <span className="ml-auto">{user.lastLoginDate?.split("T")[0]}</span>
                 </li>
                 <li className="flex items-center py-3">
                   <span>Device</span>
-                  <span className="ml-auto">{`${"Chrome"}`}</span>
+                  <span className="ml-auto">{user.device}</span>
                 </li>
               </ul>
             </div>

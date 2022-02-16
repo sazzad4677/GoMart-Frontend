@@ -24,13 +24,13 @@ const Registration = ({
   submitHandler,
   loading,
   userAvatarPreview,
-  setUserAvatarPreview,
-  setUserAvatar,
+  profileImageHandler,
 }) => {
   // form validator
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm({ resolver: yupResolver(registerFormSchema) });
 
@@ -145,6 +145,7 @@ const Registration = ({
                       label={label}
                       errors={errors}
                       register={register}
+                      control={control}
                     />
                   </div>
                 )
@@ -169,43 +170,7 @@ const Registration = ({
                     </div>
                     <input
                       {...register("avatar", {
-                        onChange: (avatar) => {
-                          if (avatar.target.files.length > 0) {
-                            if (
-                              avatar.target.files[0].type !== "image/jpg" &&
-                              avatar.target.files[0].type !== "image/jpeg" &&
-                              avatar.target.files[0].type !== "image/png"
-                            ) {
-                              return toast.error(
-                                "Only jpg, png and jpeg files are allowed"
-                              );
-                            }
-                            if (
-                              (
-                                avatar.target.files[0].size /
-                                1024 /
-                                1024
-                              ).toFixed(2) > 2
-                            ) {
-                              return toast.error(
-                                "File size is more than 2 MB."
-                              );
-                            }
-                            const reader = new FileReader();
-                            reader.onload = () => {
-                              if (reader.readyState === 2) {
-                                setUserAvatar(reader.result);
-                                setUserAvatarPreview(reader.result);
-                              }
-                            };
-                            reader.onerror = () => {
-                              return toast.error(
-                                "Failed to read file!" + reader.error
-                              );
-                            };
-                            reader.readAsDataURL(avatar.target.files[0]);
-                          }
-                        },
+                        onChange: profileImageHandler,
                       })}
                       className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:border-transparent focus:outline-none"
                       aria-describedby="user_avatar_help"
@@ -264,9 +229,7 @@ const Registration = ({
           <div className="from-green-light to-green-primary bg-skin-secondary absolute inset-0  z-0 bg-gradient-to-b opacity-50"></div>
           <ul className="circles">
             {[...Array(10)].map((el, i) => (
-              <li key={i}>
-                {/* <img src={logo} alt="Go Mart" className="object-contain" /> */}
-              </li>
+              <li key={i}></li>
             ))}
           </ul>
         </div>

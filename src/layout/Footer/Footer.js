@@ -7,14 +7,14 @@ import { BsLinkedin } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <section className="bg-gray-50 border-t">
-      <footer class="font-display mx-auto max-w-7xl px-4 py-12">
-        <div class="mb-3 grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
-          <div class="col-span-3">
+    <section className="border-t bg-gray-50">
+      <footer className="font-display mx-auto max-w-7xl px-4 py-12">
+        <div className="mb-3 grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
+          <div className="col-span-3">
             <Link
               to="/"
               title="Go to Go Mart Home Page"
-              class="flex items-center"
+              className="flex items-center"
             >
               <img
                 src={logo}
@@ -24,9 +24,9 @@ const Footer = () => {
               <span className="font-display text-skin-primary ml-2 text-2xl font-bold leading-snug  tracking-tight">
                 Go<span className="text-skin-base">Mart</span>
               </span>
-              <span class="sr-only">Go Mart Home Page</span>
+              <span className="sr-only">Go Mart Home Page</span>
             </Link>
-            <p class="my-4 text-xs leading-normal text-gray-500">
+            <p className="my-4 text-xs leading-normal text-gray-500">
               Go mart is an online shop available in Dhaka. We believe time is
               valuable to our fellow residents, and that they should not have to
               waste hours in traffic, brave bad weather and wait in line just to
@@ -35,8 +35,8 @@ const Footer = () => {
               cost
             </p>
           </div>
-          <nav class="col-span-1 md:col-span-1 lg:col-span-2">
-            <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+          <nav className="col-span-1 md:col-span-1 lg:col-span-2">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
               Product
             </p>
             {[
@@ -45,85 +45,88 @@ const Footer = () => {
               "Documentation",
               "FAQs",
               "Pricing",
-            ].map((text) => (
+            ].map((text, key) => (
               <Link
+                key={key}
                 to="#"
-                class="hover:text-skin-base mb-3 flex text-sm font-medium text-gray-800 transition md:mb-2"
+                className="hover:text-skin-base mb-3 flex text-sm font-medium text-gray-800 transition md:mb-2"
               >
                 {text}
               </Link>
             ))}
           </nav>
-          <nav class="col-span-1 md:col-span-1 lg:col-span-2">
-            <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+          <nav className="col-span-1 md:col-span-1 lg:col-span-2">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
               About
             </p>
             {["Press-Kit", "Company", "Privacy", "Blog", "Press-Kit"].map(
-              (text) => (
+              (text, key) => (
                 <Link
+                  key={key}
                   to="#"
-                  class="hover:text-skin-base mb-3 flex text-sm font-medium text-gray-800 transition md:mb-2"
+                  className="hover:text-skin-base mb-3 flex text-sm font-medium text-gray-800 transition md:mb-2"
                 >
                   {text}
                 </Link>
               )
             )}
           </nav>
-          <nav class="col-span-2 md:col-span-1 lg:col-span-2">
-            <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+          <nav className="col-span-2 md:col-span-1 lg:col-span-2">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
               Contact
             </p>
-            {["Twitter", "Instagram", "Facebook", "Blog"].map((text) => (
+            {["Twitter", "Instagram", "Facebook", "Blog"].map((text, key) => (
               <Link
+                key={key}
                 to="#"
-                class="hover:text-skin-base mb-3 flex text-sm font-medium text-gray-800 transition md:mb-2"
+                className="hover:text-skin-base mb-3 flex text-sm font-medium text-gray-800 transition md:mb-2"
               >
                 {text}
               </Link>
             ))}
           </nav>
-          <div class="col-span-3">
-            <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+          <div className="col-span-3">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
               SUBSCRIBE TO OUR NEWSLETTER
             </p>
-            <form action="#" class="mb-2">
-              <div class="form-append">
+            <form action="#" className="mb-2">
+              <div className="form-append">
                 <input
-                  class="form-input form-input-sm"
+                  className="form-input form-input-sm"
                   type="email"
                   placeholder="Enter your email"
                 />
-                <button class="green-button btn-sm" type="submit">
+                <button className="green-button btn-sm" type="submit">
                   Subscribe
                 </button>
               </div>
             </form>
-            <p class="text-xs leading-normal text-gray-500">
+            <p className="text-xs leading-normal text-gray-500">
               Get lessons and insights on how to grow your freelance business.
             </p>
           </div>
         </div>
-        <div class="mt-10 flex flex-col items-start justify-between border-t border-gray-100 pt-10 md:flex-row md:items-center">
-          <p class="mb-6 text-left text-sm text-gray-600 md:mb-0">
+        <div className="mt-10 flex flex-col items-start justify-between border-t border-gray-100 pt-10 md:flex-row md:items-center">
+          <p className="mb-6 text-left text-sm text-gray-600 md:mb-0">
             © Copyright {new Date().getFullYear()}. All Rights Reserved.
           </p>
-          <div class="flex items-start justify-start space-x-6 md:items-center md:justify-center">
+          <div className="flex items-start justify-start space-x-6 md:items-center md:justify-center">
             <a
               href="https://facebook.com"
-              class="hover:text-primary text-sm text-gray-600 transition "
+              className="hover:text-primary text-sm text-gray-600 transition "
             >
-              <FaFacebookF class="h-5 w-5 text-blue-500" />
+              <FaFacebookF className="h-5 w-5 text-blue-500" />
             </a>
             <a
               href="https://www.instagram.com/"
-              class="hover:text-primary text-sm text-gray-600 transition"
+              className="hover:text-primary text-sm text-gray-600 transition"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 2500 2500"
                 width="2500"
                 height="2500"
-                class="h-5 w-5"
+                className="h-5 w-5"
                 aria-hidden="true"
               >
                 <defs>
@@ -134,8 +137,8 @@ const Footer = () => {
                     r="3263.54"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop offset=".09" stop-color="#fa8f21" />
-                    <stop offset=".78" stop-color="#d82d7e" />
+                    <stop offset=".09" stopColor="#fa8f21" />
+                    <stop offset=".78" stopColor="#d82d7e" />
                   </radialGradient>
                   <radialGradient
                     id="1"
@@ -144,8 +147,8 @@ const Footer = () => {
                     r="2572.12"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop offset=".64" stop-color="#8c3aaa" stop-opacity="0" />
-                    <stop offset="1" stop-color="#8c3aaa" />
+                    <stop offset=".64" stopColor="#8c3aaa" stopOpacity="0" />
+                    <stop offset="1" stopColor="#8c3aaa" />
                   </radialGradient>
                 </defs>
                 <path
@@ -160,15 +163,15 @@ const Footer = () => {
             </a>
             <a
               href="https://www.linkedin.com/feed/"
-              class="hover:text-primary text-sm text-gray-600 transition"
+              className="hover:text-primary text-sm text-gray-600 transition"
             >
-              <BsLinkedin class="h-5 w-5 text-blue-600" />
+              <BsLinkedin className="h-5 w-5 text-blue-600" />
             </a>
             <a
               href="https://twitter.com"
-              class="hover:text-primary text-sm text-gray-600 transition"
+              className="hover:text-primary text-sm text-gray-600 transition"
             >
-              <GrTwitter class="h-5 w-5 text-blue-400" />
+              <GrTwitter className="h-5 w-5 text-blue-400" />
             </a>
           </div>
         </div>
