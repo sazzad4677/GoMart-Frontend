@@ -48,7 +48,7 @@ const Hero = ({ data }) => {
             {label}
             <span>
               {/* label image */}
-              <img src={labelImage} alt={label} className="ml-2 h-6 w-6" />
+              <img src={labelImage} alt="labelImage" className="ml-2 h-6 w-6" />
             </span>
           </p>
           {/* left text */}

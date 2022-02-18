@@ -83,7 +83,7 @@ const About = ({ user }) => {
             Edit Profile
           </Link>
           <Link
-            to=""
+            to="/update-profile"
             className="white-button flex gap-2 rounded-lg text-sm font-semibold "
           >
             <AdjustmentsIcon className="hidden h-4 w-4 md:flex" />

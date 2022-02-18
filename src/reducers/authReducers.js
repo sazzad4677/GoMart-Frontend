@@ -21,6 +21,7 @@ import {
   CLEAR_ERRORS,
 } from "../constants/authConstants";
 
+// User login/register/load user
 export const authReducers = (state = { user: {} }, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
@@ -76,29 +77,26 @@ export const authReducers = (state = { user: {} }, action) => {
   }
 };
 
+// User profile update
 export const userReducer = (state = {}, action) => {
   switch (action.type) {
     case UPDATE_PROFILE_REQUEST:
-    case UPDATE_PASSWORD_REQUEST:
       return {
         ...state,
         loading: true,
       };
     case UPDATE_PROFILE_SUCCESS:
-    case UPDATE_PASSWORD_SUCCESS:
       return {
         ...state,
         loading: false,
         isUpdated: action.payload,
       };
     case UPDATE_PROFILE_RESET:
-    case UPDATE_PASSWORD_RESET:
       return {
         ...state,
         isUpdated: false,
       };
     case UPDATE_PROFILE_FAILED:
-    case UPDATE_PASSWORD_FAILED:
       return {
         ...state,
         loading: false,
@@ -108,6 +106,41 @@ export const userReducer = (state = {}, action) => {
       return {
         ...state,
         error: null,
+      };
+    default:
+      return state;
+  }
+};
+
+// User password update
+export const userPasswordReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPDATE_PASSWORD_REQUEST:
+      return {
+        ...state,
+        requestLoading: true,
+      };
+    case UPDATE_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        requestLoading: false,
+        isPasswordUpdated: action.payload,
+      };
+    case UPDATE_PASSWORD_RESET:
+      return {
+        ...state,
+        isPasswordUpdated: false,
+      };
+    case UPDATE_PASSWORD_FAILED:
+      return {
+        ...state,
+        requestLoading: false,
+        requestError: action.payload,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        requestError: null,
       };
     default:
       return state;

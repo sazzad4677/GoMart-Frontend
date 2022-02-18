@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { toast } from "react-toastify";
 import Slider from "rc-slider";
 import { Collapse } from "react-collapse";

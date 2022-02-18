@@ -22,7 +22,7 @@ const ProductsPage = () => {
   // Filter by  stock
   const [stock, setStock] = useState([]);
   // Filter by ratings
-  const [ratings, setRatings] = useState(0);
+  const [ratings, setRatings] = useState("");
   // sorting by price high to low / low to high
   const [sortType, setSortType] = useState("0");
   // products data

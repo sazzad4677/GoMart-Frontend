@@ -21,12 +21,9 @@ import { Menu, Transition } from "@headlessui/react";
 import "./styles.css";
 
 const Nav = ({ ...props }) => {
-  const [iconRotate, setIconRotate] = useState(false);
   const dispatch = useDispatch();
   const { fixed, items = [], SearchBarShow, productsData } = props;
-  const { isAuthenticated, user, error, loading } = useSelector(
-    (state) => state.authReducers
-  );
+  const { user, error, loading } = useSelector((state) => state.authReducers);
   const logoutHandler = () => {
     dispatch(logoutUser());
     toast.success("Successfully Logged out");
@@ -91,7 +88,6 @@ const Nav = ({ ...props }) => {
                   <span className="bg-skin-primary relative inline-flex h-3 w-3 rounded-full"></span>
                 </span>
               </Link>
-              {/* Sign In / Register Button*/}
             </div>
             <div className="hidden xl:block">
               {user ? (

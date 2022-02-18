@@ -2,14 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import "./App.css";
-import "react-toastify/dist/ReactToastify.css";
-import "swiper/swiper.min.css";
-import "swiper/components/navigation/navigation.min.css";
-import "swiper/components/pagination/pagination.min.css";
-import "react-datepicker/dist/react-datepicker.css";
-import "react-phone-number-input/style.css";
-import "rc-slider/assets/index.css";
-import 'react-phone-number-input/style.css'
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";

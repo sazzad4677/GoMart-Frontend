@@ -37,6 +37,7 @@ const VideoPlayer = ({ isOpen, setIsOpen }) => {
               controls
               url="https://youtu.be/mevoIZ-eAe4"
               width="100%"
+              className="aspect-video w-full"
             />
           </div>
         </div>

@@ -13,6 +13,14 @@ import store from "./store";
 import ProfilePage from "./pages/ProfilePage";
 import PrivateOutlet from "./components/Route/PrivateOutlet";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
+import "react-toastify/dist/ReactToastify.css";
+import "swiper/swiper.min.css";
+import "swiper/components/navigation/navigation.min.css";
+import "swiper/components/pagination/pagination.min.css";
+import "react-datepicker/dist/react-datepicker.css";
+import "react-phone-number-input/style.css";
+import "rc-slider/assets/index.css";
+import "react-phone-number-input/style.css";
 
 function App() {
   useEffect(() => {

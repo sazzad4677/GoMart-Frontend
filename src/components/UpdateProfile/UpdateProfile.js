@@ -1,5 +1,6 @@
 import { PencilAltIcon, UserIcon } from "@heroicons/react/solid";
 import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const UpdateProfile = ({
@@ -7,11 +8,16 @@ const UpdateProfile = ({
   userAvatarPreview,
   submitHandler,
   handleProfileImageChange,
-  register,
-  handleSubmit,
-  errors,
 }) => {
   const { name, avatar, status, accountCreatedAt } = user;
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    control,
+    formState: { errors },
+  } = useForm();
   // Form error notify
   useEffect(() => {
     if (errors) {

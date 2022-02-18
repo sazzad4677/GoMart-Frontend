@@ -1,74 +1,87 @@
+import vegetablesIcon from "../images/Categories/vegetables-icon.png"
+import meatIcon from "../images/Categories/meatIcon.png"
+import cookingIcon from "../images/Categories/cookingIcon.png"
+import bevarageIcon from "../images/Categories/BevarageIcon.png"
+import homeAndCleaningIcon from "../images/Categories/HomeAndCleaningIcon.png"
+import pestControlIcon from "../images/Categories/pestControlIcon.png"
+import officeProductIcon from "../images/Categories/officeProductIcon.png"
+import beautyProductIcon from "../images/Categories/BeautyProductIcon.png"
+import healthProductIcon from "../images/Categories/HealthProductIcon.png"
+import petCareIcon from "../images/Categories/PetCareIcon.png"
+import homeAppliancesIcon from "../images/Categories/HomeAppliancesIcon.png"
+import babyCareIcon from "../images/Categories/BabyCareIcon.png"
+
 const categoryData = [
   {
     id: "cat001",
     name: "Fruits and Vegetables",
-    image: require("../images/Categories/vegetables-icon.png").default,
+    image: vegetablesIcon,
     link: "/",
   },
   {
     id: "cat002",
     name: "Meat and Fish",
-    image: require("../images/Categories/meatIcon.png").default,
+    image: meatIcon,
     link: "/",
   },
   {
     id: "cat003",
     name: "Cooking",
-    image: require("../images/Categories/cookingIcon.png").default,
+    image: cookingIcon,
     link: "/",
   },
   {
     id: "cat004",
     name: "Beverages",
-    image: require("../images/Categories/BevarageIcon.png").default,
+    image: bevarageIcon,
     link: "",
   },
   {
     id: "cat005",
     name: "Home and Cleaning",
-    image: require("../images/Categories/HomeAndCleaningIcon.png").default,
+    image: homeAndCleaningIcon,
     link: "",
   },
   {
     id: "cat006",
     name: "Pest Control",
-    image: require("../images/Categories/pestControlIcon.png").default,
+    image: pestControlIcon,
     link: "",
   },
   {
     id: "cat007",
     name: "Office Products",
-    image: require("../images/Categories/officeProductIcon.png").default,
+    image: officeProductIcon,
     link: "",
   },
   {
     id: "cat008",
     name: "Beauty Products",
-    image: require("../images/Categories/BeautyProductIcon.png").default,
+    image: beautyProductIcon,
     link: "",
   },
   {
     id: "cat009",
     name: "Health Products",
-    image: require("../images/Categories/HealthProductIcon.png").default,
+    image: healthProductIcon,
     link: "",
   },
   {
     id: "cat010",
     name: "Pet Care",
-    image: require("../images/Categories/PetCareIcon.png").default,
+    image: petCareIcon,
     link: "",
   },
   {
     id: "cat011",
     name: "Home Appliances",
-    image: require("../images/Categories/HomeAppliancesIcon.png").default,
+    image: homeAppliancesIcon,
     link: "",
   },
   {
     id: "cat012",
     name: "Baby Care",
-    image: require("../images/Categories/BabyCareIcon.png").default,
+    image: babyCareIcon,
     link: "",
   },
 ];

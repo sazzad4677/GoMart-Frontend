@@ -1,4 +1,4 @@
-import { CheckIcon, UserIcon } from "@heroicons/react/outline";
+import { CheckIcon, CogIcon, UserIcon } from "@heroicons/react/outline";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
@@ -7,16 +7,14 @@ import { XIcon } from "@heroicons/react/solid";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
 import { toast } from "react-toastify";
 import Autocomplete from "react-google-autocomplete";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { updateAboutFormSchema } from "../../Validation/UserFormValidation";
 const UpdateAbout = ({
   user,
-  submitHandler,
+  profileFormSubmitHandler,
   birthDate,
   birthDateOnChange,
-  register,
-  handleSubmit,
-  control,
-  watch,
-  errors,
+  loading,
 }) => {
   const {
     name,
@@ -28,18 +26,37 @@ const UpdateAbout = ({
     billingAddress,
   } = user;
 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    control,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(updateAboutFormSchema) });
+
   // for update button decision
   const watchAllFields = watch();
 
   useEffect(() => {
+    const errorFields = [
+      "name",
+      "username",
+      "email",
+      "gender",
+      "phone",
+      "shippingAddress",
+      "billingAddress",
+    ];
     if (errors) {
-      toast.error(errors);
+      errorFields.forEach((errorField) =>
+        toast.error(errors[errorField]?.message)
+      );
     }
   }, [errors]);
   return (
     <form
       className="font-display rounded-md bg-gray-100 shadow"
-      onSubmit={handleSubmit(submitHandler)}
+      onSubmit={handleSubmit(profileFormSubmitHandler)}
     >
       <div className="mt-3 flex w-full items-center justify-between space-x-2 border-b-2 border-gray-200 bg-gray-100 p-3 font-semibold leading-8 text-gray-900 lg:mt-0">
         <div className="flex items-center gap-1">
@@ -47,23 +64,6 @@ const UpdateAbout = ({
             <UserIcon className="h-5 w-5" />
           </span>
           <span className="tracking-wide">Update About</span>
-        </div>
-        <div className="flex gap-3">
-          {Object.keys(watchAllFields).length > 0 && (
-            <button
-              type="submit"
-              to="/update-profile"
-              className="green-button w- flex gap-2  rounded-lg text-sm font-semibold"
-            >
-              <CheckIcon className="h-4 w-4" />
-            </button>
-          )}
-          <Link
-            to="/profile"
-            className="red-button w- flex gap-2  rounded-lg text-sm font-semibold "
-          >
-            <XIcon className="h-4 w-4" />
-          </Link>
         </div>
       </div>
       <div className="p-3 text-gray-700">
@@ -74,9 +74,11 @@ const UpdateAbout = ({
               Name
             </label>
             <input
-             className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
+              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
              ${
-              Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+               Object.keys(errors).length
+                 ? "border-red focus:border-red"
+                 : "border-skin-base"
              }`}
               id="name"
               type="text"
@@ -93,7 +95,9 @@ const UpdateAbout = ({
             <input
               className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
               ${
-                Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+                Object.keys(errors).length
+                  ? "border-red focus:border-red"
+                  : "border-skin-base"
               }`}
               id="username"
               type="text"
@@ -110,7 +114,9 @@ const UpdateAbout = ({
             <input
               className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
               ${
-                Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+                Object.keys(errors).length
+                  ? "border-red focus:border-red"
+                  : "border-skin-base"
               }`}
               id="email"
               type="email"
@@ -136,7 +142,12 @@ const UpdateAbout = ({
               countryCallingCodeEditable={false}
               withCountryCallingCode
               id="phone"
-              className="phone rounded rounded-full bg-gray-100 py-1 px-4 text-gray-700 shadow-sm"
+              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
+              ${
+                Object.keys(errors).length
+                  ? "border-red focus:border-red"
+                  : "border-skin-base"
+              }`}
             />
           </div>
           {/* Gender */}
@@ -145,7 +156,9 @@ const UpdateAbout = ({
             <select
               className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
               ${
-                Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+                Object.keys(errors).length
+                  ? "border-red focus:border-red"
+                  : "border-skin-base"
               }`}
               id="username"
               type="text"
@@ -167,7 +180,9 @@ const UpdateAbout = ({
               <DatePicker
                 className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
                 ${
-                  Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+                  Object.keys(errors).length
+                    ? "border-red focus:border-red"
+                    : "border-skin-base"
                 }`}
                 portalId="root-portal"
                 onChange={birthDateOnChange}
@@ -196,7 +211,9 @@ const UpdateAbout = ({
             <Autocomplete
               className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
               ${
-                Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+                Object.keys(errors).length
+                  ? "border-red focus:border-red"
+                  : "border-skin-base"
               }`}
               apiKey={"AIzaSyDMuTTurSbA7-GqIVOy80S6gOFHCv5xqB8"}
               onPlaceSelected={(place) => console.log(place)}
@@ -218,7 +235,9 @@ const UpdateAbout = ({
             <input
               className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
               ${
-                Object.keys(errors).length ? "border-red focus:border-red" : "border-skin-base"
+                Object.keys(errors).length
+                  ? "border-red focus:border-red"
+                  : "border-skin-base"
               }`}
               id="billingAddress"
               type="text"
@@ -227,6 +246,45 @@ const UpdateAbout = ({
               defaultValue={billingAddress}
             ></input>
           </div>
+        </div>
+        <div className="mt-4 flex justify-end gap-3">
+          <button
+            type="reset"
+            className="gray-button flex gap-2 rounded-lg text-sm font-semibold "
+          >
+            <CogIcon className="hidden h-4 w-4 md:flex" />
+            Reset Changes
+          </button>
+          {Object.keys(watchAllFields).length > 0 && (
+            <Link
+              to="/update-profile"
+              className="green-button flex gap-2 rounded-lg text-sm font-semibold"
+              disabled={loading ? true : false}
+            >
+              {loading ? (
+                <>
+                  <span
+                    class="spinner h-4 w-4"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="pl-1">Loading...</span>
+                </>
+              ) : (
+                <>
+                  <CheckIcon className="hidden h-4 w-4 md:flex" />
+                  Update About
+                </>
+              )}
+            </Link>
+          )}
+          <Link
+            to="/profile"
+            className="red-button flex gap-2 rounded-lg text-sm font-semibold "
+          >
+            <XIcon className="hidden h-4 w-4 md:flex" />
+            Cancel
+          </Link>
         </div>
       </div>
     </form>

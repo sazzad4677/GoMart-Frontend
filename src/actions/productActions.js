@@ -24,7 +24,8 @@ export const getProducts =
       dispatch({
         type: ALL_PRODUCTS_REQUEST,
       });
-      let link = `/api/v1/products?name=${keyword}&page=${currentPage}&sorting=${sortType}&size=${resultPerPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${ratings}`;
+      let link = `/api/v1/products?name=${keyword}&page=${currentPage}&sorting=${sortType}&size=${resultPerPage}&price[lte]=${price[1]}&price[gte]=${price[0]}`;
+      // let link = `/api/v1/products?name=${keyword}&page=${currentPage}&sorting=${sortType}&size=${resultPerPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${ratings}`;
       // if (stock.length > 0) {
       //     link = `/api/v1/products?name=${keyword}&page=${currentPage}&sorting=${sortType}&size=${resultPerPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&stock[lte]=${stock[1]}&stock[gte]=${stock[0]}&ratings[gte]=${ratings}`
       // }
