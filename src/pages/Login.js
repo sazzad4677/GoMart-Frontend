@@ -19,13 +19,13 @@ const Authentication = () => {
       toast.success("Successfully logged in");
     }
     if (isAuthenticated && location.state?.from) {
-      navigate(location.state.from)
+      navigate(location.state.from);
     }
     if (error) {
-        toast.error(error);
-        dispatch(clearErrors());
+      toast.error(error);
+      dispatch(clearErrors());
     }
-  }, [dispatch, isAuthenticated, error, navigate,location.state?.from]);
+  }, [dispatch, isAuthenticated, error, navigate, location.state?.from]);
 
   const submitHandler = ({ email, password }) => {
     dispatch(login(email, password, remember));

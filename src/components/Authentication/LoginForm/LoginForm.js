@@ -1,7 +1,6 @@
 // form schema validation
-import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useState } from "react";
+import React from "react";
 // Form Validator
 import { useForm } from "react-hook-form";
 // icons
@@ -124,9 +123,12 @@ const Login = ({ submitHandler, setRemember }) => {
                   />
                 </div>
                 <div className="text-sm">
-                  <a href="#" className="text-red hover:opacity-90">
+                  <Link
+                    to="/forgot-password"
+                    className="text-red hover:opacity-90"
+                  >
                     Forgot your password?
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="flex justify-end ">

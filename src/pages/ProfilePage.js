@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import RecentOrder from "../components/Orders/RecentOrder";
 import About from "../components/Profile/About";

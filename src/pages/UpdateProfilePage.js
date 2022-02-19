@@ -123,7 +123,7 @@ const UpdateProfilePage = () => {
     formData.set("newPassword", newPassword);
     dispatch(updatePassword(formData));
   };
-
+  
   useEffect(() => {
     // Update Profile or About
     if (isUpdated) {

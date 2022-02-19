@@ -21,7 +21,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-number-input/style.css";
 import "rc-slider/assets/index.css";
 import "react-phone-number-input/style.css";
-import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 
 function App() {
   useEffect(() => {
@@ -34,6 +35,8 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Registration />}></Route>
+        <Route path="/forgot-password" element={<ForgotPasswordPage />}></Route>
+        <Route path="/reset-password/:token" element={<ResetPasswordPage />}></Route>
         <Route path="/products" element={<ProductsPage />}></Route>
         <Route path="/*" element={<PrivateOutlet />}>
           <Route path="profile" element={<ProfilePage />}></Route>

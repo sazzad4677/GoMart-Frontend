@@ -57,6 +57,20 @@ export const updateAboutFormSchema = yup.object().shape({
     .string(),
 });
 
+// reset password Form Schema
+export const resetPasswordSchema = yup.object().shape({
+  newPassword: yup
+    .string()
+    .required("New Password is Required")
+    .min(6, "Password at least 6 characters Long")
+    .max(20, "Password at most 20 characters"),
+  confirmPassword: yup
+    .string()
+    .oneOf(
+      [yup.ref("newPassword"), "Password Not Matched"],
+      "Password Not Matched"
+    ),
+});
 // Update password Form Schema
 export const updatePasswordSchema = yup.object().shape({
   oldPassword: yup
