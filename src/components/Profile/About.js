@@ -47,7 +47,7 @@ const About = ({ user }) => {
   ];
 
   return (
-    <div className="font-display rounded-md bg-gray-100 shadow">
+    <div className="font-display rounded-lg bg-gray-100 shadow">
       <div className="mt-3 flex w-full items-center space-x-2 border-b-2 border-gray-200 bg-gray-100 p-3 font-semibold leading-8 text-gray-900 lg:mt-0">
         <div className="flex items-center gap-1">
           <span clas="text-green-500">

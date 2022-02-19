@@ -26,7 +26,7 @@ const UpdateProfile = ({
   return (
     <>
       <div className="font-display w-full md:mx-2 md:w-3/12">
-        <div className="border-skin-base rounded-md border-t-4 bg-gray-100 p-3">
+        <div className="border-skin-base rounded-md border-t-4 border-b-4 bg-gray-100 p-3">
           <form
             className="image relative overflow-hidden"
             onSubmit={handleSubmit(submitHandler)}

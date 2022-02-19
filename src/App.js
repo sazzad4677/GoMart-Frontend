@@ -21,6 +21,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-number-input/style.css";
 import "rc-slider/assets/index.css";
 import "react-phone-number-input/style.css";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 
 function App() {
   useEffect(() => {
@@ -42,6 +43,7 @@ function App() {
         <Route path="/search/" element={<SearchPage />}></Route>
         <Route path="/search/:keyword" element={<SearchPage />}></Route>
         <Route path="/product/:id" element={<ProductDetails />}></Route>
+        {/* <Route path="/cart/" element={<ShoppingCart />}></Route> */}
       </Routes>
       <>
         <ToastContainer />

@@ -94,7 +94,6 @@ const UpdateProfilePage = () => {
     password,
     phone,
   }) => {
-   
     if (userAvatar) {
       const type = userAvatar.split(";")[0].split("/")[1];
       if (type !== "jpg" && type !== "png" && type !== "jpeg") {
@@ -174,19 +173,19 @@ const UpdateProfilePage = () => {
               profileFormSubmitHandler={profileFormSubmitHandler}
               handleProfileImageChange={handleProfileImageChange}
             />
-            <div className="mx-2 mx-auto flex h-full w-full flex-col gap-6 md:w-9/12">
-              <UpdateAbout
-                user={user}
-                profileFormSubmitHandler={profileFormSubmitHandler}
-                birthDate={birthDate}
-                birthDateOnChange={birthDateOnChange}
-                setPlace={setPlace}
-                loading={loading}
-              />
-              <UpdatePassword
-                passwordFormSubmitHandler={passwordFormSubmitHandler}
-                requestLoading={requestLoading}
-              />
+            <div className="mx-auto my-auto h-full w-full md:w-9/12">
+                <UpdateAbout
+                  user={user}
+                  profileFormSubmitHandler={profileFormSubmitHandler}
+                  birthDate={birthDate}
+                  birthDateOnChange={birthDateOnChange}
+                  setPlace={setPlace}
+                  loading={loading}
+                />
+                <UpdatePassword
+                  passwordFormSubmitHandler={passwordFormSubmitHandler}
+                  requestLoading={requestLoading}
+                />
             </div>
           </div>
         </div>

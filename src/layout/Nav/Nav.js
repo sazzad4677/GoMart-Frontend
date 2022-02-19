@@ -19,6 +19,7 @@ import BottomNav from "./BottomNav";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import "./styles.css";
+import ShoppingCart from "../../components/ShoppingCart/ShoppingCart";
 
 const Nav = ({ ...props }) => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const Nav = ({ ...props }) => {
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
+  const [cart, setCart] = useState(false);
   return (
     <header
       className={`top-0 w-full ${fixed} bg-skin-secondary z-50 bg-opacity-70`}
@@ -78,8 +80,8 @@ const Nav = ({ ...props }) => {
               <Link to="/wishlist" className="nav-icon">
                 <HeartIcon className="h-6 w-6" />
               </Link>
-              <Link
-                to="/cart"
+              <button
+                onClick={() => setCart(true)}
                 className="text-gray hover:text-skin-base flex items-center"
               >
                 <ShoppingCartIcon className="h-6 w-6" />
@@ -87,7 +89,7 @@ const Nav = ({ ...props }) => {
                   <span className="bg-skin-primary absolute inline-flex h-3 w-3 animate-ping rounded-full opacity-75"></span>
                   <span className="bg-skin-primary relative inline-flex h-3 w-3 rounded-full"></span>
                 </span>
-              </Link>
+              </button>
             </div>
             <div className="hidden xl:block">
               {user ? (
@@ -224,6 +226,7 @@ const Nav = ({ ...props }) => {
             </div>
           </div>
         </div>
+        <ShoppingCart cart={cart} setCart={setCart}/>
       </nav>
       {/* Bottom Navigation -> mobile*/}
       {/* <BottomNav /> */}

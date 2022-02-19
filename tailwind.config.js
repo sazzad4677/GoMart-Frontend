@@ -16,8 +16,8 @@ module.exports = {
             `rgba(var(--inverted-color), ${opacityValue || 1} )`,
           "scheme-color": ({ opacityValue }) =>
             `rgba(var(--scheme-based-bg-color), ${opacityValue || 1} )`,
-          "primary-hover": "var(--primary-hover-color)",
-          "secondary-hover": "var(--secondary-hover-color)",
+          "hover-1": "var(--hover-color-1)",
+          "hover-2": "var(--hover-color-2)",
         },
       },
       textColor: {

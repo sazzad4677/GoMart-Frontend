@@ -60,7 +60,7 @@ const Profile = ({ user }) => {
               <li className="flex items-center py-3">
                 <span>Area Name</span>
                 <a href={`https://www.google.com/maps/place/?q=place_id:${area.placeId}`} className="ml-auto text-sky-700">
-                  {area?.areaName.split(", Bangladesh")}
+                  {area.areaName  === "undefined" || area.areaName ==="null" ? "" :area?.areaName.split(", Bangladesh")}
                 </a>
               </li>
               <li className="flex items-center py-3">

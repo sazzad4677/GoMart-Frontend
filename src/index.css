@@ -11,8 +11,8 @@
   --options-color: 241, 243, 245;
   --accent-color: 248, 250, 249;
   --inverted-color: 67, 71, 104;
-  --primary-hover-color: #6eb04e;
-  --secondary-hover-color: #eaeeeb;
+  --hover-color-1: #38964a;
+  --hover-color-2: #a31b1b;
   /* button text color */
   --btn-text-primary: #ffffff;
   --btn-text-secondary: #434768;
@@ -39,10 +39,10 @@
 
 /* Button */
 .green-button {
-  @apply btn bg-skin-primary btn-primary text-skin-primary-btn font-display hover:bg-skin-primary flex items-center justify-center font-semibold hover:bg-opacity-90 focus:ring-0;
+  @apply btn bg-skin-primary btn-primary text-skin-primary-btn font-display hover:bg-skin-primary flex items-center justify-center font-semibold hover:bg-skin-hover-1 focus:ring-0;
 }
 .red-button {
-  @apply btn bg-red btn-primary text-skin-primary-btn font-display hover:bg-red flex items-center justify-center font-semibold hover:bg-opacity-80 focus:ring-0;
+  @apply btn bg-red btn-primary text-skin-primary-btn font-display hover:bg-red flex items-center justify-center font-semibold hover:bg-skin-hover-2 focus:ring-0;
 }
 
 .white-button {
