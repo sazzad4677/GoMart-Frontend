@@ -17,12 +17,15 @@ import { registerFormSchema } from "../../../Validation/UserFormValidation";
 import InputField from "../InputField/InputField";
 // stylesheet
 import "../styles.css";
+import { useState } from "react";
 
 const Registration = ({
   submitHandler,
   loading,
   userAvatarPreview,
   profileImageHandler,
+  file,
+  setFile,
 }) => {
   // form validator
   const {
@@ -175,18 +178,32 @@ const Registration = ({
                         <UserIcon className="h-6 w-6 text-gray-500 " />
                       )}
                     </div>
-                    <input
-                      {...register("avatar", {
-                        onChange: profileImageHandler,
-                      })}
-                      className="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:border-transparent focus:outline-none"
-                      aria-describedby="user_avatar_help"
-                      id="user_avatar"
-                      type="file"
-                      data-max-size="2048"
-                      accept="image/jpg, image/jpeg, image/png"
-                      pattern="/.*\.(gif|jpe?g|bmp|png)$/igm"
-                    />
+                    <label class="form-input cursor-pointer overflow-hidden truncate whitespace-nowrap" for="basicfile">
+                      <input
+                        {...register("avatar", {
+                          onChange: profileImageHandler,
+                        })}
+                        type="file"
+                        class="sr-only"
+                        id="basicfile"
+                        aria-describedby="user_avatar_help"
+                        data-max-size="2048"
+                        accept="image/*"
+                        pattern="/.*\.(gif|jpe?g|bmp|png)$/igm"
+                      />
+                      <span>
+                        {file
+                          ? file.map((file) => file.name).join(", ")
+                          : "Choose file.."}
+                      </span>
+                    </label>
+                    <button
+                      className="gray-button"
+                      type="reset"
+                      onClick={() => setFile(null)}
+                    >
+                      Reset
+                    </button>
                   </div>
                   <div className="text-xs text-gray-500">
                     <p>

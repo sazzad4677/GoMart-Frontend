@@ -12,7 +12,6 @@ import {
 import UpdateAbout from "../components/UpdateProfile/UpdateAbout";
 import UpdateProfile from "../components/UpdateProfile/UpdateProfile";
 import Footer from "../layout/Footer/Footer";
-import Loader from "../layout/Loader/Loader";
 import Metadata from "../layout/Metadata/Metadata";
 import Nav from "../layout/Nav/Nav";
 import {
@@ -34,7 +33,8 @@ const UpdateProfilePage = () => {
   const [userAvatar, setUserAvatar] = useState(""); // set avatar
   const [userAvatarPreview, setUserAvatarPreview] = useState(""); // avatar preview
   const [birthDate, setBirthDate] = useState(() => birthDateSetter()); // date picker
-  const [birthDay, setBirthDay] = useState(""); // send to backend
+  const [birthDay, setBirthDay] = useState(""); //birthDay send to backend
+  const [place, setPlace] = useState(""); //area Name
 
   // If the birthday is already stored in the database, the function will return it; otherwise, a new date will be generated.
   function birthDateSetter() {
@@ -94,6 +94,7 @@ const UpdateProfilePage = () => {
     password,
     phone,
   }) => {
+   
     if (userAvatar) {
       const type = userAvatar.split(";")[0].split("/")[1];
       if (type !== "jpg" && type !== "png" && type !== "jpeg") {
@@ -111,6 +112,8 @@ const UpdateProfilePage = () => {
     formData.set("gender", gender);
     formData.set("shippingAddress", shippingAddress);
     formData.set("billingAddress", billingAddress);
+    formData.set("areaName", place.formatted_address);
+    formData.set("placeId", place.place_id);
     dispatch(updateProfile(formData));
   };
 
@@ -126,8 +129,8 @@ const UpdateProfilePage = () => {
     // Update Profile or About
     if (isUpdated) {
       toast.success("User updated successfully");
+      navigate("/profile/");
       dispatch(loadUser());
-      navigate("/profile");
       dispatch({ type: UPDATE_PROFILE_RESET });
     }
     if (error) {
@@ -138,7 +141,7 @@ const UpdateProfilePage = () => {
     if (isPasswordUpdated) {
       toast.success("Password updated successfully");
       toast.warn("You are not authorized");
-      navigate("/profile");
+      navigate("/profile/");
       dispatch({ type: UPDATE_PASSWORD_RESET });
       dispatch(logoutUser());
     }
@@ -177,6 +180,7 @@ const UpdateProfilePage = () => {
                 profileFormSubmitHandler={profileFormSubmitHandler}
                 birthDate={birthDate}
                 birthDateOnChange={birthDateOnChange}
+                setPlace={setPlace}
                 loading={loading}
               />
               <UpdatePassword

@@ -12,11 +12,13 @@ const Registration = () => {
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.authReducers
   );
+  const [file, setFile ] = useState(null) 
   const [userAvatar, setUserAvatar] = useState(""); // set user avatar
   const [userAvatarPreview, setUserAvatarPreview] = useState(""); // show the preview of avatar
 
   // set the avatar and preview the user avatar
   const profileImageHandler = (avatar) => {
+    setFile(Object.values(avatar.target.files))
     if (avatar.target.files.length > 0) {
       if (
         avatar.target.files[0].type !== "image/jpg" &&
@@ -78,6 +80,8 @@ const Registration = () => {
         loading={loading}
         userAvatarPreview={userAvatarPreview}
         profileImageHandler={profileImageHandler}
+        file={file}
+        setFile={setFile}
       />
     </div>
   );

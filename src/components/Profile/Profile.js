@@ -2,7 +2,7 @@ import { UserIcon } from "@heroicons/react/solid";
 import React from "react";
 
 const Profile = ({ user }) => {
-  const { name, avatar, status, accountCreatedAt } = user;
+  const { name, avatar, status, accountCreatedAt, area } = user;
   return (
     <>
       {user && (
@@ -56,6 +56,12 @@ const Profile = ({ user }) => {
                     {status}
                   </span>
                 </span>
+              </li>
+              <li className="flex items-center py-3">
+                <span>Area Name</span>
+                <a href={`https://www.google.com/maps/place/?q=place_id:${area.placeId}`} className="ml-auto text-sky-700">
+                  {area?.areaName.split(", Bangladesh")}
+                </a>
               </li>
               <li className="flex items-center py-3">
                 <span>Member since</span>

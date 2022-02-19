@@ -9,13 +9,11 @@ const UpdateProfile = ({
   submitHandler,
   handleProfileImageChange,
 }) => {
-  const { name, avatar, status, accountCreatedAt } = user;
+  const { name, avatar, status, area, accountCreatedAt } = user;
 
   const {
     register,
     handleSubmit,
-    watch,
-    control,
     formState: { errors },
   } = useForm();
   // Form error notify
@@ -56,6 +54,7 @@ const UpdateProfile = ({
                   onChange: handleProfileImageChange,
                 })}
                 className="hidden"
+                accept="image/*"
               ></input>
             </label>
           </form>
@@ -100,6 +99,16 @@ const UpdateProfile = ({
                   {status}
                 </span>
               </span>
+            </li>
+            {/* Area */}
+            <li className="flex items-center justify-between py-3">
+              <span>Area</span>
+              <a
+                href={`https://www.google.com/maps/place/?q=place_id:${area.placeId}`}
+                className="ml-auto text-sky-700"
+              >
+                {area.areaName.split(", Bangladesh")}
+              </a>
             </li>
             {/* Member since */}
             <li className="flex items-center py-3">

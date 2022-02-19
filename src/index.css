@@ -37,26 +37,19 @@
 @tailwind components;
 @tailwind utilities;
 
-input[type="file"]::-webkit-file-upload-button,
-input[type="file"]::file-selector-button {
-  @apply cursor-pointer border-0 bg-gray-700 py-2.5 pl-8 pr-4 text-sm font-medium text-white hover:bg-gray-600;
-  margin-inline-start: -1rem;
-  margin-inline-end: 1rem;
-}
-
 /* Button */
 .green-button {
-  @apply btn bg-skin-primary btn-primary text-skin-primary-btn font-display hover:bg-skin-primary flex items-center justify-center font-semibold shadow-lg shadow-gray-200/50 hover:bg-opacity-90 focus:ring-0;
+  @apply btn bg-skin-primary btn-primary text-skin-primary-btn font-display hover:bg-skin-primary flex items-center justify-center font-semibold hover:bg-opacity-90 focus:ring-0;
 }
 .red-button {
-  @apply btn bg-red btn-primary text-skin-primary-btn font-display hover:bg-red flex items-center justify-center font-semibold shadow-lg shadow-gray-200/50 hover:bg-opacity-80 focus:ring-0;
+  @apply btn bg-red btn-primary text-skin-primary-btn font-display hover:bg-red flex items-center justify-center font-semibold hover:bg-opacity-80 focus:ring-0;
 }
 
 .white-button {
-  @apply btn btn-primary border-skin-base  font-display  text-skin-base hover:bg-skin-primary flex border bg-transparent font-semibold hover:border-transparent hover:text-white focus:ring-0 shadow-lg shadow-gray-200/50;
+  @apply btn btn-primary border-skin-base  font-display  text-skin-base hover:bg-skin-primary flex border bg-transparent font-semibold hover:border-transparent hover:text-white focus:ring-0;
 }
 .gray-button {
-  @apply btn btn-dark font-display flex items-center font-semibold shadow-lg shadow-gray-200/50 focus:ring-0;
+  @apply btn btn-light-secondary font-display flex items-center font-semibold focus:ring-0;
 }
 
 .green-circle-button {
@@ -100,7 +93,7 @@ input[type="file"]::file-selector-button {
 
 /* Feature */
 .feature-card {
-  @apply flex h-72 transform flex-col rounded-lg border bg-white pt-14 shadow-2xl transition duration-500 hover:scale-110;
+  @apply flex h-72 transform flex-col rounded-lg border bg-white pt-14 shadow-2xl shadow-[#f2fff5]/50 transition duration-500 hover:scale-110;
 }
 
 /* Category */
@@ -118,3 +111,4 @@ input[type="file"]::file-selector-button {
 .form-input {
   @apply block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-2 text-base focus:outline-none;
 }
+

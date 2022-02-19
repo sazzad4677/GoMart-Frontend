@@ -15,7 +15,10 @@ const UpdateAbout = ({
   birthDate,
   birthDateOnChange,
   loading,
+  setPlace,
 }) => {
+
+  // User value destructuring
   const {
     name,
     username,
@@ -24,8 +27,10 @@ const UpdateAbout = ({
     phone,
     shippingAddress,
     billingAddress,
+    area,
   } = user;
 
+  // Use hook form
   const {
     register,
     handleSubmit,
@@ -37,6 +42,7 @@ const UpdateAbout = ({
   // for update button decision
   const watchAllFields = watch();
 
+  // error notify
   useEffect(() => {
     const errorFields = [
       "name",
@@ -154,13 +160,13 @@ const UpdateAbout = ({
           <div className="grid grid-cols-2">
             <div className="px-4 py-2 font-semibold">Gender</div>
             <select
-              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
+              className={`block w-full rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
               ${
                 Object.keys(errors).length
                   ? "border-red focus:border-red"
                   : "border-skin-base"
               }`}
-              id="username"
+              id="gender"
               type="text"
               placeholder="Your Gender"
               defaultValue={gender && gender}
@@ -200,6 +206,30 @@ const UpdateAbout = ({
               />
             </div>
           </div>
+          <div className="grid grid-cols-2">
+            <label htmlFor="area" className="px-4 py-2 font-semibold">
+              Area Name
+            </label>
+            <Autocomplete
+              id="area"
+              
+              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none
+              ${
+                Object.keys(errors).length
+                  ? "border-red focus:border-red"
+                  : "border-skin-base"
+              }`}
+              apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
+              onPlaceSelected={(place) => {
+                setPlace(place);
+              }}
+              options={{
+                types: ["(regions)"],
+                componentRestrictions: { country: "bd" },
+              }}
+              defaultValue={area.areaName}
+            />
+          </div>
           {/* Shipping Address */}
           <div className="grid grid-cols-2">
             <label
@@ -208,24 +238,19 @@ const UpdateAbout = ({
             >
               Shipping Address
             </label>
-            <Autocomplete
+            <input
               className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
               ${
                 Object.keys(errors).length
                   ? "border-red focus:border-red"
                   : "border-skin-base"
               }`}
-              apiKey={"AIzaSyDMuTTurSbA7-GqIVOy80S6gOFHCv5xqB8"}
-              onPlaceSelected={(place) => console.log(place)}
-            />
-            {/* <input
-              className="rounded rounded-full border-b bg-transparent py-1 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-1 focus:ring-green"
               id="shippingAddress"
               type="text"
               placeholder="Your Shipping Address"
               {...register("shippingAddress")}
-              defaultValue={shippingAddress}
-            ></input> */}
+              defaultValue={shippingAddress && shippingAddress}
+            ></input>
           </div>
           {/* Billing Address */}
           <div className="grid grid-cols-2">
@@ -256,8 +281,8 @@ const UpdateAbout = ({
             Reset Changes
           </button>
           {Object.keys(watchAllFields).length > 0 && (
-            <Link
-              to="/update-profile"
+            <button
+              type="submit"
               className="green-button flex gap-2 rounded-lg text-sm font-semibold"
               disabled={loading ? true : false}
             >
@@ -276,7 +301,7 @@ const UpdateAbout = ({
                   Update About
                 </>
               )}
-            </Link>
+            </button>
           )}
           <Link
             to="/profile"

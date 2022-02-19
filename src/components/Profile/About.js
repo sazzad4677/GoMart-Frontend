@@ -17,6 +17,7 @@ const About = ({ user }) => {
     shippingAddress,
     billingAddress,
     birthDay,
+    area,
   } = user;
 
   const fieldValues = [

@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
+import ReactGoogleAutocomplete from "react-google-autocomplete";
 const InputField = (props) => {
-  const { name, type, label, labelFor, errors, register, identity, control } =
+  const { name, type, label, labelFor, errors, register, identity, control, setPlace } =
     props;
 
   useEffect(() => {
@@ -17,7 +18,7 @@ const InputField = (props) => {
 
   return (
     <>
-      {name !== "phone" && (
+      {name !== "phone" && name !== "area" && (
         <>
           <input
             name={name}
@@ -28,7 +29,7 @@ const InputField = (props) => {
             type={type}
             placeholder=" "
             autoComplete="off"
-            // onPaste={handlePaste}
+            onPaste={handlePaste}
             {...register(name)}
           />
           <label
@@ -56,6 +57,31 @@ const InputField = (props) => {
           ${errors ? "border-red focus:border-red" : "border-skin-base"}`}
         />
       )}
+      {/* {identity === "register" && name === "area" && (
+        <>
+          <ReactGoogleAutocomplete
+            id="area"
+            className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-2 text-base focus:outline-none 
+          ${errors ? "border-red focus:border-red" : "border-skin-base"}`}
+            apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
+            onPlaceSelected={(place) => {
+              setPlace(place);
+            }}
+            options={{
+              types: ["(regions)"],
+              componentRestrictions: { country: "bd" },
+            }}
+            autoComplete={false}
+            placeholder=" "
+          />
+          <label
+            htmlFor={labelFor}
+            className="font-body text-skin-secondary -z-1 origin-0 absolute top-3 ml-3 text-sm font-semibold tracking-wide duration-300"
+          >
+            {label}
+          </label>
+        </>
+      )} */}
       <div className="absolute right-3 -mt-8">
         {/* Error Icon */}
         {errors && (
