@@ -5,12 +5,7 @@ import Hero from "./Hero";
 import { useMediaQuery } from "react-responsive";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// import Swiper core and required modules
-import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
-
-// install Swiper modules
-SwiperCore.use([Autoplay, Pagination, Navigation]);
+import { Navigation, Autoplay } from "swiper";
 
 const Banner = () => {
   const [data, setData] = useState([]);
@@ -28,6 +23,7 @@ const Banner = () => {
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
+        modules={[Navigation, Autoplay]}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,

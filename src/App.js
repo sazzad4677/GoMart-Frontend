@@ -4,7 +4,6 @@ import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import DashboardPage from "./pages/DashboardPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProductDetails from "./components/Products/ProductDetails";
 import { ToastContainer } from "react-toastify";
 import ProductsPage from "./pages/ProductsPage";
 import SearchPage from "./pages/SearchPage";
@@ -14,15 +13,13 @@ import ProfilePage from "./pages/ProfilePage";
 import PrivateOutlet from "./components/Route/PrivateOutlet";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import "react-toastify/dist/ReactToastify.css";
-import "swiper/swiper.min.css";
-import "swiper/components/navigation/navigation.min.css";
-import "swiper/components/pagination/pagination.min.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-number-input/style.css";
 import "rc-slider/assets/index.css";
 import "react-phone-number-input/style.css";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 
 function App() {
   useEffect(() => {
@@ -45,7 +42,7 @@ function App() {
         </Route>
         <Route path="/search/" element={<SearchPage />}></Route>
         <Route path="/search/:keyword" element={<SearchPage />}></Route>
-        <Route path="/product/:id" element={<ProductDetails />}></Route>
+        <Route path="/product/:id" element={<ProductDetailsPage />}></Route>
         {/* <Route path="/cart/" element={<ShoppingCart />}></Route> */}
       </Routes>
       <>

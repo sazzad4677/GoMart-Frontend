@@ -4,14 +4,14 @@ import {
   ArrowCircleRightIcon,
   ArrowCircleLeftIcon,
 } from "@heroicons/react/solid";
+
+import "swiper/css/navigation";
 // Products
 import ProductCard from "./ProductCard";
 import Products from "../../../Data/Products";
 // Swiper Js import
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination, Navigation } from "swiper";
-
-SwiperCore.use([Pagination, Navigation]);
+import { Navigation } from "swiper";
 
 const BestSeller = () => {
   const [products, setProducts] = useState([]);
@@ -48,6 +48,7 @@ const BestSeller = () => {
           <Swiper
             slidesPerGroup={2}
             loop={true}
+            modules={[Navigation]}
             navigation={{
               prevEl: sliderArrowPrev.current,
               nextEl: sliderArrowNext.current,

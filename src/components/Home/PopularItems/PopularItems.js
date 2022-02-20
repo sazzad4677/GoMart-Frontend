@@ -9,10 +9,7 @@ import ProductCard from "./ProductCard";
 import Products from "../../../Data/Products";
 // Swiper Js import
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination, Navigation } from "swiper";
-
-SwiperCore.use([Pagination, Navigation]);
-
+import { Navigation } from "swiper";
 const PopularItems = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -23,7 +20,7 @@ const PopularItems = () => {
   const sliderArrowPrev = useRef(null);
   const sliderArrowNext = useRef(null);
   return (
-    <section className=" p-2">
+    <section className="p-2">
       <div className="mx-auto  mt-10 px-3 sm:max-w-xl md:max-w-full md:px-20 lg:max-w-screen-xl lg:px-8">
         <div className="flex flex-row items-center justify-between ">
           <h2 className="heading-3">
@@ -49,6 +46,7 @@ const PopularItems = () => {
           <Swiper
             slidesPerGroup={2}
             loop={true}
+            modules={[Navigation]}
             navigation={{
               prevEl: sliderArrowPrev.current,
               nextEl: sliderArrowNext.current,
