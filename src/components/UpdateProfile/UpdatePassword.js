@@ -1,4 +1,4 @@
-import { CheckIcon, CogIcon, PencilAltIcon } from "@heroicons/react/outline";
+import { CheckIcon, CogIcon } from "@heroicons/react/outline";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AdjustmentsIcon, XIcon } from "@heroicons/react/solid";
@@ -8,7 +8,7 @@ import "yup-phone";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { updatePasswordSchema } from "../../Validation/UserFormValidation";
 
-const UpdatePassword = ({ passwordFormSubmitHandler, requestLoading }) => {
+const UpdatePassword = ({ passwordFormSubmitHandler, loading }) => {
   // Form Hook
   const {
     register,
@@ -31,7 +31,7 @@ const UpdatePassword = ({ passwordFormSubmitHandler, requestLoading }) => {
   }, [errors]);
 
   return (
-    <div className="font-display rounded-lg bg-gray-100 shadow mt-4">
+    <div className="font-display mt-4 rounded-lg bg-gray-100 shadow">
       <form
         className="font-display rounded-t-lg bg-gray-100 shadow"
         onSubmit={handleSubmit(passwordFormSubmitHandler)}
@@ -113,12 +113,12 @@ const UpdatePassword = ({ passwordFormSubmitHandler, requestLoading }) => {
               Reset Changes
             </button>
             {Object.keys(watchAllFields).length > 0 && (
-              <Link
-                to="/update-profile"
+              <button
+                type="submit"
                 className="green-button flex gap-2 rounded-lg text-sm font-semibold"
-                disabled={requestLoading ? true : false}
+                disabled={loading ? true : false}
               >
-                {requestLoading ? (
+                {loading ? (
                   <>
                     <span
                       class="spinner h-4 w-4"
@@ -133,7 +133,7 @@ const UpdatePassword = ({ passwordFormSubmitHandler, requestLoading }) => {
                     Update Password
                   </>
                 )}
-              </Link>
+              </button>
             )}
             <Link
               to="/profile"

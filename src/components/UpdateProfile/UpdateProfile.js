@@ -1,6 +1,7 @@
 import { PencilAltIcon, UserIcon } from "@heroicons/react/solid";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useLocation, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const UpdateProfile = ({
@@ -10,6 +11,8 @@ const UpdateProfile = ({
   handleProfileImageChange,
 }) => {
   const { name, avatar, status, area, accountCreatedAt } = user;
+
+  const location = useLocation();
 
   const {
     register,
@@ -46,17 +49,19 @@ const UpdateProfile = ({
             ) : (
               <UserIcon className="rounded-full  text-gray-300" />
             )}
-            <label className="absolute top-0 right-0  m-2 rounded p-2 text-white opacity-20">
-              <PencilAltIcon className="h-8 w-8 text-gray-700 hover:text-gray-800" />
-              <input
-                type="file"
-                {...register("avatar", {
-                  onChange: handleProfileImageChange,
-                })}
-                className="hidden"
-                accept="image/*"
-              ></input>
-            </label>
+            {location.pathname !== "/update-password" && (
+              <label className="absolute top-0 right-0  m-2 rounded p-2 text-white opacity-20">
+                <PencilAltIcon className="h-8 w-8 text-gray-700 hover:text-gray-800" />
+                <input
+                  type="file"
+                  {...register("avatar", {
+                    onChange: handleProfileImageChange,
+                  })}
+                  className="hidden"
+                  accept="image/*"
+                ></input>
+              </label>
+            )}
           </form>
           <h1 className="my-1 text-center text-xl font-bold leading-8 text-gray-900">
             {name}

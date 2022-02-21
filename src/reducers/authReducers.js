@@ -122,41 +122,6 @@ export const userReducer = (state = {}, action) => {
   }
 };
 
-// User password update
-export const userPasswordReducer = (state = {}, action) => {
-  switch (action.type) {
-    case UPDATE_PASSWORD_REQUEST:
-      return {
-        ...state,
-        requestLoading: true,
-      };
-    case UPDATE_PASSWORD_SUCCESS:
-      return {
-        ...state,
-        requestLoading: false,
-        isPasswordUpdated: action.payload,
-      };
-    case UPDATE_PASSWORD_RESET:
-      return {
-        ...state,
-        isPasswordUpdated: false,
-      };
-    case UPDATE_PASSWORD_FAILED:
-      return {
-        ...state,
-        requestLoading: false,
-        requestError: action.payload,
-      };
-    case CLEAR_ERRORS:
-      return {
-        ...state,
-        requestError: null,
-      };
-    default:
-      return state;
-  }
-};
-
 export const forgotPasswordReducer = (state = {}, action) => {
   switch (action.type) {
     case FORGOT_PASSWORD_REQUEST:

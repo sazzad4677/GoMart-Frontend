@@ -27,9 +27,7 @@ const UpdateProfilePage = () => {
   const { error, isUpdated, loading } = useSelector(
     (state) => state.userReducer
   );
-  const { requestError, isPasswordUpdated, requestLoading } = useSelector(
-    (state) => state.userPasswordReducer
-  );
+
   const [userAvatar, setUserAvatar] = useState(""); // set avatar
   const [userAvatarPreview, setUserAvatarPreview] = useState(""); // avatar preview
   const [birthDate, setBirthDate] = useState(() => birthDateSetter()); // date picker
@@ -116,14 +114,6 @@ const UpdateProfilePage = () => {
     dispatch(updateProfile(formData));
   };
 
-  // Password form Submit
-  const passwordFormSubmitHandler = ({ oldPassword, newPassword }) => {
-    const formData = new FormData();
-    formData.set("oldPassword", oldPassword);
-    formData.set("newPassword", newPassword);
-    dispatch(updatePassword(formData));
-  };
-  
   useEffect(() => {
     // Update Profile or About
     if (isUpdated) {
@@ -136,27 +126,8 @@ const UpdateProfilePage = () => {
       toast.error(error);
       dispatch(clearErrors());
     }
-    // Update password
-    if (isPasswordUpdated) {
-      toast.success("Password updated successfully");
-      toast.warn("You are not authorized");
-      navigate("/profile/");
-      dispatch({ type: UPDATE_PASSWORD_RESET });
-      dispatch(logoutUser());
-    }
-    if (requestError) {
-      toast.error(requestError);
-      dispatch(clearErrors());
-    }
-  }, [
-    dispatch,
-    error,
-    user,
-    isUpdated,
-    navigate,
-    isPasswordUpdated,
-    requestError,
-  ]);
+  }, [dispatch, error, user, isUpdated, navigate]);
+
   return (
     <div>
       <Metadata title={`${user && user.username} Update `} />
@@ -173,19 +144,15 @@ const UpdateProfilePage = () => {
               profileFormSubmitHandler={profileFormSubmitHandler}
               handleProfileImageChange={handleProfileImageChange}
             />
-            <div className="mx-auto my-auto h-full w-full md:w-9/12">
-                <UpdateAbout
-                  user={user}
-                  profileFormSubmitHandler={profileFormSubmitHandler}
-                  birthDate={birthDate}
-                  birthDateOnChange={birthDateOnChange}
-                  setPlace={setPlace}
-                  loading={loading}
-                />
-                <UpdatePassword
-                  passwordFormSubmitHandler={passwordFormSubmitHandler}
-                  requestLoading={requestLoading}
-                />
+            <div className="h-full w-full md:w-9/12">
+              <UpdateAbout
+                user={user}
+                profileFormSubmitHandler={profileFormSubmitHandler}
+                birthDate={birthDate}
+                birthDateOnChange={birthDateOnChange}
+                setPlace={setPlace}
+                loading={loading}
+              />
             </div>
           </div>
         </div>

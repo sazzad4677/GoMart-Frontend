@@ -20,6 +20,7 @@ import "react-phone-number-input/style.css";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
+import UpdatePasswordPage from "./pages/UpdatePasswordPage";
 
 function App() {
   useEffect(() => {
@@ -38,6 +39,7 @@ function App() {
         <Route path="/*" element={<PrivateOutlet />}>
           <Route path="profile" element={<ProfilePage />}></Route>
           <Route path="update-profile" element={<UpdateProfilePage />}></Route>
+          <Route path="update-password" element={<UpdatePasswordPage/>}></Route>
           <Route path="dashboard" element={<DashboardPage />}></Route>
         </Route>
         <Route path="/search/" element={<SearchPage />}></Route>

@@ -22,7 +22,7 @@ const ProfilePage = () => {
             <div className="container mx-auto my-5 p-5">
               <div className="no-wrap md:-mx-2 md:flex ">
                 <Profile user={user} />
-                <div className="h-full w-full mx-auto my-auto md:w-9/12">
+                <div className="h-full w-full md:w-9/12">
                   <About user={user} />
                   <RecentOrder />
                 </div>
