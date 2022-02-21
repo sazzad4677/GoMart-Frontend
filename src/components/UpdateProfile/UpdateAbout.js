@@ -17,7 +17,6 @@ const UpdateAbout = ({
   loading,
   setPlace,
 }) => {
-
   // User value destructuring
   const {
     name,
@@ -212,7 +211,6 @@ const UpdateAbout = ({
             </label>
             <Autocomplete
               id="area"
-              
               className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none
               ${
                 Object.keys(errors).length
@@ -227,7 +225,11 @@ const UpdateAbout = ({
                 types: ["(regions)"],
                 componentRestrictions: { country: "bd" },
               }}
-              defaultValue={area.areaName}
+              defaultValue={
+                area.areaName === "undefined" || area.areaName === "null"
+                  ? ""
+                  : area.areaName
+              }
             />
           </div>
           {/* Shipping Address */}

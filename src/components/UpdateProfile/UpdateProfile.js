@@ -112,7 +112,9 @@ const UpdateProfile = ({
                 href={`https://www.google.com/maps/place/?q=place_id:${area.placeId}`}
                 className="ml-auto text-sky-700"
               >
-                {area.areaName.split(", Bangladesh")}
+                {area.areaName === "undefined" || area.areaName === "null"
+                  ? ""
+                  : area.areaName.split(", Bangladesh")}
               </a>
             </li>
             {/* Member since */}

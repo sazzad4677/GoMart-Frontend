@@ -15,6 +15,7 @@ const Registration = () => {
   const [file, setFile ] = useState(null) 
   const [userAvatar, setUserAvatar] = useState(""); // set user avatar
   const [userAvatarPreview, setUserAvatarPreview] = useState(""); // show the preview of avatar
+  const [place, setPlace] = useState(""); // area
 
   // set the avatar and preview the user avatar
   const profileImageHandler = (avatar) => {
@@ -55,6 +56,8 @@ const Registration = () => {
     formData.set("username", username);
     formData.set("password", password);
     formData.set("phone", phone);
+    formData.set("areaName", place.formatted_address);
+    formData.set("placeId", place.place_id);
     formData.set("avatar", userAvatar);
     formData.set("email", email);
 
@@ -82,6 +85,7 @@ const Registration = () => {
         profileImageHandler={profileImageHandler}
         file={file}
         setFile={setFile}
+        setPlace={setPlace}
       />
     </div>
   );

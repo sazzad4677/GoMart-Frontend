@@ -57,7 +57,7 @@ const InputField = (props) => {
           ${errors ? "border-red focus:border-red" : "border-skin-base"}`}
         />
       )}
-      {/* {identity === "register" && name === "area" && (
+      {identity === "register" && name === "area" && (
         <>
           <ReactGoogleAutocomplete
             id="area"
@@ -81,7 +81,7 @@ const InputField = (props) => {
             {label}
           </label>
         </>
-      )} */}
+      )}
       <div className="absolute right-3 -mt-8">
         {/* Error Icon */}
         {errors && (

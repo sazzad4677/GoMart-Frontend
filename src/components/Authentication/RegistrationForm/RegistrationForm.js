@@ -17,7 +17,6 @@ import { registerFormSchema } from "../../../Validation/UserFormValidation";
 import InputField from "../InputField/InputField";
 // stylesheet
 import "../styles.css";
-import { useState } from "react";
 
 const Registration = ({
   submitHandler,
@@ -26,6 +25,7 @@ const Registration = ({
   profileImageHandler,
   file,
   setFile,
+  setPlace
 }) => {
   // form validator
   const {
@@ -75,6 +75,15 @@ const Registration = ({
     },
     {
       id: 5,
+      name: "area",
+      type: "text",
+      labelFor: "area",
+      label: "Enter Your Area Name",
+      errors: errors.phone?.area,
+      register: register,
+    },
+    {
+      id: 6,
       name: "password",
       type: "password",
       labelFor: "password",
@@ -83,7 +92,7 @@ const Registration = ({
       register: register,
     },
     {
-      id: 6,
+      id: 7,
       name: "confirmPassword",
       type: "password",
       labelFor: "confirmPassword",
@@ -147,6 +156,7 @@ const Registration = ({
                       errors={errors}
                       register={register}
                       control={control}
+                      setPlace={setPlace}
                     />
                     {name === "password" && (
                       <p
