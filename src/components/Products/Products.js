@@ -28,30 +28,30 @@ const Products = ({ ...props }) => {
             >
               <div className="relative overflow-hidden pb-48">
                 {/* Product Image */}
-                <img
-                  className="translate absolute inset-0 h-full w-full transform object-cover duration-1000 group-hover:scale-110"
-                  src="https://media.istockphoto.com/photos/tomatoes-picture-id98026003?b=1&k=20&m=98026003&s=170667a&w=0&h=185rOlPM5RueuxjOUFCinuQICXAnUM9AIq_tDELKO4Q="
-                  alt=""
-                />
+                {product.images?.map((image) => (
+                  <img
+                    className="translate absolute inset-0 h-full w-full transform object-cover duration-1000 group-hover:scale-110"
+                    src={image.url}
+                    alt=""
+                  />
+                ))}
                 {/* Buy Now button */}
                 <Link
                   to="#"
-                  className={`bg-skin-inverted absolute bg-opacity-0 opacity-0 group-hover:bg-opacity-50 group-hover:opacity-100 ${
-                    !products.stock && "bg-opacity-50 opacity-100"
+                  className={`bg-skin-inverted absolute bg-opacity-0 opacity-0 group-hover:bg-opacity-50 group-hover:opacity-100 
                   } transform-opacity h-full w-full cursor-pointer duration-500`}
                   onClick={BuyNow}
                 >
                   <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 transform gap-6 ">
                     <button
                       className="font-body text-2xl font-extrabold text-white"
-                      disabled={!products.stock ? true : false}
                     >
-                      {!products.stock ? "Out of Stock" : "Buy Now"}
+                      Buy Now
                     </button>
                   </div>
                 </Link>
               </div>
-              <div className="p-4 ">
+              <div className="p-4 h-64">
                 {/* product tag */}
                 <div className="flex justify-between ">
                   <span className="badge bg-skin-primary text-skin-label-text-2 border-transparent">
@@ -70,9 +70,8 @@ const Products = ({ ...props }) => {
                 </div>
                 <div className="font-display text-skin-primary flex items-center justify-between">
                   {/* product name */}
-                  <h1 className="mt-2 mb-2  text-lg font-bold">
-                    {product.name} -
-                    <span className="text-lg font-normal"> 3 KG</span>
+                  <h1 className="mt-2 mb-2  truncate text-ellipsis whitespace-nowrap text-lg font-bold">
+                    {product.name}
                   </h1>
                   <div className="flex items-center">
                     <p className="text-skin-secondary">
@@ -82,12 +81,14 @@ const Products = ({ ...props }) => {
                   </div>
                 </div>
                 {/* Product Seller */}
-                <p className="font-display mb-2 flex items-center text-xs">
+                <p className="font-display mb-2 flex items-center text-xs truncate text-ellipsis whitespace-nowrap">
                   <span className="font-semibold">Brand:&nbsp;</span>{" "}
                   {product.seller}
                 </p>
                 {/* Product Small Description */}
-                <article className="small-text">{product.description}</article>
+                <article className="small-text h-24">
+                  {product.description?.length > 10 && product.description?.split(" ").splice(0,15).join(" ") }
+                </article>
                 <div className="flex gap-3">
                   {/* Product price */}
                   <div className="mt-3 flex items-center">

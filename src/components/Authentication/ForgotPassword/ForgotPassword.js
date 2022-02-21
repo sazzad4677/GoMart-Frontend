@@ -81,11 +81,11 @@ const ForgotPassword = ({ submitHandler, loading }) => {
                   {loading ? (
                     <>
                       <span
-                        class="spinner h-4 w-4"
+                        className="spinner h-4 w-4"
                         role="status"
                         aria-hidden="true"
                       ></span>
-                      <span class="pl-1">Loading...</span>
+                      <span className="pl-1">Loading...</span>
                     </>
                   ) : (
                     <>Reset Password &rarr;</>

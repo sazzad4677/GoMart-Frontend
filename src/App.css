@@ -12,7 +12,6 @@ html {
 body::-webkit-scrollbar {
   width: 12px;
 }
-
 body {
   width: 100%;
   height: 100vh;
@@ -26,7 +25,6 @@ body::-webkit-scrollbar-track {
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   background: var(--scrollbarBG);
 }
-
 body::-webkit-scrollbar-thumb {
   background-color: var(--thumbBG);
   border-radius: 6px;

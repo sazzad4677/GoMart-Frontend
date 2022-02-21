@@ -16,7 +16,7 @@ import InputField from "../InputField/InputField";
 // stylesheet
 import "../styles.css";
 
-const Login = ({ submitHandler, setRemember }) => {
+const Login = ({ submitHandler, setRemember, loading }) => {
   // form validator
   const {
     register,
@@ -132,8 +132,23 @@ const Login = ({ submitHandler, setRemember }) => {
                 </div>
               </div>
               <div className="flex justify-end ">
-                <button type="submit" className="green-button h-12 w-full">
-                  Sign In &rarr;
+                <button
+                  type="submit"
+                  className="green-button h-12 w-full"
+                  disabled={loading ? true : false}
+                >
+                  {loading ? (
+                    <>
+                      <span
+                        className="spinner h-4 w-4"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                      <span className="pl-1">Loading...</span>
+                    </>
+                  ) : (
+                    <> Sign In &rarr;</>
+                  )}
                 </button>
               </div>
               <p className="text-md text-skin-secondary mt-10 flex flex-col items-center justify-center text-center">

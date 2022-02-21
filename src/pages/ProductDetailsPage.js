@@ -7,6 +7,8 @@ import ProductDetails from "../components/Products/ProductDetails";
 import Reviews from "../components/Reviews/Reviews";
 import Footer from "../layout/Footer/Footer";
 import Nav from "../layout/Nav/Nav";
+import Loader from "../layout/Loader/Loader";
+import Metadata from "../layout/Metadata/Metadata";
 
 const ProductDetailsPage = () => {
   const params = useParams();
@@ -22,12 +24,21 @@ const ProductDetailsPage = () => {
     dispatch(getProductDetails(params.id));
   }, [dispatch, error, params.id]);
   return (
-    <div className="bg-[#F3F4F6]">
-      <Nav />
-      <ProductDetails product={product} loading={loading} />
-      <Reviews />
-      <Footer />
-    </div>
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="bg-[#F3F4F6]">
+          <Metadata title={`${product?.name} Details`} />
+          <Nav />
+          <div className="mx-auto px-6 sm:max-w-xl md:max-w-full md:px-20 lg:max-w-screen-xl lg:px-0">
+            <ProductDetails product={product} />
+            <Reviews />
+          </div>
+          <Footer />
+        </div>
+      )}
+    </>
   );
 };
 

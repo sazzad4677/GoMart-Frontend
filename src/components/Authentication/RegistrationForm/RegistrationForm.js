@@ -25,7 +25,7 @@ const Registration = ({
   profileImageHandler,
   file,
   setFile,
-  setPlace
+  setPlace,
 }) => {
   // form validator
   const {
@@ -188,13 +188,16 @@ const Registration = ({
                         <UserIcon className="h-6 w-6 text-gray-500 " />
                       )}
                     </div>
-                    <label class="form-input cursor-pointer overflow-hidden truncate whitespace-nowrap" for="basicfile">
+                    <label
+                      className="form-input cursor-pointer overflow-hidden truncate whitespace-nowrap"
+                      for="basicfile"
+                    >
                       <input
                         {...register("avatar", {
                           onChange: profileImageHandler,
                         })}
                         type="file"
-                        class="sr-only"
+                        className="sr-only"
                         id="basicfile"
                         aria-describedby="user_avatar_help"
                         data-max-size="2048"
@@ -233,7 +236,18 @@ const Registration = ({
                   className="green-button h-12 w-full"
                   disabled={loading ? true : false}
                 >
-                  Sign up &rarr;
+                  {loading ? (
+                    <>
+                      <span
+                        className="spinner h-4 w-4"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                      <span className="pl-1">Loading...</span>
+                    </>
+                  ) : (
+                    <>Sign Up &rarr;</>
+                  )}
                 </button>
               </div>
               <p className="text-md text-skin-secondary mt-10 flex flex-col items-center justify-center text-center">
