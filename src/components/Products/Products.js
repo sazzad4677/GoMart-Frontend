@@ -22,7 +22,7 @@ const Products = ({ ...props }) => {
         {products &&
           products.map((product) => (
             <Link
-              to={`/product/${product._id}`}
+              to={`/products/${product._id}`}
               className="group shadow-4xl mb-4 block overflow-hidden rounded-lg border border-t-0 bg-white hover:shadow-lg "
               key={product._id}
             >

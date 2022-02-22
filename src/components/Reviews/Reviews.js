@@ -12,8 +12,8 @@ const Reviews = () => {
   };
   return (
     <>
-      <div className="mx-auto my-6 bg-white sm:max-w-xl md:max-w-full md:px-4 md:px-20 lg:max-w-screen-xl lg:px-0">
-        <p className="font-display truncate text-ellipsis whitespace-nowrap bg-gray-200 px-5 py-4 font-medium leading-10">
+      <div className="bg-white my-10 rounded-md">
+        <p className="font-display truncate text-ellipsis whitespace-nowrap bg-gray-200 px-5 py-4 font-medium leading-10 rounded-t-md">
           Ratings & Reviews of i7s Double Dual Mini Wireless 4.1 Bluetooth
           Earphone With Power Case HBQ i7s TWS Earbuds i7s TWS Headp
         </p>

@@ -2,42 +2,22 @@ import React, { Fragment, useRef, useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import { FaFacebookF, FaTwitter, FaHeart, FaShareAlt } from "react-icons/fa";
 import { Menu, Transition } from "@headlessui/react";
-import "./styles.css";
 // Swiper Js import
-import {
-  Navigation,
-  Pagination,
-  Autoplay,
-  FreeMode,
-  Scrollbar,
-  Mousewheel,
-} from "swiper";
-import {
-  HeartIcon,
-  ShoppingBagIcon,
-  ShoppingCartIcon,
-} from "@heroicons/react/solid";
-const ProductDetails = ({ product, loading }) => {
+import { Navigation, Autoplay, FreeMode, Thumbs } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Swiper css
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import "./styles.css";
+// Icons
+import { ShoppingBagIcon, ShoppingCartIcon } from "@heroicons/react/solid";
+import { toast } from "react-toastify";
+const ProductDetails = ({ product }) => {
   const [counter, setCounter] = useState(1);
   const [descriptionShowMore, setDescriptionShowMore] = useState(false);
-  // Function is called everytime increment button is clicked
-  const handleClickIncrement = () => {
-    // Counter state is incremented
-    setCounter(counter + 1);
-  };
-
-  // Function is called everytime decrement button is clicked
-  const handleClickDecrement = () => {
-    // handle zero or negative decrement
-    if (counter <= 1) {
-      return setCounter(counter);
-    }
-    // Counter state is decremented
-    setCounter(counter - 1);
-  };
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-  }
+  const [mainPicture, setMainPicture] = useState(0);
   const {
     name,
     price,
@@ -49,15 +29,27 @@ const ProductDetails = ({ product, loading }) => {
     stock,
     numOfReviews,
   } = product;
-  const starObject = {
-    value: product?.ratings,
-    count: 5,
-    size: 20,
-    isHalf: true,
-    edit: false,
-    activeColor: "#40aa54",
+  // Function is called everytime increment button is clicked
+  const handleClickIncrement = () => {
+    // if stock not available
+    if (counter >= stock) return toast.warn("Stock not available");
+
+    // Counter state is incremented
+    setCounter(counter + 1);
   };
-  const [mainPicture, setMainPicture] = useState(0);
+  // Function is called everytime decrement button is clicked
+  const handleClickDecrement = () => {
+    // handle zero or negative decrement
+    if (counter <= 1) {
+      return setCounter(counter);
+    }
+    // Counter state is decremented
+    setCounter(counter - 1);
+  };
+  // for share button dropdown
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
   return (
     <section className="font-display my-10 overflow-hidden rounded-md text-gray-700">
       <div className="bg-white">
@@ -65,39 +57,62 @@ const ProductDetails = ({ product, loading }) => {
           {/* Product Picture container */}
           <div className="flex w-full flex-col items-center py-8 lg:w-1/2">
             {/* ::Main Picture */}
-            <div className="h-56 max-h-96 w-auto overflow-hidden sm:h-72 lg:h-full">
-              <img
-                src={product.images && product.images[mainPicture].url}
-                alt={product.images && product.images[mainPicture].url}
-                className="h-full w-full object-contain"
-              />
-            </div>
+            <Swiper
+              thumbs={{ swiper: mainPicture }}
+              modules={[FreeMode, Navigation, Thumbs, Autoplay]}
+              autoplay={{
+                delay: 1500,
+                disableOnInteraction: false,
+              }}
+              loop={false}
+              navigation
+              className="h-56 max-h-96 w-auto overflow-hidden sm:h-72 lg:h-full"
+            >
+              {product.images?.map((image, key) => (
+                <SwiperSlide key={key}>
+                  <img
+                    src={image.url}
+                    alt={image.url}
+                    className="h-full w-full object-contain px-1"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
             {/* ::Gallery */}
-            <div className="mx-auto mt-6">
-              <ul className="grid auto-cols-fr grid-flow-col gap-4">
-                {product.images?.map((image, index) => (
-                  <li
-                    key={image?.url}
-                    className={`col-span-1 w-16 rounded border-2 p-1 ${
-                      index === mainPicture
-                        ? "border-skin-base"
-                        : "border-transparent"
-                    }`}
-                  >
-                    <button
-                      type="button"
-                      className="block h-full overflow-hidden rounded"
-                      onClick={() => setMainPicture(index)}
+            <div className="mx-auto my-2">
+              <div className="grid auto-cols-fr grid-flow-col gap-4">
+                <Swiper
+                  onSwiper={setMainPicture}
+                  freeMode={false}
+                  spaceBetween={10}
+                  slidesPerView={product.images && product.images.length}
+                  centerInsufficientSlides={true}
+                  watchSlidesProgress={true}
+                  centeredSlides={true}
+                  centeredSlidesBounds={true}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className="pictureGallery"
+                >
+                  {product.images?.map((image, index) => (
+                    <SwiperSlide
+                      key={index}
+                      className="col-span-1 !w-16 rounded p-1"
                     >
-                      <img
-                        src={image.url}
-                        alt={image.url}
-                        className="object-contain"
-                      />
-                    </button>
-                  </li>
-                ))}
-              </ul>
+                      <button
+                        type="button"
+                        className="block overflow-hidden rounded"
+                      >
+                        <img
+                          src={image.url}
+                          alt={image.url}
+                          className="block object-contain"
+                        />
+                      </button>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
             </div>
           </div>
           {/* Product Description Container*/}
@@ -114,7 +129,14 @@ const ProductDetails = ({ product, loading }) => {
               <div className="mb-4 flex gap-6">
                 {/* Product Review */}
                 <div className="flex items-center">
-                  <ReactStars {...starObject} />
+                  <ReactStars
+                    value={product?.ratings}
+                    count={5}
+                    size={20}
+                    isHalf={true}
+                    edit={false}
+                    activeColor={"#40aa54"}
+                  />
                   <span className="ml-3 text-gray-600">
                     {numOfReviews} Reviews
                   </span>
@@ -224,9 +246,11 @@ const ProductDetails = ({ product, loading }) => {
                   >
                     -
                   </button>
-                  <p className="w-10 px-2 py-2 text-center text-lg">
-                    {counter}
-                  </p>
+                  <input
+                    value={counter}
+                    className="w-10 px-2 py-2 text-center text-lg focus:outline-0"
+                    readOnly
+                  />
                   <button
                     onClick={handleClickIncrement}
                     className="text-skin-primary w-8 rounded bg-gray-200 p-2 text-lg"
@@ -237,7 +261,10 @@ const ProductDetails = ({ product, loading }) => {
               </div>
               {/* add to cart button */}
               <div className="ml-6 flex items-center gap-2">
-                <button className="white-button gap-3">
+                <button
+                  className="white-button gap-3"
+                  disabled={stock ? false : true}
+                >
                   <ShoppingCartIcon className="h-5 w-5" />
                   Add to cart
                 </button>
@@ -245,11 +272,14 @@ const ProductDetails = ({ product, loading }) => {
             </div>
             {/* Product price and buy now button */}
             <div className="flex justify-between py-5">
-              <span className="title-font text-2xl font-medium text-gray-900">
+              <p className="title-font text-2xl font-medium text-gray-900">
                 ৳{(price * counter).toFixed(2)}
-              </span>
+              </p>
               <div className="ml-6 flex items-center gap-2">
-                <button className="green-button gap-3">
+                <button
+                  className="green-button gap-3"
+                  disabled={stock ? false : true}
+                >
                   <ShoppingBagIcon className="h-5 w-5" />
                   Buy Now
                 </button>

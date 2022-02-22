@@ -1,12 +1,7 @@
-.swiper-container {
-  width: 100%;
-  height: 300px;
-}
-.swiper-container .swiper-zoom-container > img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  object-position: center;
+.pictureGallery .swiper-slide-thumb-active {
+  border-style: solid;
+  border-width: 2px !important;
+  border-color: #40aa54 !important;
 }
 .description::-webkit-scrollbar {
   width: 12px;

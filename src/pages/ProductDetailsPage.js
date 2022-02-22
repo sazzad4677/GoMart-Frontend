@@ -32,7 +32,7 @@ const ProductDetailsPage = () => {
           <Metadata title={`${product?.name} Details`} />
           <Nav />
           <div className="mx-auto px-6 sm:max-w-xl md:max-w-full md:px-20 lg:max-w-screen-xl lg:px-0">
-            <ProductDetails product={product} />
+            <ProductDetails product={product} loading={loading} />
             <Reviews />
           </div>
           <Footer />

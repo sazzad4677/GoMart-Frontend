@@ -44,7 +44,7 @@ function App() {
         </Route>
         <Route path="/search/" element={<SearchPage />}></Route>
         <Route path="/search/:keyword" element={<SearchPage />}></Route>
-        <Route path="/product/:id" element={<ProductDetailsPage />}></Route>
+        <Route path="/products/:id" element={<ProductDetailsPage />}></Route>
         {/* <Route path="/cart/" element={<ShoppingCart />}></Route> */}
       </Routes>
       <>
