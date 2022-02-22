@@ -79,9 +79,9 @@ const ProductsPage = () => {
                 resultPerPage={resultPerPage}
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
-                totalProductsCount={productsData.totalProductsCount}
-                filteredProductsCount={productsData.filteredProductsCount}
-                productsLength={productsData.products.length}
+                totalProductsCount={productsData?.totalProductsCount}
+                filteredProductsCount={productsData?.filteredProductsCount}
+                productsLength={productsData.products?.length}
                 sortType={sortType}
               />
             </div>

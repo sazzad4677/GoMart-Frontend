@@ -27,7 +27,7 @@ import {
   CLEAR_ERRORS,
 } from "../constants/authConstants";
 
-// User login/register/load user
+// User login/register/load user 
 export const authReducers = (state = { user: {} }, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
