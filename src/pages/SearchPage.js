@@ -82,9 +82,9 @@ const SearchPage = () => {
                   resultPerPage={resultPerPage}
                   currentPage={currentPage}
                   setCurrentPage={setCurrentPage}
-                  totalProductsCount={productsData?.totalProductsCount}
-                  filteredProductsCount={productsData?.filteredProductsCount}
-                  productsLength={productsData.products?.length}
+                  totalProductsCount={productsData.totalProductsCount}
+                  filteredProductsCount={productsData.filteredProductsCount}
+                  productsLength={productsData.products.length}
                   keyword={keyword}
                   sortType={sortType}
                 />
