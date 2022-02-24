@@ -34,17 +34,23 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Registration />}></Route>
         <Route path="/forgot-password" element={<ForgotPasswordPage />}></Route>
-        <Route path="/reset-password/:token" element={<ResetPasswordPage />}></Route>
+        <Route
+          path="/reset-password/:token"
+          element={<ResetPasswordPage />}
+        ></Route>
         <Route path="/products" element={<ProductsPage />}></Route>
+        <Route path="/products/:id" element={<ProductDetailsPage />}></Route>
         <Route path="/*" element={<PrivateOutlet />}>
           <Route path="profile" element={<ProfilePage />}></Route>
           <Route path="update-profile" element={<UpdateProfilePage />}></Route>
-          <Route path="update-password" element={<UpdatePasswordPage/>}></Route>
+          <Route
+            path="update-password"
+            element={<UpdatePasswordPage />}
+          ></Route>
           <Route path="dashboard" element={<DashboardPage />}></Route>
         </Route>
         <Route path="/search/" element={<SearchPage />}></Route>
         <Route path="/search/:keyword" element={<SearchPage />}></Route>
-        <Route path="/products/:id" element={<ProductDetailsPage />}></Route>
         {/* <Route path="/cart/" element={<ShoppingCart />}></Route> */}
       </Routes>
       <>

@@ -19,12 +19,13 @@ import BottomNav from "./BottomNav";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import "./styles.css";
-import ShoppingCart from "../../components/ShoppingCart/ShoppingCart";
+import ShoppingCart from "../../pages/ShoppingCart";
 
 const Nav = ({ ...props }) => {
   const dispatch = useDispatch();
   const { fixed, items = [], SearchBarShow, productsData } = props;
   const { user, error, loading } = useSelector((state) => state.authReducers);
+  const { cartItems } = useSelector((state) => state.cart);
   const logoutHandler = () => {
     dispatch(logoutUser());
     toast.success("Successfully Logged out");
@@ -32,7 +33,7 @@ const Nav = ({ ...props }) => {
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
-  const [cart, setCart] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   return (
     <header
       className={`top-0 w-full ${fixed} bg-skin-secondary z-50 bg-opacity-70`}
@@ -81,13 +82,17 @@ const Nav = ({ ...props }) => {
                 <HeartIcon className="h-6 w-6" />
               </Link>
               <button
-                onClick={() => setCart(true)}
+                onClick={() => setCartOpen(true)}
                 className="text-gray hover:text-skin-base flex items-center"
               >
-                <ShoppingCartIcon className="h-6 w-6" />
-                <span className="absolute -mt-5 ml-4 flex">
-                  <span className="bg-skin-primary absolute inline-flex h-3 w-3 animate-ping rounded-full opacity-75"></span>
-                  <span className="bg-skin-primary relative inline-flex h-3 w-3 rounded-full"></span>
+                <span className="relative flex ">
+                  <ShoppingCartIcon className="h-6 w-6 flex-1" />
+                  {cartItems.length ? (
+                    <span className="bg-skin-gray top right bg-skin-primary absolute -right-2 -top-2 m-0 h-4 w-4 rounded-full p-0 text-center font-mono text-sm  leading-tight text-white">
+                      {cartItems.length}
+                    </span>
+                  ) : ""
+                }
                 </span>
               </button>
             </div>
@@ -226,7 +231,7 @@ const Nav = ({ ...props }) => {
             </div>
           </div>
         </div>
-        <ShoppingCart cart={cart} setCart={setCart}/>
+        <ShoppingCart cartOpen={cartOpen} setCartOpen={setCartOpen} />
       </nav>
       {/* Bottom Navigation -> mobile*/}
       {/* <BottomNav /> */}

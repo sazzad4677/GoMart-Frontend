@@ -74,8 +74,9 @@ const Products = ({ ...props }) => {
                     {product.name}
                   </h1>
                   <div className="flex items-center">
+                    {/* product review */}
                     <p className="text-skin-secondary">
-                      {product.reviews.length ? product.ratings : 0}
+                      {product.ratings ? product.ratings : 0}
                     </p>
                     <StarIcon className="text-skin-base h-4 w-4" />
                   </div>

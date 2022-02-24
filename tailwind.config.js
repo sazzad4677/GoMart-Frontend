@@ -30,6 +30,8 @@ module.exports = {
           "secondary-btn": "var(--btn-text-secondary)",
           "label-text-1": "var(--label-text-color-1)",
           "label-text-2": "var(--label-text-color-2)",
+          "hover-1": "var(--hover-color-1)",
+          "hover-2": "var(--hover-color-2)",
         },
       },
       borderColor: {
@@ -52,6 +54,11 @@ module.exports = {
         },
         white: {
           DEFAULT: "#FFFFFF",
+        },
+        gray: {
+          light: "#E5E7EB",
+          medium: "#9DA3AF",
+          DEFAULT: "#0F172B",
         },
         "dashboard-bg": {
           DEFAULT: "#f9fafb",

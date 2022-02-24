@@ -14,8 +14,13 @@ import "./styles.css";
 // Icons
 import { ShoppingBagIcon, ShoppingCartIcon } from "@heroicons/react/solid";
 import { toast } from "react-toastify";
-const ProductDetails = ({ product }) => {
-  const [counter, setCounter] = useState(1);
+const ProductDetails = ({
+  product,
+  addItemToCart,
+  addToCartButton,
+  quantity,
+  setQuantity,
+}) => {
   const [descriptionShowMore, setDescriptionShowMore] = useState(false);
   const [mainPicture, setMainPicture] = useState(0);
   const {
@@ -32,19 +37,19 @@ const ProductDetails = ({ product }) => {
   // Function is called everytime increment button is clicked
   const handleClickIncrement = () => {
     // if stock not available
-    if (counter >= stock) return toast.warn("Stock not available");
+    if (quantity >= stock) return toast.warn("Stock not available");
 
     // Counter state is incremented
-    setCounter(counter + 1);
+    setQuantity(quantity + 1);
   };
   // Function is called everytime decrement button is clicked
   const handleClickDecrement = () => {
     // handle zero or negative decrement
-    if (counter <= 1) {
-      return setCounter(counter);
+    if (quantity <= 1) {
+      return setQuantity(quantity);
     }
     // Counter state is decremented
-    setCounter(counter - 1);
+    setQuantity(quantity - 1);
   };
   // for share button dropdown
   function classNames(...classes) {
@@ -247,7 +252,7 @@ const ProductDetails = ({ product }) => {
                     -
                   </button>
                   <input
-                    value={counter}
+                    value={quantity}
                     className="w-10 px-2 py-2 text-center text-lg focus:outline-0"
                     readOnly
                   />
@@ -264,6 +269,7 @@ const ProductDetails = ({ product }) => {
                 <button
                   className="white-button gap-3"
                   disabled={stock ? false : true}
+                  onClick={addToCartButton}
                 >
                   <ShoppingCartIcon className="h-5 w-5" />
                   Add to cart
@@ -273,7 +279,7 @@ const ProductDetails = ({ product }) => {
             {/* Product price and buy now button */}
             <div className="flex justify-between py-5">
               <p className="title-font text-2xl font-medium text-gray-900">
-                ৳{(price * counter).toFixed(2)}
+                ৳{(price * quantity).toFixed(2)}
               </p>
               <div className="ml-6 flex items-center gap-2">
                 <button
