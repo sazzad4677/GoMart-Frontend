@@ -2,7 +2,7 @@ import React from "react";
 import ReactStars from "react-rating-stars-component";
 import { StarIcon } from "@heroicons/react/solid";
 
-const Reviews = ({product}) => {
+const Reviews = ({ product }) => {
   const firstExample = {
     size: 50,
     value: 4.7,
@@ -12,8 +12,8 @@ const Reviews = ({product}) => {
   };
   return (
     <>
-      <div className="bg-white my-10 rounded-md">
-        <p className="font-display truncate text-ellipsis whitespace-nowrap bg-gray-200 px-5 py-4 font-medium leading-10 rounded-t-md">
+      <div className="my-10 rounded-md bg-white">
+        <p className="font-display truncate text-ellipsis whitespace-nowrap rounded-t-md bg-gray-200 px-5 py-4 font-medium leading-10">
           Ratings & Reviews of {product.name}
         </p>
         <div className="md:flex md:gap-20">
@@ -26,7 +26,9 @@ const Reviews = ({product}) => {
               isHalf={true}
               edit={false}
             />
-            <p className="text-skin-secondary text-sm">{product.numOfReviews} Ratings</p>
+            <p className="text-skin-secondary text-sm">
+              {product.numOfReviews} Ratings
+            </p>
           </div>
           <div className="my-0 mb-1 rounded-lg bg-white px-4 py-1 tracking-wide lg:w-1/4">
             <div className="-mx-8 px-8">
