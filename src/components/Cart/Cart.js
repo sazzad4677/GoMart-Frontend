@@ -155,7 +155,7 @@ const Cart = ({
 
                   <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                     <div className="text-skin-primary flex justify-between text-base font-medium">
-                      <p>Subtotal</p>
+                      <p>Est. Total</p>
                       <p>
                         <span className="font-bold">৳</span>
                         {cartItems

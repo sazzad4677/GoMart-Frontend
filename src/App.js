@@ -10,7 +10,7 @@ import SearchPage from "./pages/SearchPage";
 import { loadUser } from "./actions/authActions";
 import store from "./store";
 import ProfilePage from "./pages/ProfilePage";
-import PrivateOutlet from "./components/Route/PrivateOutlet";
+import PrivateOutlet from "./components/PrivateOutlet/PrivateOutlet";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import "react-toastify/dist/ReactToastify.css";
 import "react-datepicker/dist/react-datepicker.css";

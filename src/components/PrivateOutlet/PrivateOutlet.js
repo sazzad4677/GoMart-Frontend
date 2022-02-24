@@ -9,7 +9,7 @@ const PrivateOutlet = () => {
       );
       return (
         <>
-          {loading === false &&  isAuthenticated ? <Outlet/> : <Navigate to="/login" replace={true} state={{from: location}}/>}
+          {(loading === false &&  isAuthenticated) ? <Outlet/> : <Navigate to="/login" replace={true} state={{from: location}}/>}
         </>
       );
 };
