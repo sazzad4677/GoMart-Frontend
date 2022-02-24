@@ -2,7 +2,7 @@ import React from "react";
 import ReactStars from "react-rating-stars-component";
 import { StarIcon } from "@heroicons/react/solid";
 
-const Reviews = () => {
+const Reviews = ({product}) => {
   const firstExample = {
     size: 50,
     value: 4.7,
@@ -14,20 +14,19 @@ const Reviews = () => {
     <>
       <div className="bg-white my-10 rounded-md">
         <p className="font-display truncate text-ellipsis whitespace-nowrap bg-gray-200 px-5 py-4 font-medium leading-10 rounded-t-md">
-          Ratings & Reviews of i7s Double Dual Mini Wireless 4.1 Bluetooth
-          Earphone With Power Case HBQ i7s TWS Earbuds i7s TWS Headp
+          Ratings & Reviews of {product.name}
         </p>
         <div className="md:flex md:gap-20">
           <div className="flex flex-col content-center px-4 py-3 leading-snug">
-            <h1 className="font-display text-5xl">4.7/5</h1>
+            <h1 className="font-display text-5xl">{product.ratings}/5</h1>
             <ReactStars
-              value={4.5}
+              value={product.ratings}
               count={5}
               size={45}
               isHalf={true}
               edit={false}
             />
-            <p className="text-skin-secondary text-sm">42 Ratings</p>
+            <p className="text-skin-secondary text-sm">{product.numOfReviews} Ratings</p>
           </div>
           <div className="my-0 mb-1 rounded-lg bg-white px-4 py-1 tracking-wide lg:w-1/4">
             <div className="-mx-8 px-8">
