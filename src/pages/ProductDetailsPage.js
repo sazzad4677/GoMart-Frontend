@@ -46,7 +46,7 @@ const ProductDetailsPage = () => {
               quantity={quantity}
               setQuantity={setQuantity}
             />
-            <Reviews product={product}/>
+            <Reviews product={product} loading={loading}/>
           </div>
           <Footer />
         </div>

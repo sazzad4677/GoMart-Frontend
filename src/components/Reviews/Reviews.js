@@ -1,33 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactStars from "react-rating-stars-component";
-import { StarIcon } from "@heroicons/react/solid";
+import Ratings from "../../layout/Ratings/Ratings";
 
-const Reviews = ({ product }) => {
-  const firstExample = {
-    size: 50,
-    value: 4.7,
-    edit: false,
-    activeColor: "#FACA51",
-    isHalf: true,
-  };
+const Reviews = ({ product, loading }) => {
+  const { name, ratings, reviews, numOfReviews } = product;
+  const [ratingsValue, setRatingsValue] = useState(0);
+  useEffect(() => {
+    setRatingsValue(ratings);
+  }, [ratings]);
   return (
     <>
       <div className="my-10 rounded-md bg-white">
         <p className="font-display truncate text-ellipsis whitespace-nowrap rounded-t-md bg-gray-200 px-5 py-4 font-medium leading-10">
-          Ratings & Reviews of {product.name}
+          Ratings & Reviews of {name}
         </p>
         <div className="md:flex md:gap-20">
           <div className="flex flex-col content-center px-4 py-3 leading-snug">
-            <h1 className="font-display text-5xl">{product.ratings}/5</h1>
-            <ReactStars
-              value={product.ratings}
-              count={5}
-              size={45}
-              isHalf={true}
-              edit={false}
-            />
+            <h1 className="font-display text-5xl">{ratings}/5</h1>
+            <Ratings active={ratings} width={10} height={10}/>
             <p className="text-skin-secondary text-sm">
-              {product.numOfReviews} Ratings
+              {numOfReviews} Ratings
             </p>
           </div>
           <div className="my-0 mb-1 rounded-lg bg-white px-4 py-1 tracking-wide lg:w-1/4">
