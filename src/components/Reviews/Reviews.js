@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ReactStars from "react-rating-stars-component";
 import Ratings from "../../layout/Ratings/Ratings";
 
 const Reviews = ({ product, loading }) => {
   const { name, ratings, reviews, numOfReviews } = product;
-  const [ratingsValue, setRatingsValue] = useState(0);
-  useEffect(() => {
-    setRatingsValue(ratings);
-  }, [ratings]);
   return (
     <>
       <div className="my-10 rounded-md bg-white">
@@ -17,7 +13,7 @@ const Reviews = ({ product, loading }) => {
         <div className="md:flex md:gap-20">
           <div className="flex flex-col content-center px-4 py-3 leading-snug">
             <h1 className="font-display text-5xl">{ratings}/5</h1>
-            <Ratings active={ratings} width={10} height={10}/>
+            <Ratings active={ratings} width={10} height={10} hoverable={false} precision={ratings}/>
             <p className="text-skin-secondary text-sm">
               {numOfReviews} Ratings
             </p>
