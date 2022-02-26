@@ -85,8 +85,9 @@ const UpdateProfilePage = () => {
   const profileFormSubmitHandler = ({
     name,
     gender,
-    shippingAddress,
-    billingAddress,
+    address,
+    city,
+    postalCode,
     username,
     email,
     password,
@@ -107,8 +108,9 @@ const UpdateProfilePage = () => {
     formData.set("email", email);
     formData.set("birthDay", birthDay);
     formData.set("gender", gender);
-    formData.set("shippingAddress", shippingAddress);
-    formData.set("billingAddress", billingAddress);
+    formData.set("address", address);
+    formData.set("city", city);
+    formData.set("postalCode", postalCode);
     formData.set("areaName", place.formatted_address);
     formData.set("placeId", place.place_id);
     dispatch(updateProfile(formData));

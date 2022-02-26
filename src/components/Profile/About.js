@@ -14,8 +14,9 @@ const About = ({ user }) => {
     email,
     gender,
     phone,
-    shippingAddress,
-    billingAddress,
+    address,
+    city,
+    postalCode,
     birthDay,
     area,
   } = user;
@@ -31,18 +32,17 @@ const About = ({ user }) => {
     { fieldName: "Gender.", value: gender && gender },
     { fieldName: "Birthday", value: birthDay && birthDay },
     {
-      fieldName: "Shipping Address",
-      value:
-        shippingAddress === "undefined" || shippingAddress === "null"
-          ? ""
-          : shippingAddress,
+      fieldName: "Address",
+      value: address === "undefined" || address === "null" ? "" : address,
     },
     {
-      fieldName: "Billing Address",
+      fieldName: "City",
+      value: city === "undefined" || city === "null" ? "" : city,
+    },
+    {
+      fieldName: "Postal Code",
       value:
-        billingAddress === "undefined" || billingAddress === "null"
-          ? ""
-          : billingAddress,
+        postalCode === "undefined" || postalCode === "null" ? "" : postalCode,
     },
   ];
 

@@ -46,15 +46,11 @@ export const updateAboutFormSchema = yup.object().shape({
     .string()
     .email("Must be a valid email address")
     .required("Please provide a valid email address"),
-  gender: yup
-    .string(),
-  phone: yup
-    .string()
-    .nullable(),
-  shippingAddress: yup
-    .string(),
-  billingAddress: yup
-    .string(),
+  gender: yup.string(),
+  phone: yup.string().nullable(),
+  address: yup.string(),
+  city: yup.string(),
+  postalCode: yup.string(),
 });
 
 // reset password Form Schema

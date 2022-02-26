@@ -50,7 +50,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  border: 0px 0px 0px 1px solid #40aa54;
+  border: 0px 0px 0px 0px solid #40aa54;
   -webkit-text-fill-color: #2f3b34;
   -webkit-box-shadow: 0 0 0px 0px #fff inset;
   transition: background-color 5000s ease-in-out 0s;

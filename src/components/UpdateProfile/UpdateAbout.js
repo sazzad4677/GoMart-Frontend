@@ -1,5 +1,5 @@
 import { CheckIcon, CogIcon, UserIcon } from "@heroicons/react/outline";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import Autocomplete from "react-google-autocomplete";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { updateAboutFormSchema } from "../../Validation/UserFormValidation";
+import InputField from "./InputField";
 const UpdateAbout = ({
   user,
   profileFormSubmitHandler,
@@ -24,10 +25,48 @@ const UpdateAbout = ({
     email,
     gender,
     phone,
-    shippingAddress,
-    billingAddress,
+    address,
+    city,
+    postalCode,
     area,
   } = user;
+
+  const cityName = [
+    "Dhaka",
+    "Chittagong",
+    "Khulna",
+    "Sylhet",
+    "Rajshahi",
+    "Mymensingh",
+    "Barisal",
+    "Rangpur",
+    "Comilla",
+    "Narayanganj",
+    "Gazipur",
+  ];
+
+  // Get user location
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
+  const [status, setStatus] = useState(null);
+
+  const getLocation = () => {
+    if (!navigator.geolocation) {
+      setStatus({ error: "Geolocation is not supported by your browser" });
+    } else {
+      setStatus({ loading: "Getting the location" });
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setStatus(null);
+          setLat(position.coords.latitude);
+          setLng(position.coords.longitude);
+        },
+        () => {
+          setStatus({ error: "Unable to retrieve your location" });
+        }
+      );
+    }
+  };
 
   // Use hook form
   const {
@@ -49,15 +88,25 @@ const UpdateAbout = ({
       "email",
       "gender",
       "phone",
-      "shippingAddress",
-      "billingAddress",
+      "address",
+      "city",
+      "postalCode",
     ];
     if (errors) {
       errorFields.forEach((errorField) =>
         toast.error(errors[errorField]?.message)
       );
     }
-  }, [errors]);
+    if (status) {
+      if (status.error) {
+        toast.error(status.error);
+      }
+      if (status.loading) {
+        toast.info(status.loading);
+      }
+    }
+  }, [errors, status]);
+
   return (
     <form
       className="font-display rounded-md bg-gray-100 shadow"
@@ -74,62 +123,32 @@ const UpdateAbout = ({
       <div className="p-3 text-gray-700">
         <div className="grid gap-3 text-sm md:grid-cols-2">
           {/* Name */}
-          <div className="grid grid-cols-2">
-            <label htmlFor="name" className="px-4 py-2 font-semibold">
-              Name
-            </label>
-            <input
-              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
-             ${
-               Object.keys(errors).length
-                 ? "border-red focus:border-red"
-                 : "border-skin-base"
-             }`}
-              id="name"
-              type="text"
-              placeholder="Your Name"
-              {...register("name", { min: 3, max: 255 })}
-              defaultValue={name}
-            ></input>
-          </div>
+          <InputField
+            id="name"
+            type="text"
+            name="name"
+            defaultValue={name}
+            register={register}
+            errors={errors}
+          ></InputField>
           {/* Username */}
-          <div className="grid grid-cols-2">
-            <label htmlFor="username" className="px-4 py-2 font-semibold">
-              Username
-            </label>
-            <input
-              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
-              ${
-                Object.keys(errors).length
-                  ? "border-red focus:border-red"
-                  : "border-skin-base"
-              }`}
-              id="username"
-              type="text"
-              placeholder="Your Username"
-              {...register("username", { min: 3, max: 20 })}
-              defaultValue={username}
-            ></input>
-          </div>
+          <InputField
+            id="username"
+            type="text"
+            name="Username"
+            defaultValue={username}
+            register={register}
+            errors={errors}
+          ></InputField>
           {/* Email */}
-          <div className="grid grid-cols-2">
-            <label htmlFor="email" className="px-4 py-2 font-semibold">
-              Email.
-            </label>
-            <input
-              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
-              ${
-                Object.keys(errors).length
-                  ? "border-red focus:border-red"
-                  : "border-skin-base"
-              }`}
-              id="email"
-              type="email"
-              placeholder="Your email"
-              {...register("email")}
-              defaultValue={email}
-            ></input>
-          </div>
+          <InputField
+            id="email"
+            type="email"
+            name="email"
+            defaultValue={email}
+            register={register}
+            errors={errors}
+          ></InputField>
           {/* Contact No. */}
           <div className="grid grid-cols-2">
             <label htmlFor="phone" className="px-4 py-2 font-semibold">
@@ -205,6 +224,16 @@ const UpdateAbout = ({
               />
             </div>
           </div>
+          {/* Address */}
+          <InputField
+            id="address"
+            type="text"
+            name="address"
+            errors={errors}
+            register={register}
+            defaultValue={address}
+          ></InputField>
+          {/* Area Name */}
           <div className="grid grid-cols-2">
             <label htmlFor="area" className="px-4 py-2 font-semibold">
               Area Name
@@ -232,47 +261,36 @@ const UpdateAbout = ({
               }
             />
           </div>
-          {/* Shipping Address */}
+          {/* City */}
           <div className="grid grid-cols-2">
-            <label
-              htmlFor="shippingAddress"
-              className="px-4 py-2 font-semibold"
+            <div className="px-4 py-2 font-semibold">Select City</div>
+            <select
+              className={`block w-full rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
+              ${
+                Object.keys(errors).length
+                  ? "border-red focus:border-red"
+                  : "border-skin-base"
+              }`}
+              id="city"
+              // defaultValue={gender && gender}
+              {...register("city")}
+              defaultValue={city && city}
             >
-              Shipping Address
-            </label>
-            <input
-              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
-              ${
-                Object.keys(errors).length
-                  ? "border-red focus:border-red"
-                  : "border-skin-base"
-              }`}
-              id="shippingAddress"
-              type="text"
-              placeholder="Your Shipping Address"
-              {...register("shippingAddress")}
-              defaultValue={shippingAddress && shippingAddress}
-            ></input>
+              <option value="">Click to select City</option>
+              {cityName.map((city) => (
+                <option value={city}>{city}</option>
+              ))}
+            </select>
           </div>
-          {/* Billing Address */}
-          <div className="grid grid-cols-2">
-            <label htmlFor="billingAddress" className="px-4 py-2 font-semibold">
-              Billing Address
-            </label>
-            <input
-              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none 
-              ${
-                Object.keys(errors).length
-                  ? "border-red focus:border-red"
-                  : "border-skin-base"
-              }`}
-              id="billingAddress"
-              type="text"
-              placeholder="Your billing address"
-              {...register("billingAddress")}
-              defaultValue={billingAddress}
-            ></input>
-          </div>
+          {/* Postal Code */}
+          <InputField
+            id="postalCode"
+            type="text"
+            name="Postal Code"
+            defaultValue={postalCode}
+            register={register}
+            errors={errors}
+          ></InputField>
         </div>
         <div className="mt-4 flex justify-end gap-3">
           <button

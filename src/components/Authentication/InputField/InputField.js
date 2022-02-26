@@ -3,8 +3,17 @@ import { toast } from "react-toastify";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
 import ReactGoogleAutocomplete from "react-google-autocomplete";
 const InputField = (props) => {
-  const { name, type, label, labelFor, errors, register, identity, control, setPlace } =
-    props;
+  const {
+    name,
+    type,
+    label,
+    labelFor,
+    errors,
+    register,
+    identity,
+    control,
+    setPlace,
+  } = props;
 
   useEffect(() => {
     if (errors) {

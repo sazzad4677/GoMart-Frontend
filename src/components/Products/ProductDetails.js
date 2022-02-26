@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { FaFacebookF, FaTwitter, FaHeart, FaShareAlt } from "react-icons/fa";
 import { Menu, Transition } from "@headlessui/react";
 // Swiper Js import
@@ -14,6 +14,7 @@ import "./styles.css";
 import { ShoppingBagIcon, ShoppingCartIcon } from "@heroicons/react/solid";
 import { toast } from "react-toastify";
 import Ratings from "../../layout/Ratings/Ratings";
+
 const ProductDetails = ({
   product,
   addItemToCart,
@@ -134,7 +135,12 @@ const ProductDetails = ({
               <div className="mb-4 flex gap-6">
                 {/* Product Review */}
                 <div className="flex items-center">
-                  <Ratings active={product.ratings} width={5} height={5}/>
+                  <Ratings
+                    active={product.ratings}
+                    width={5}
+                    height={5}
+                    hoverable={false}
+                  />
                   <span className="ml-3 text-gray-600">
                     {numOfReviews} Reviews
                   </span>
