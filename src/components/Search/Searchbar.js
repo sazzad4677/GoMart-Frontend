@@ -34,13 +34,13 @@ const Searchbar = ({ ...props }) => {
   return (
     <>
       <form
-        className={`relative mx-auto inline-flex w-3/5 flex-col justify-center rounded-2xl border text-gray-500 shadow ${SearchBarShow}`}
+        className={`relative mx-auto inline-flex w-3/5 flex-col justify-center rounded-2xl border text-gray-500  ${SearchBarShow}`}
         onSubmit={searchHandler}
       >
         {/* Searchbar */}
         <div className="relative flex">
           <input
-            className="w-full rounded p-1 pl-4 text-lg focus:outline-none"
+            className="w-full rounded-2xl p-1 pl-4 text-lg focus:ring-0 border-hidden"
             type="text"
             placeholder="Search"
             onChange={onChangeHandler}

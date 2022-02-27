@@ -82,5 +82,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("kutty")],
+  plugins: [require("kutty"), require("@tailwindcss/forms")],
 };

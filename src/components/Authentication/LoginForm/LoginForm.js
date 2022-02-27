@@ -118,7 +118,7 @@ const Login = ({ submitHandler, setRemember, loading }) => {
                     id="remember_me"
                     name="remember_me"
                     type="checkbox"
-                    className="checked:bg-skin-primary absolute h-4 w-4 rounded checked:border-transparent"
+                    className="checked:bg-skin-primary text-skin-base absolute h-4 w-4 rounded checked:border-transparent checked:ring-[#40aa54] focus:ring-[#40aa54]"
                     onClick={() => setRemember((prev) => !prev)}
                   />
                 </div>

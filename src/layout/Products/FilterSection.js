@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import Slider from "rc-slider";
 import { Collapse } from "react-collapse";
@@ -67,7 +67,7 @@ const FilterSection = ({ price, setPrice, setRatings }) => {
                 <input
                   type="number"
                   name="Min"
-                  className="text-skin-primary w-24 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-center text-base focus:border-yellow-400 focus:outline-none"
+                  className="text-skin-primary w-24 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-center text-base focus:border-skin-base focus:ring-0"
                   onChange={(e) => setMinPrice(e.target.value)}
                   value={minPrice}
                 />
@@ -83,7 +83,7 @@ const FilterSection = ({ price, setPrice, setRatings }) => {
                 <input
                   type="number"
                   name="Max"
-                  className="text-skin-primary w-24 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-center text-base focus:border-yellow-400 focus:outline-none"
+                  className="text-skin-primary w-24 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-center text-base focus:border-skin-base focus:ring-0"
                   onChange={(e) => setMaxPrice(e.target.value)}
                   value={maxPrice}
                 />
@@ -125,7 +125,10 @@ const FilterSection = ({ price, setPrice, setRatings }) => {
                       key={key}
                       className="text-md font- flex cursor-pointer items-center gap-2 text-gray-900 "
                     >
-                      <input type="checkbox" className="h-4 w-4 rounded" />
+                      <input
+                        type="checkbox"
+                        className="checked:bg-skin-primary text-skin-base h-4 w-4 rounded checked:border-transparent checked:ring-[#40aa54] focus:ring-[#40aa54]"
+                      />
                       <span>{available}</span>
                     </label>
                   ))}
@@ -159,7 +162,12 @@ const FilterSection = ({ price, setPrice, setRatings }) => {
                       className="flex cursor-pointer items-center  gap-2 text-gray-900 "
                       onChange={() => setRatings(star)}
                     >
-                      <input type="checkbox" className="h-4 w-4 rounded" />
+                      <input
+                        type="checkbox"
+                        className="checked:bg-skin-primary text-skin-base h-4 w-4
+rounded checked:border-transparent checked:ring-[#40aa54]
+focus:ring-[#40aa54]"
+                      />
                       <ReactStars
                         value={star}
                         size={24}

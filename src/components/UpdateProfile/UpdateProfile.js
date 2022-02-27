@@ -134,8 +134,8 @@ const UpdateProfile = ({
               </span>
             </li>
             {/* Device */}
-            <li className="flex items-center py-3">
-              <span>Device</span>
+            <li className="flex items-center py-3  break-all">
+              <span className="w-full">Device</span>
               <span className="ml-auto">{user.device}</span>
             </li>
           </ul>

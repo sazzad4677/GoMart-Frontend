@@ -31,9 +31,9 @@ const InputField = (props) => {
         <>
           <input
             name={name}
-            className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-2 text-base focus:outline-none 
+            className={`block w-full appearance-none rounded-2xl border-0 border-b border-t-0 bg-transparent px-4 py-2 text-base focus:ring-0 
                   ${
-                    errors ? "border-red focus:border-red" : "border-skin-base"
+                    errors ? "border-red focus:border-red" : "border-skin-base focus:border-skin-base"
                   }`}
             type={type}
             placeholder=" "
@@ -62,7 +62,7 @@ const InputField = (props) => {
           addInternationalOption={false}
           countryCallingCodeEditable={false}
           withCountryCallingCode
-          className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-2 text-base focus:outline-none 
+          className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-2 text-base focus:ring-0 
           ${errors ? "border-red focus:border-red" : "border-skin-base"}`}
         />
       )}

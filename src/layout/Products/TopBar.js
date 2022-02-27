@@ -7,12 +7,11 @@ const TopBar = ({ setResultPerPage, setSortType }) => {
           Component
         </p>
       </div>
-
       <div className="flex">
         <div className="flex items-center px-2">
           <p className="text-skin-secondary p-1 text-sm font-semibold">Show:</p>
           <select
-            className=" text-skin-primary bg-skin-optional p-1 text-sm focus:outline-none"
+            className=" text-skin-primary bg-skin-optional text-sm focus:ring-0 border-0 rounded"
             onChange={(e) => setResultPerPage(e.target.value)}
           >
             {[10, 20, 30, 40].map((number, key) => (
@@ -27,7 +26,7 @@ const TopBar = ({ setResultPerPage, setSortType }) => {
             Sort By:
           </p>
           <select
-            className=" text-skin-primary bg-skin-optional p-1 text-sm focus:outline-none"
+            className=" text-skin-primary bg-skin-optional text-sm focus:ring-0 border-0 rounded"
             onChange={(e) => setSortType(e.target.value)}
           >
             <option value="0"> Default</option>)

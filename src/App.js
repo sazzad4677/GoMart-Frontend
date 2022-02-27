@@ -21,6 +21,7 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import UpdatePasswordPage from "./pages/UpdatePasswordPage";
+import ShippingInfo from "./components/ShippingInfo/ShippingInfo";
 
 function App() {
   useEffect(() => {
@@ -51,7 +52,7 @@ function App() {
         </Route>
         <Route path="/search/" element={<SearchPage />}></Route>
         <Route path="/search/:keyword" element={<SearchPage />}></Route>
-        {/* <Route path="/cart/" element={<ShoppingCart />}></Route> */}
+        <Route path="/shipping/" element={<ShippingInfo />}></Route>
       </Routes>
       <>
         <ToastContainer />
