@@ -7,7 +7,7 @@ const InputField = ({ id, type, name, defaultValue, register, errors }) => {
           {name}
         </label>
         <input
-          className={`block w-full appearance-none rounded-2xl border-0 border-b border-t-0 bg-transparent px-4 py-2 text-base focus:ring-0 
+          className={`text-sm block w-full appearance-none rounded-2xl border-0 border-b border-t-0 bg-transparent px-4  text-base focus:ring-0 
    ${
      Object.keys(errors).length
        ? "border-red focus:border-red"

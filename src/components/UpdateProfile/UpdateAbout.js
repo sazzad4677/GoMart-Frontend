@@ -120,7 +120,7 @@ const UpdateAbout = ({
           <span className="tracking-wide">Update About</span>
         </div>
       </div>
-      <div className="p-3 text-gray-700">
+      <div className="p-3 text-gray-700 ">
         <div className="grid gap-3 text-sm md:grid-cols-2">
           {/* Name */}
           <InputField
@@ -166,7 +166,7 @@ const UpdateAbout = ({
               countryCallingCodeEditable={false}
               withCountryCallingCode
               id="phone"
-              className={`block w-full appearance-none rounded-2xl border-0 border-b border-t-0 bg-transparent px-4 py-1 focus:ring-0 text-base
+              className={`block w-full appearance-none rounded-2xl border-0 border-b border-t-0 bg-transparent px-4 py-0 focus:ring-0 text-base
               ${
                 Object.keys(errors).length
                   ? "border-red focus:border-red"
@@ -178,7 +178,7 @@ const UpdateAbout = ({
           <div className="grid grid-cols-2">
             <div className="px-4 py-2 font-semibold">Gender</div>
             <select
-              className={`block w-full appearance-none rounded-2xl border-0 border-b border-t-0 bg-transparent px-4 py-2 text-base focus:ring-0 
+              className={`text-sm block w-full appearance-none rounded-2xl border-0 border-b border-t-0 bg-transparent px-4  text-base focus:ring-0 
               ${
                 Object.keys(errors).length
                   ? "border-red focus:border-red"
@@ -202,7 +202,7 @@ const UpdateAbout = ({
             </label>
             <div id="birthDate">
               <DatePicker
-                className={`block w-full appearance-none rounded-2xl border-0 border-b border-t-0 bg-transparent px-4 py-2 text-base focus:ring-0 
+                className={`text-sm  block w-full appearance-none rounded-2xl border-0 border-b border-t-0 bg-transparent px-4  text-base focus:ring-0 
                 ${
                   Object.keys(errors).length
                     ? "border-red focus:border-red"
@@ -240,7 +240,7 @@ const UpdateAbout = ({
             </label>
             <Autocomplete
               id="area"
-              className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-1 focus:outline-none
+              className={`text-sm block w-full appearance-none rounded-2xl border-b bg-transparent px-4  focus:outline-none
               ${
                 Object.keys(errors).length
                   ? "border-red focus:border-red"
@@ -265,7 +265,7 @@ const UpdateAbout = ({
           <div className="grid grid-cols-2">
             <div className="px-4 py-2 font-semibold">Select City</div>
             <select
-              className={`block w-full appearance-none rounded-2xl border-0 border-b border-t-0 bg-transparent px-4 py-2 text-sm focus:ring-0 
+              className={`text-sm block w-full appearance-none rounded-2xl border-0 border-b border-t-0 bg-transparent px-4  text-sm focus:ring-0 
               ${
                 Object.keys(errors).length
                   ? "border-red focus:border-red"

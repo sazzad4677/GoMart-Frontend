@@ -62,7 +62,7 @@ const InputField = (props) => {
           addInternationalOption={false}
           countryCallingCodeEditable={false}
           withCountryCallingCode
-          className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-2 text-base focus:ring-0 
+          className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-0 text-base focus:ring-0 
           ${errors ? "border-red focus:border-red" : "border-skin-base"}`}
         />
       )}
