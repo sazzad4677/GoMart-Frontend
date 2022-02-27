@@ -10,9 +10,12 @@ import FilterSection from "../layout/Products/FilterSection";
 import TopBar from "../layout/Products/TopBar";
 import Metadata from "../layout/Metadata/Metadata";
 import Footer from "../layout/Footer/Footer";
+import { addItemToCart } from "../actions/cartActions";
+import { useParams } from "react-router-dom";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
+  const params = useParams();
   // page number
   const [currentPage, setCurrentPage] = useState(1);
   // total product per page => default = 10
@@ -27,6 +30,11 @@ const ProductsPage = () => {
   const [sortType, setSortType] = useState("0");
   // products data
   const productsData = useSelector((state) => state.products);
+  // Add to cart
+  const addToCartButton = (id) => {
+    dispatch(addItemToCart(id, 1));
+    toast.success(`Successfully added to cart`);
+  };
   useEffect(() => {
     if (productsData.errors) {
       return toast.error(productsData.errors);
@@ -72,7 +80,7 @@ const ProductsPage = () => {
               setSortType={setSortType}
             />
             <div>
-              <Products productsData={productsData} />
+              <Products productsData={productsData} addToCartButton={addToCartButton}/>
             </div>
             <div className="border-t border-b">
               <Page
