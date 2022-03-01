@@ -15,6 +15,7 @@ import { loginFormSchema } from "../../../Validation/UserFormValidation";
 import InputField from "../../../layout/Form/InputField";
 // stylesheet
 import "../styles.css";
+import { toast } from "react-toastify";
 
 const Login = ({ submitHandler, setRemember, loading }) => {
   // form validator
@@ -23,6 +24,23 @@ const Login = ({ submitHandler, setRemember, loading }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(loginFormSchema) });
+
+  const testAdminIdPass = () => {
+    toast.info(
+      <div>
+        Email: test@mail.com <br /> Password: 1234567
+      </div>,
+      {
+        position: "top-center",
+        autoClose: 10000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+      }
+    );
+  };
 
   // Input Field data
   const inputData = [
@@ -168,6 +186,12 @@ const Login = ({ submitHandler, setRemember, loading }) => {
               <BsArrowLeftShort className="h-6 w-6" />
               <span> Go Back to Home</span>
             </Link>
+            <p
+              onClick={testAdminIdPass}
+              className="text-md cursor-pointer text-center text-green"
+            >
+              Login as Admin
+            </p>
           </div>
         </div>
         {/* image bubble */}
