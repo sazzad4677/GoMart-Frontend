@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { addItemToCart, removeItemFromCart } from "../actions/cartActions";
 import Cart from "../components/Cart/Cart";
-import { toast } from "react-toastify";
 
 const ShoppingCart = ({ cartOpen, setCartOpen }) => {
   const dispatch = useDispatch();
@@ -27,8 +27,8 @@ const ShoppingCart = ({ cartOpen, setCartOpen }) => {
   };
 
   const removeCartItemHandler = (id) => {
-    dispatch(removeItemFromCart(id))
-  }
+    dispatch(removeItemFromCart(id));
+  };
   return (
     <Cart
       cartOpen={cartOpen}

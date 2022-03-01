@@ -12,7 +12,7 @@ import background from "../../../images/Login/groceries.jpg";
 // images
 import logo from "../../../images/Logo.png";
 import { loginFormSchema } from "../../../Validation/UserFormValidation";
-import InputField from "../InputField/InputField";
+import InputField from "../../../layout/Form/InputField";
 // stylesheet
 import "../styles.css";
 
@@ -27,7 +27,7 @@ const Login = ({ submitHandler, setRemember, loading }) => {
   // Input Field data
   const inputData = [
     {
-      id: 1,
+      id: "email",
       name: "email",
       type: "email",
       labelFor: "email",
@@ -36,7 +36,7 @@ const Login = ({ submitHandler, setRemember, loading }) => {
       register: register,
     },
     {
-      id: 2,
+      id: "password",
       name: "password",
       type: "password",
       labelFor: "password",

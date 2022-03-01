@@ -9,7 +9,7 @@ import background from "../../../images/Login/groceries.jpg";
 // images
 import logo from "../../../images/Logo.png";
 import { resetPasswordSchema } from "../../../Validation/UserFormValidation";
-import InputField from "../InputField/InputField";
+import InputField from "../../../layout/Form/InputField";
 // stylesheet
 import "../styles.css";
 
@@ -23,7 +23,7 @@ const ResetPassword = ({ submitHandler }) => {
   // Input Field data
   const inputData = [
     {
-      id: 1,
+      id: "newPassword",
       name: "newPassword",
       type: "password",
       labelFor: "newPassword",
@@ -32,7 +32,7 @@ const ResetPassword = ({ submitHandler }) => {
       register: register,
     },
     {
-      id: 2,
+      id: "confirmPassword",
       name: "confirmPassword",
       type: "password",
       labelFor: "password",
@@ -67,12 +67,10 @@ const ResetPassword = ({ submitHandler }) => {
               onSubmit={handleSubmit(submitHandler)}
               autoComplete="off"
             >
-              <input type="hidden" name="remember" value="true" />
               {/* Email Field */}
               {inputData.map(({ id, name, type, label, errors, register }) => (
                 <div key={id} className="relative z-0">
                   <InputField
-                    identity="login"
                     id={id}
                     name={name}
                     type={type}

@@ -18,6 +18,7 @@ const ProductDetailsPage = () => {
     (state) => state.productDetails
   );
   const [quantity, setQuantity] = useState(1);
+  
   const addToCartButton = () => {
     dispatch(addItemToCart(params.id, quantity));
     toast.success(`Successfully added to cart`);

@@ -1,22 +1,17 @@
-import React, { useState } from "react";
-import { ShoppingCartIcon, HeartIcon, StarIcon } from "@heroicons/react/solid";
+import { HeartIcon, StarIcon } from "@heroicons/react/solid";
+import React from "react";
+import { BsCartPlusFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Products = ({ ...props }) => {
   const {
     productsData: { products },
     addToCartButton,
+    removeCartItemHandler,
+    cartIcon,
+    cartItems,
   } = props;
-  const handelShoppingCart = () => {
-    console.log("Shopping Cart");
-  };
-  const [state, setState] = useState(false);
-  const handelWishList = () => {
-    setState((prev) => !prev);
-  };
-  const BuyNow = () => {
-    console.log("buy now");
-  };
+
   return (
     <>
       <div className="row-gap-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -40,7 +35,6 @@ const Products = ({ ...props }) => {
                   to="#"
                   className={`bg-skin-inverted } transform-opacity absolute h-full w-full 
                   cursor-pointer bg-opacity-0 opacity-0 duration-500 group-hover:bg-opacity-50 group-hover:opacity-100`}
-                  onClick={BuyNow}
                 >
                   <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 transform gap-6 ">
                     <button className="font-body text-2xl font-extrabold text-white">
@@ -56,14 +50,11 @@ const Products = ({ ...props }) => {
                     On Sale
                   </span>
                   <div className="flex gap-4">
-                    <ShoppingCartIcon
+                    <BsCartPlusFill
                       className="text-green h-6 w-6 cursor-pointer"
                       onClick={() => addToCartButton(product._id)}
                     />
-                    <HeartIcon
-                      className="text-red h-6 w-6 cursor-pointer"
-                      onClick={handelWishList}
-                    />
+                    <HeartIcon className="text-red h-6 w-6 cursor-pointer" />
                   </div>
                 </div>
                 <Link to={`/products/${product._id}`}>

@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import Products from "../components/Products/Products";
-import Nav from "../layout/Nav/Nav";
+import { addItemToCart, removeItemFromCart } from "../actions/cartActions";
 import { getProducts } from "../actions/productActions";
-import Page from "../layout/Pagination/Page";
+import Products from "../components/Products/Products";
+import Footer from "../layout/Footer/Footer";
 import Loader from "../layout/Loader/Loader";
+import Metadata from "../layout/Metadata/Metadata";
+import Nav from "../layout/Nav/Nav";
+import Page from "../layout/Pagination/Page";
 import FilterSection from "../layout/Products/FilterSection";
 import TopBar from "../layout/Products/TopBar";
-import Metadata from "../layout/Metadata/Metadata";
-import Footer from "../layout/Footer/Footer";
-import { addItemToCart } from "../actions/cartActions";
-import { useParams } from "react-router-dom";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
-  const params = useParams();
   // page number
   const [currentPage, setCurrentPage] = useState(1);
   // total product per page => default = 10
@@ -28,12 +26,20 @@ const ProductsPage = () => {
   const [ratings, setRatings] = useState(0);
   // sorting by price high to low / low to high
   const [sortType, setSortType] = useState("0");
+
+  const [cartIcon, setCartIcon] = useState(true);
   // products data
   const productsData = useSelector((state) => state.products);
+  const { cartItems } = useSelector((state) => state.cart);
   // Add to cart
   const addToCartButton = (id) => {
     dispatch(addItemToCart(id, 1));
     toast.success(`Successfully added to cart`);
+    setCartIcon(true);
+  };
+  const removeCartItemHandler = (id) => {
+    dispatch(removeItemFromCart(id));
+    setCartIcon(false);
   };
   useEffect(() => {
     if (productsData.errors) {
@@ -80,7 +86,13 @@ const ProductsPage = () => {
               setSortType={setSortType}
             />
             <div>
-              <Products productsData={productsData} addToCartButton={addToCartButton}/>
+              <Products
+                productsData={productsData}
+                addToCartButton={addToCartButton}
+                removeCartItemHandler={removeCartItemHandler}
+                cartIcon={cartIcon}
+                cartItems={cartItems}
+              />
             </div>
             <div className="border-t border-b">
               <Page
@@ -97,7 +109,7 @@ const ProductsPage = () => {
         </div>
       </div>
       {productsData.loading && <Loader />}
-      <Footer/>
+      <Footer />
     </div>
   );
 };

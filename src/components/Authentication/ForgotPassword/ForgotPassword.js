@@ -3,7 +3,7 @@ import { BsArrowLeftShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import logo from "../../../images/Logo.png";
 import background from "../../../images/Login/groceries.jpg";
-import InputField from "../InputField/InputField";
+import InputField from "../../../layout/Form/InputField";
 import { useForm } from "react-hook-form";
 const ForgotPassword = ({ submitHandler, loading }) => {
   const [showUserNameField, setShowUserNameField] = useState(false);
@@ -32,7 +32,7 @@ const ForgotPassword = ({ submitHandler, loading }) => {
                 username below and we'll send you a link to reset your password!
               </p>
             </div>
-            {/* Login Form */}
+            {/* Form */}
             <form
               className="mt-8 space-y-6"
               onSubmit={handleSubmit(submitHandler)}
@@ -42,21 +42,21 @@ const ForgotPassword = ({ submitHandler, loading }) => {
               <div className="relative z-0">
                 {showUserNameField ? (
                   <InputField
-                    identity="forgotPassword"
-                    name={"username"}
-                    type={"text"}
-                    labelFor={"username"}
-                    label={"Enter your username"}
+                    id="username"
+                    name="username"
+                    type="text"
+                    labelFor="username"
+                    label="Enter your username"
                     errors={errors.forgotPassword?.message}
                     register={register}
                   />
                 ) : (
                   <InputField
-                    identity="forgotPassword"
-                    name={"email"}
-                    type={"email"}
-                    labelFor={"email"}
-                    label={"Enter your email"}
+                    id="email"
+                    name="email"
+                    type="email"
+                    labelFor="email"
+                    label="Enter your email"
                     errors={errors.forgotPassword?.message}
                     register={register}
                   />

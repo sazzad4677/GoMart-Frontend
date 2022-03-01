@@ -86,3 +86,24 @@ export const updatePasswordSchema = yup.object().shape({
       "Password Not Matched"
     ),
 });
+
+// Shipping Form Schema
+export const shippingFormSchema = yup.object().shape({
+  name: yup
+    .string()
+    .required("Name is Required")
+    .max(25, "Name can't be more than 25 characters"),
+  phone: yup
+    .string()
+    .required("Please Provide your phone number")
+    .nullable()
+    .phone("BD", true, "Provide Bangladeshi Phone number (01XXXNNNNNN)"),
+  email: yup
+    .string()
+    .email("Must be a valid email address")
+    .required("Please provide a valid email address"),
+  address: yup.string().required("Please provide your delivery address"),
+  state: yup.string().required("Please Enter state"),
+  zipCode: yup.string().required("Please Provide your Zip code"),
+  city: yup.string().required("Please select city"),
+});

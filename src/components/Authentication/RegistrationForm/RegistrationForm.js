@@ -14,9 +14,11 @@ import logo from "../../../images/Logo.png";
 import background from "../../../images/Registration/groceries.jpg";
 // form schema validation
 import { registerFormSchema } from "../../../Validation/UserFormValidation";
-import InputField from "../InputField/InputField";
+import PhoneInputField from "../../../layout/Form/PhoneInputField";
 // stylesheet
 import "../styles.css";
+import LocationAutoComplete from "../../../layout/Form/LocationAutoComplete";
+import InputField from "../../../layout/Form/InputField";
 
 const Registration = ({
   submitHandler,
@@ -38,67 +40,74 @@ const Registration = ({
   // Input Field Data
   const inputData = [
     {
-      id: 1,
+      id: "name",
       name: "name",
       type: "text",
       labelFor: "name",
       label: "Enter Your Name",
       errors: errors.name?.message,
       register: register,
+      autoComplete: true,
     },
     {
-      id: 2,
+      id: "username",
       name: "username",
       type: "text",
       labelFor: "username",
       label: "Enter Your Username",
       errors: errors.username?.message,
       register: register,
+      autoComplete: true,
     },
     {
-      id: 3,
+      id: "email",
       name: "email",
       type: "email",
       labelFor: "email",
       label: "Enter Your Email",
       errors: errors.email?.message,
       register: register,
+      autoComplete: true,
     },
     {
-      id: 4,
+      id: "phone",
       name: "phone",
       type: "number",
       labelFor: "phone",
       label: "Enter Your Phone Number",
       errors: errors.phone?.message,
       register: register,
+      autoComplete: true,
     },
     {
-      id: 5,
+      id: "area",
       name: "area",
       type: "text",
       labelFor: "area",
       label: "Enter Your Area Name",
-      errors: errors.phone?.area,
+      errors: errors.area?.message,
       register: register,
+      autoComplete: true,
     },
     {
-      id: 6,
+      id: "password",
       name: "password",
       type: "password",
       labelFor: "password",
       label: "Enter Your Password",
       errors: errors.password?.message,
       register: register,
+      autoComplete: true,
     },
     {
-      id: 7,
+      id: "confirmPassword",
       name: "confirmPassword",
       type: "password",
       labelFor: "confirmPassword",
       label: "Confirm your password",
       errors: errors.confirmPassword && "Passwords not matched",
       register: register,
+      autoComplete: true,
     },
   ];
 
@@ -142,22 +151,23 @@ const Registration = ({
               autoComplete="off"
               encType="multipart/form-data"
             >
-              <input type="hidden" name="remember" value="true" />
               {inputData.map(
                 ({ id, name, type, label, labelFor, errors, register }) => (
                   <div className="relative z-0" key={id}>
-                    <InputField
-                      identity="register"
-                      id={id}
-                      name={name}
-                      type={type}
-                      labelFor={labelFor}
-                      label={label}
-                      errors={errors}
-                      register={register}
-                      control={control}
-                      setPlace={setPlace}
-                    />
+                    {name !== "phone" && name !== "area" && (
+                      <InputField
+                        identity="register"
+                        id={id}
+                        name={name}
+                        type={type}
+                        labelFor={labelFor}
+                        label={label}
+                        errors={errors}
+                        register={register}
+                        control={control}
+                        setPlace={setPlace}
+                      />
+                    )}
                     {name === "password" && (
                       <p
                         className="px-3 text-xs text-gray-500"
@@ -166,6 +176,17 @@ const Registration = ({
                         <span className="text-red">*</span>Password at least 6
                         characters long
                       </p>
+                    )}
+                    {name === "area" && (
+                      <LocationAutoComplete
+                        errors={errors}
+                        setPlace={setPlace}
+                        labelFor={labelFor}
+                        label={label}
+                      />
+                    )}
+                    {name === "phone" && (
+                      <PhoneInputField errors={errors} control={control} />
                     )}
                   </div>
                 )
