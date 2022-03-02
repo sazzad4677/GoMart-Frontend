@@ -1,13 +1,15 @@
+import { ArrowLeftIcon } from "@heroicons/react/solid";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import InputField from "../../layout/Form/InputField";
 import PhoneInputField from "../../layout/Form/PhoneInputField";
 import SelectField from "../../layout/Form/SelectField";
 import { shippingFormSchema } from "../../Validation/UserFormValidation";
 import "./styles.css";
 
-const ShippingInfo = ({ onSubmit }) => {
+const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
   const {
     register,
     handleSubmit,
@@ -119,12 +121,12 @@ const ShippingInfo = ({ onSubmit }) => {
     <>
       <div className="mt-10 sm:mt-0">
         <div className="md:grid md:grid-cols-2 md:gap-6 ">
-          <div className="mx-auto mt-5 md:col-span-2 md:mt-0">
-            <h1 className="text-skin-primary pb-2 text-xl font-medium leading-6">
-              Shipping Information
-            </h1>
+          <div className="mx-auto mt-5 md:col-span-2 md:mt-0 ">
             <form action="#" method="POST" onSubmit={handleSubmit(onSubmit)}>
               <div className="overflow-hidden shadow sm:rounded-md">
+                <h1 className="text-skin-primary bg-gray-50 px-4 py-5 text-left text-xl font-medium leading-6 shadow sm:px-6">
+                  Shipping Information
+                </h1>
                 <div className="bg-white px-4 py-5 sm:p-6">
                   <div className="grid grid-cols-6 gap-6">
                     {/* Name */}
@@ -152,6 +154,9 @@ const ShippingInfo = ({ onSubmit }) => {
                               errors={errors}
                               label={label}
                               labelFor={labelFor}
+                              defaultValue={
+                                shippingInfo ? shippingInfo?.name : user?.name
+                              }
                             />
                           </div>
                         )
@@ -165,7 +170,54 @@ const ShippingInfo = ({ onSubmit }) => {
                     </div>
                     {/* Email & Address */}
                     {inputData
-                      .slice(1, 5)
+                      .slice(1, 4)
+                      .map(
+                        ({
+                          id,
+                          name,
+                          type,
+                          autoComplete,
+                          register,
+                          errors,
+                          label,
+                          labelFor,
+                          style,
+                        }) => (
+                          <div className={style} key={id}>
+                            <InputField
+                              id={id}
+                              name={name}
+                              type={type}
+                              autoComplete={autoComplete}
+                              register={register}
+                              errors={errors}
+                              label={label}
+                              labelFor={labelFor}
+                              defaultValue={
+                                id === "email"
+                                  ? shippingInfo
+                                    ? shippingInfo?.email
+                                    : user?.email
+                                  : id === "address" && shippingInfo
+                                  ? shippingInfo?.address
+                                  : user?.address
+                              }
+                            />
+                          </div>
+                        )
+                      )}
+                    {/* Select City */}
+                    <div className="relative z-0 col-span-6 sm:col-span-6 lg:col-span-2">
+                      <SelectField
+                        data={selectCity}
+                        register={register}
+                        registerAs="city"
+                        errors={errors.city?.message}
+                      />
+                    </div>
+                    {/* Zip Code */}
+                    {inputData
+                      .slice(4, 5)
                       .map(
                         ({
                           id,
@@ -192,22 +244,16 @@ const ShippingInfo = ({ onSubmit }) => {
                           </div>
                         )
                       )}
-                    {/* City */}
-                    <div className="relative z-0 col-span-6 sm:col-span-6 lg:col-span-2">
-                      <SelectField
-                        data={selectCity}
-                        register={register}
-                        registerAs="city"
-                        errors={errors.city?.message}
-                      />
-                    </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 px-4 py-3 text-right sm:px-6 ">
-                  <button
-                    type="submit"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                <div className="flex content-center justify-between bg-gray-50 px-4 py-3 text-right sm:px-6">
+                  <Link
+                    to="/products"
+                    className="text-skin-secondary flex items-center gap-3"
                   >
+                    <ArrowLeftIcon className="h-4 w-4" /> Continue Shopping
+                  </Link>
+                  <button type="submit" className="green-button">
                     Save
                   </button>
                 </div>

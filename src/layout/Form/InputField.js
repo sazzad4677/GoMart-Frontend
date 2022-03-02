@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 const InputField = (props) => {
-  const { id, name, type, label, labelFor, register, errors, autoComplete } =
+  const { id, name, type, label, labelFor, register, errors, autoComplete, defaultValue } =
     props;
 
   useEffect(() => {
@@ -31,6 +31,7 @@ const InputField = (props) => {
             autoComplete={autoComplete}
             onPaste={handlePaste}
             {...register(id)}
+            defaultValue={defaultValue}
           />
           <label
             htmlFor={labelFor}

@@ -11,7 +11,7 @@ const SelectField = ({ register, data, registerAs, errors }) => {
     <>
       <select
         {...register(registerAs)}
-        className={` mt-1 block w-full rounded-2xl rounded-md border-0 border-b  bg-white py-2 px-3 shadow-sm focus:outline-none focus:ring-0 focus:ring-0 sm:text-sm border-red focus:border-red
+        className={` mt-1 block w-full rounded-2xl rounded-md border-0 border-b  bg-white py-2 px-3 shadow-sm focus:outline-none focus:ring-0 focus:ring-0 sm:text-sm
         ${
           errors
             ? "border-red focus:border-red"

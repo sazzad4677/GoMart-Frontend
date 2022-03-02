@@ -28,6 +28,7 @@ function App() {
     store.dispatch(loadUser());
   }, []);
   return (
+    // TODO => Route Optimization
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}></Route>
