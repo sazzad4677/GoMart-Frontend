@@ -6,7 +6,7 @@ const LocationAutoComplete = ({errors, setPlace, labelFor, label}) => {
         <>
         <ReactGoogleAutocomplete
           id="area"
-          className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-2 text-base focus:outline-none 
+          className={`block w-full appearance-none rounded-2xl border-b bg-transparent px-4 py-2 text-base focus:outline-none
       ${
         errors
           ? "border-red focus:border-red"
@@ -20,7 +20,7 @@ const LocationAutoComplete = ({errors, setPlace, labelFor, label}) => {
             types: ["(regions)"],
             componentRestrictions: { country: "bd" },
           }}
-          autoComplete={false}
+          autoComplete="off"
           placeholder=" "
         />
         <label

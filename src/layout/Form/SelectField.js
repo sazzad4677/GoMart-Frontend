@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 
-const SelectField = ({ register, data, registerAs, errors }) => {
+const SelectField = ({ register, data, registerAs, errors, defaultValue }) => {
   useEffect(() => {
     if (errors) {
       toast.error(errors);
@@ -17,6 +17,7 @@ const SelectField = ({ register, data, registerAs, errors }) => {
             ? "border-red focus:border-red"
             : "border-skin-base focus:border-skin-base"
         }`}
+        defaultValue={defaultValue?.toLowerCase()}
       >
         {data.map(({ value, id, text }, key) => (
           <option key={key} value={value}>

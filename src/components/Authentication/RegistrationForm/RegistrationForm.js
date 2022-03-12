@@ -47,7 +47,7 @@ const Registration = ({
       label: "Enter Your Name",
       errors: errors.name?.message,
       register: register,
-      autoComplete: true,
+      autoComplete: "off",
     },
     {
       id: "username",
@@ -57,7 +57,7 @@ const Registration = ({
       label: "Enter Your Username",
       errors: errors.username?.message,
       register: register,
-      autoComplete: true,
+      autoComplete: "off",
     },
     {
       id: "email",
@@ -67,7 +67,7 @@ const Registration = ({
       label: "Enter Your Email",
       errors: errors.email?.message,
       register: register,
-      autoComplete: true,
+      autoComplete: "off",
     },
     {
       id: "phone",
@@ -77,7 +77,7 @@ const Registration = ({
       label: "Enter Your Phone Number",
       errors: errors.phone?.message,
       register: register,
-      autoComplete: true,
+      autoComplete: "off",
     },
     {
       id: "area",
@@ -87,7 +87,7 @@ const Registration = ({
       label: "Enter Your Area Name",
       errors: errors.area?.message,
       register: register,
-      autoComplete: true,
+      autoComplete: "off",
     },
     {
       id: "password",
@@ -97,7 +97,7 @@ const Registration = ({
       label: "Enter Your Password",
       errors: errors.password?.message,
       register: register,
-      autoComplete: true,
+      autoComplete: "off",
     },
     {
       id: "confirmPassword",
@@ -107,7 +107,7 @@ const Registration = ({
       label: "Confirm your password",
       errors: errors.confirmPassword && "Passwords not matched",
       register: register,
-      autoComplete: true,
+      autoComplete: "off",
     },
   ];
 

@@ -104,6 +104,6 @@ export const shippingFormSchema = yup.object().shape({
     .required("Please provide a valid email address"),
   address: yup.string().required("Please provide your delivery address"),
   state: yup.string().required("Please Enter state"),
-  zipCode: yup.string().required("Please Provide your Zip code"),
+  postalCode: yup.string().required("Please Provide your Postal code"),
   city: yup.string().required("Please select city"),
 });

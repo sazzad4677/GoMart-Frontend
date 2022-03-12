@@ -7,9 +7,11 @@ import InputField from "../../layout/Form/InputField";
 import PhoneInputField from "../../layout/Form/PhoneInputField";
 import SelectField from "../../layout/Form/SelectField";
 import { shippingFormSchema } from "../../Validation/UserFormValidation";
+import LocationAutoComplete from "../../layout/Form/LocationAutoComplete";
 import "./styles.css";
+import CheckoutSteps from "../CheckoutSteps/CheckoutSteps";
 
-const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
+const ShippingInfo = ({ onSubmit, shippingInfo, user, setPlace }) => {
   const {
     register,
     handleSubmit,
@@ -29,6 +31,9 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
       errors: errors.name?.message,
       register: register,
       style: "relative z-0 col-span-6 sm:col-span-3",
+      defaultValue: Object.keys(shippingInfo).length
+        ? shippingInfo?.name
+        : user?.name,
     },
     {
       id: "email",
@@ -40,6 +45,9 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
       errors: errors.email?.message,
       register: register,
       style: "relative z-0 col-span-6 sm:col-span-4",
+      defaultValue: Object.keys(shippingInfo).length
+        ? shippingInfo?.email
+        : user?.email,
     },
     {
       id: "address",
@@ -51,6 +59,9 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
       errors: errors.address?.message,
       register: register,
       style: "relative z-0 col-span-6 ",
+      defaultValue: Object.keys(shippingInfo).length
+        ? shippingInfo?.address
+        : user?.address,
     },
     {
       id: "state",
@@ -61,16 +72,22 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
       errors: errors.state?.message,
       register: register,
       style: "relative z-0 col-span-6 sm:col-span-6 lg:col-span-2",
+      defaultValue: Object.keys(shippingInfo).length
+        ? shippingInfo?.state
+        : user?.area?.areaName,
     },
     {
-      id: "zipCode",
-      name: "zipcode",
+      id: "postalCode",
+      name: "postalCode",
       type: "text",
-      labelFor: "zipCode",
-      label: "Enter Zip Code",
-      errors: errors.zipCode?.message,
+      labelFor: "postalCode",
+      label: "Enter Postal Code",
+      errors: errors.postalCode?.message,
       register: register,
       style: "relative z-0 col-span-6 sm:col-span-6 lg:col-span-2",
+      defaultValue: Object.keys(shippingInfo).postalCode
+        ? shippingInfo?.postalCode
+        : user?.postalCode,
     },
   ];
 
@@ -120,6 +137,11 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
   return (
     <>
       <div className="mt-10 sm:mt-0">
+        <div className="mb-10">
+          <CheckoutSteps
+            status="current"
+          />
+        </div>
         <div className="md:grid md:grid-cols-2 md:gap-6 ">
           <div className="mx-auto mt-5 md:col-span-2 md:mt-0 ">
             <form action="#" method="POST" onSubmit={handleSubmit(onSubmit)}>
@@ -155,7 +177,9 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
                               label={label}
                               labelFor={labelFor}
                               defaultValue={
-                                shippingInfo ? shippingInfo?.name : user?.name
+                                Object.keys(shippingInfo).length
+                                  ? shippingInfo?.name
+                                  : user?.name
                               }
                             />
                           </div>
@@ -166,11 +190,16 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
                       <PhoneInputField
                         control={control}
                         errors={errors.phone?.message}
+                        defaultValue={
+                          Object.keys(shippingInfo).length
+                            ? shippingInfo?.phone
+                            : user?.phone
+                        }
                       />
                     </div>
                     {/* Email & Address */}
                     {inputData
-                      .slice(1, 4)
+                      .slice(1, 3)
                       .map(
                         ({
                           id,
@@ -182,6 +211,7 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
                           label,
                           labelFor,
                           style,
+                          defaultValue,
                         }) => (
                           <div className={style} key={id}>
                             <InputField
@@ -193,19 +223,19 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
                               errors={errors}
                               label={label}
                               labelFor={labelFor}
-                              defaultValue={
-                                id === "email"
-                                  ? shippingInfo
-                                    ? shippingInfo?.email
-                                    : user?.email
-                                  : id === "address" && shippingInfo
-                                  ? shippingInfo?.address
-                                  : user?.address
-                              }
+                              defaultValue={defaultValue}
                             />
                           </div>
                         )
                       )}
+                    <div className="relative z-0 col-span-6 sm:col-span-6 lg:col-span-2">
+                      <LocationAutoComplete
+                        errors={errors?.state?.message}
+                        label="State"
+                        labelFor="state"
+                        setPlace={setPlace}
+                      />
+                    </div>
                     {/* Select City */}
                     <div className="relative z-0 col-span-6 sm:col-span-6 lg:col-span-2">
                       <SelectField
@@ -213,9 +243,14 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
                         register={register}
                         registerAs="city"
                         errors={errors.city?.message}
+                        defaultValue={
+                          Object.keys(shippingInfo).length
+                            ? shippingInfo?.city
+                            : user?.city
+                        }
                       />
                     </div>
-                    {/* Zip Code */}
+                    {/* Zip / Postal Code */}
                     {inputData
                       .slice(4, 5)
                       .map(
@@ -229,6 +264,7 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
                           label,
                           labelFor,
                           style,
+                          defaultValue,
                         }) => (
                           <div className={style} key={id}>
                             <InputField
@@ -240,6 +276,7 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
                               errors={errors}
                               label={label}
                               labelFor={labelFor}
+                              defaultValue={defaultValue}
                             />
                           </div>
                         )
@@ -249,7 +286,7 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user }) => {
                 <div className="flex content-center justify-between bg-gray-50 px-4 py-3 text-right sm:px-6">
                   <Link
                     to="/products"
-                    className="text-skin-secondary flex items-center gap-3"
+                    className="text-skin-secondary flex items-center gap-3 hover:text-gray-600"
                   >
                     <ArrowLeftIcon className="h-4 w-4" /> Continue Shopping
                   </Link>

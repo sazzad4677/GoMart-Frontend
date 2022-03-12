@@ -50,10 +50,10 @@ function App() {
             element={<UpdatePasswordPage />}
           ></Route>
           <Route path="dashboard" element={<DashboardPage />}></Route>
+          <Route path="shipping" element={<ShippingInfoPage />}></Route>
         </Route>
         <Route path="/search/" element={<SearchPage />}></Route>
         <Route path="/search/:keyword" element={<SearchPage />}></Route>
-        <Route path="/shipping/" element={<ShippingInfoPage />}></Route>
       </Routes>
       <>
         <ToastContainer />
