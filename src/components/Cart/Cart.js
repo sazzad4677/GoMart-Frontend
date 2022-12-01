@@ -171,9 +171,9 @@ const Cart = ({
                       Shipping and taxes calculated at checkout.
                     </p>
                     <div className="mt-6">
-                      <a href="#" className="green-button h-full w-full">
+                      <Link to="/shipping" className="green-button h-full w-full">
                         Checkout
-                      </a>
+                      </Link>
                     </div>
                     <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                       <p>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
@@ -22,10 +22,23 @@ import ResetPasswordPage from "./pages/ResetPasswordPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import UpdatePasswordPage from "./pages/UpdatePasswordPage";
 import ShippingInfoPage from "./pages/ShippingInfoPage";
+import ConfirmOrderPage from "./pages/ConfirmOrderPage";
+import axios from "axios";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import Payment from "./pages/PaymentPage";
 
 function App() {
+  const [stripe, setStripe] = useState("");
   useEffect(() => {
     store.dispatch(loadUser());
+  }, []);
+  const stripeKey = async () => {
+    const { data } = await axios.get("/api/v1/stripeapi");
+    setStripe(data.stripeApiKey);
+  };
+  useEffect(() => {
+    stripeKey();
   }, []);
   return (
     // TODO => Route Optimization
@@ -51,6 +64,22 @@ function App() {
           ></Route>
           <Route path="dashboard" element={<DashboardPage />}></Route>
           <Route path="shipping" element={<ShippingInfoPage />}></Route>
+          <Route path="confirm-order" element={<ConfirmOrderPage />}></Route>
+          {stripe && (
+            <Route
+              path="payment"
+              element={
+                <Elements
+                  stripe={loadStripe(stripe)}
+                  options={{
+                    appearance: { theme: "stripe" },
+                  }}
+                >
+                  <Payment />
+                </Elements>
+              }
+            ></Route>
+          )}
         </Route>
         <Route path="/search/" element={<SearchPage />}></Route>
         <Route path="/search/:keyword" element={<SearchPage />}></Route>

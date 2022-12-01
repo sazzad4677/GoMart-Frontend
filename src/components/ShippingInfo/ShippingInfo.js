@@ -136,17 +136,15 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user, setPlace }) => {
 
   return (
     <>
-      <div className="mt-10 sm:mt-0">
-        <div className="mb-10">
-          <CheckoutSteps
-            status="current"
-          />
+      <div className="mt-10 flex flex-col sm:mt-0">
+        <div className="mb-10 self-center">
+          <CheckoutSteps shipping />
         </div>
         <div className="md:grid md:grid-cols-2 md:gap-6 ">
           <div className="mx-auto mt-5 md:col-span-2 md:mt-0 ">
             <form action="#" method="POST" onSubmit={handleSubmit(onSubmit)}>
               <div className="overflow-hidden shadow sm:rounded-md">
-                <h1 className="text-skin-primary bg-gray-50 px-4 py-5 text-left text-xl font-medium leading-6 shadow sm:px-6">
+                <h1 className="bg-gray-50 px-4 py-5 text-left text-xl font-medium leading-6 text-skin-primary shadow sm:px-6">
                   Shipping Information
                 </h1>
                 <div className="bg-white px-4 py-5 sm:p-6">
@@ -286,7 +284,7 @@ const ShippingInfo = ({ onSubmit, shippingInfo, user, setPlace }) => {
                 <div className="flex content-center justify-between bg-gray-50 px-4 py-3 text-right sm:px-6">
                   <Link
                     to="/products"
-                    className="text-skin-secondary flex items-center gap-3 hover:text-gray-600"
+                    className="flex items-center gap-3 text-skin-secondary hover:text-gray-600"
                   >
                     <ArrowLeftIcon className="h-4 w-4" /> Continue Shopping
                   </Link>
