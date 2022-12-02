@@ -83,5 +83,5 @@
     "redux-devtools-extension": "^2.13.9",
     "tailwindcss": "^3.0.23"
   },
-  "proxy": "http://88.208.212:5084"
+  "proxy": "http://88.208.212.132:5084"
 }
