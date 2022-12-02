@@ -1,0 +1,10 @@
+  GNU nano 4.8                                                                                     app.config.json                                                                                                {
+  apps : [
+    {
+      name      : "gomartClient",
+      script    : "npx",
+      interpreter: "none",
+      args: "serve -s build -p 3005"
+    }
+  ]
+}
