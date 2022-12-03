@@ -12,12 +12,24 @@ import Products from "../../../Data/Products";
 // Swiper Js import
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
+import { useDispatch, useSelector } from "react-redux";
+import { clearProductsErrors, getAllProducts } from "../../../actions/productActions";
+import { toast } from "react-toastify";
 
 const BestSeller = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const { products, errors } = useSelector((state) => state.products);
+
   useEffect(() => {
-    setProducts(Products);
-  }, []);
+    dispatch(getAllProducts());
+  }, [dispatch]);
+  useEffect(() => {
+    if (errors) {
+      toast.error(errors);
+      dispatch(clearProductsErrors());
+    }
+  }, [dispatch, errors]);
+
   // Product Slider button
   const sliderArrowPrev = useRef(null);
   const sliderArrowNext = useRef(null);

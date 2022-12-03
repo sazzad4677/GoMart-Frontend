@@ -1,20 +1,30 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 // icons import
 import {
-  ArrowCircleRightIcon,
   ArrowCircleLeftIcon,
+  ArrowCircleRightIcon,
 } from "@heroicons/react/solid";
 // Products
 import ProductCard from "./ProductCard";
-import Products from "../../../Data/Products";
 // Swiper Js import
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { clearProductsErrors, getAllProducts } from "../../../actions/productActions";
 const PopularItems = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const { products, errors } = useSelector((state) => state.products);
+
   useEffect(() => {
-    setProducts(Products);
-  }, []);
+    dispatch(getAllProducts());
+  }, [dispatch]);
+  useEffect(() => {
+    if (errors) {
+      toast.error(errors);
+      dispatch(clearProductsErrors())
+    }
+  }, [dispatch, errors]);
 
   // Product Slider button
   const sliderArrowPrev = useRef(null);

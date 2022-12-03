@@ -3,10 +3,10 @@ import { ShoppingCartIcon, HeartIcon } from "@heroicons/react/solid";
 import ReactStars from "react-rating-stars-component";
 
 const ProductCard = ({ items }) => {
-  const { ProductName, ProductPrice, SellerName, Ratings } = items;
+  const { name, price, seller, ratings } = items;
   const firstExample = {
     size: 24,
-    value: Ratings,
+    value: ratings,
     edit: false,
     activeColor: "#40AA54",
   };
@@ -29,8 +29,8 @@ const ProductCard = ({ items }) => {
         <div className="relative overflow-hidden pb-48">
           <img
             className="translate absolute inset-0 h-full w-full transform object-cover duration-1000 group-hover:scale-110"
-            src="https://media.istockphoto.com/photos/tomatoes-picture-id98026003?b=1&k=20&m=98026003&s=170667a&w=0&h=185rOlPM5RueuxjOUFCinuQICXAnUM9AIq_tDELKO4Q="
-            alt=""
+            src={items?.images?.[0].url}
+            alt={items?.name}
           />
           <div
             className="bg-skin-inverted transform-opacity absolute h-full w-full cursor-pointer bg-opacity-0 opacity-0 duration-500 group-hover:bg-opacity-50 group-hover:opacity-100"
@@ -52,8 +52,8 @@ const ProductCard = ({ items }) => {
           </div>
           <div className="font-display text-skin-primary flex items-center justify-between">
             {/* product name */}
-            <h1 className="mt-2 mb-2  text-lg font-bold">
-              {ProductName} -<span className="text-lg font-normal"> 3 KG</span>
+            <h1 className="mt-2 mb-2  text-lg font-bold truncate">
+             <span >{name}</span> -<span className="text-lg font-normal"> 3 KG</span>
             </h1>
             <div className="flex gap-4">
               <ShoppingCartIcon
@@ -68,7 +68,7 @@ const ProductCard = ({ items }) => {
           </div>
           {/* Product Seller */}
           <p className="font-display mb-2 flex items-center text-xs">
-            <span className="font-semibold">Brand:&nbsp;</span> {SellerName}
+            <span className="font-semibold">Brand:&nbsp;</span> {seller}
           </p>
           {/* Product Small Description */}
           <article className="small-text">
@@ -78,7 +78,7 @@ const ProductCard = ({ items }) => {
           <div className="flex gap-3">
             <div className="mt-3 flex items-center">
               <span className="text-sm font-semibold">Price:&nbsp;৳</span>&nbsp;
-              <span className="text-xl font-bold">{ProductPrice}</span>&nbsp;
+              <span className="text-xl font-bold">{price}</span>&nbsp;
             </div>
             <div className="mt-3 flex items-center">
               <strike className="text-sm font-normal ">৳ 520</strike>
@@ -89,7 +89,7 @@ const ProductCard = ({ items }) => {
         {/* Review */}
         <div className="text-skin-secondary flex items-center justify-between border-t p-4 text-sm">
           <ReactStars {...firstExample} />
-          <span className="ml-2">{Ratings} Reviews</span>
+          <span className="ml-2">{ratings} Reviews</span>
         </div>
       </div>
     </Fragment>

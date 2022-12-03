@@ -17,6 +17,7 @@ import Metadata from "../layout/Metadata/Metadata";
 import CheckoutSteps from "../components/CheckoutSteps/CheckoutSteps";
 import Nav from "../layout/Nav/Nav";
 import { useNavigate } from "react-router-dom";
+import { removeItemFromCart } from "../actions/cartActions";
 
 const options = {
   style: {
@@ -110,7 +111,9 @@ const Payment = () => {
 
           dispatch(createOrder(order));
 
-          navigate("/success");
+          navigate("/");
+          toast.success("Successfully placed the order");
+          cartItems.forEach((value) => dispatch(removeItemFromCart(value.product)));
         } else {
           toast.error("There is some issue while payment processing");
         }

@@ -29,7 +29,7 @@ export const productsReducer = (state = { products: [] }, action) => {
     case CLEAR_ERRORS:
       return {
         ...state,
-        error: null,
+        errors: null,
       };
     default:
       return state;
