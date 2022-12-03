@@ -27,6 +27,7 @@ import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Payment from "./pages/PaymentPage";
+import Voice from "./pages/VoiceRecognition";
 
 function App() {
   const [stripe, setStripe] = useState("");
@@ -48,6 +49,7 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Registration />}></Route>
+        <Route path="/voice" element={<Voice />}></Route>
         <Route path="/forgot-password" element={<ForgotPasswordPage />}></Route>
         <Route
           path="/reset-password/:token"
